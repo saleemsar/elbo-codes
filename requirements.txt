@@ -1,0 +1,7 @@
+numpy==2.4.6
+pandas==3.0.6
+scikit-learn==1.9.1
+imbalanced-learn==0.14.2
+kneed==0.8.6
+joblib==1.6.0
+matplotlib==3.11.2

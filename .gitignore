@@ -1,0 +1,12 @@
+__pycache__/
+*.aux
+*.log
+!logs/*.log
+*.out
+*.bbl
+*.blg
+*.synctex.gz
+paper/figure_sources/*.pdf
+
+# UAV-NIDD archives are downloaded from Zenodo, not redistributed
+dataset/*.zip

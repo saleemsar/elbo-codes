@@ -1,0 +1,30 @@
+{
+  "title": "UAV-EHFS: code and results (PLOS ONE PONE-D-26-48338)",
+  "upload_type": "software",
+  "description": "Code and results for the PLOS ONE manuscript PONE-D-26-48338: the pipeline (uav_ehfs.py), the table and figure generator (make_tables.py), diagnostics.py, all result JSON files with confusion matrices, per-fold cross-validation curves and ablation, test-set predictions, the duplicate-removal sensitivity results, and the generated tables and figures.",
+  "creators": [
+    {
+      "name": "Alsaraireh, Saleem",
+      "affiliation": "Princess Sumaya University for Technology"
+    },
+    {
+      "name": "Al-Fayoumi, Mustafa",
+      "affiliation": "Princess Sumaya University for Technology"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "UAV",
+    "intrusion detection",
+    "feature selection",
+    "elbow method",
+    "UAV-NIDD"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://zenodo.org/records/15125851",
+      "relation": "references",
+      "scheme": "url"
+    }
+  ]
+}

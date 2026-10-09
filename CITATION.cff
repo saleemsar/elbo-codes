@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this code or these results, please cite them as below."
+title: "UAV-EHFS: code and outputs for task-aware elbow feature selection on UAV-NIDD"
+type: software
+version: "2.0.0"
+license: MIT
+doi: "10.5281/zenodo.22964986"
+repository-code: "https://github.com/saleemsar/elbo-codes"
+authors:
+  - family-names: Alsaraireh
+    given-names: Saleem
+    affiliation: "Princess Sumaya University for Technology"
+  - family-names: Al-Fayoumi
+    given-names: Mustafa
+    affiliation: "Princess Sumaya University for Technology"
+keywords: [UAV, intrusion detection, feature selection, elbow method, UAV-NIDD]

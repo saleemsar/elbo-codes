@@ -1,0 +1,8 @@
+{
+ "S3_conflicting_vectors": 681,
+ "S3_conflicting_vectors_involving_DoS": 53,
+ "S3_distinct_DoS_vectors": 540,
+ "S3_withdup_misclassified_DoS_test_rows": 78448,
+ "S3_withdup_misclassified_DoS_distinct_vectors": 14,
+ "S3_withdup_misclassified_DoS_largest_vector_count": 30982
+}

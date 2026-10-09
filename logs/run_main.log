@@ -1,0 +1,42 @@
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (24) found smaller than n_clusters (25). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (25) found smaller than n_clusters (26). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (25) found smaller than n_clusters (26). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (25) found smaller than n_clusters (26). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+[S1/binary] n=26 K*=8 (K_hat=12, K_wcss=9) acc=0.9999 wF1=0.9999 mF1=0.9968 consistent=True 55s
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (25) found smaller than n_clusters (26). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (25) found smaller than n_clusters (26). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (24) found smaller than n_clusters (26). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (25) found smaller than n_clusters (26). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+[S1/multiclass] n=26 K*=20 (K_hat=23, K_wcss=7) acc=0.9920 wF1=0.9921 mF1=0.9807 consistent=True 205s
+[S2/binary] n=35 K*=9 (K_hat=9, K_wcss=18) acc=1.0000 wF1=1.0000 mF1=1.0000 consistent=True 67s
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (32) found smaller than n_clusters (34). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (33) found smaller than n_clusters (34). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (32) found smaller than n_clusters (35). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (33) found smaller than n_clusters (35). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (33) found smaller than n_clusters (34). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (32) found smaller than n_clusters (35). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (33) found smaller than n_clusters (35). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (33) found smaller than n_clusters (34). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (33) found smaller than n_clusters (35). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+[S2/multiclass] n=35 K*=25 (K_hat=25, K_wcss=12) acc=0.9653 wF1=0.9662 mF1=0.9641 consistent=True 170s
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (75) found smaller than n_clusters (76). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+[S3/binary] n=76 K*=9 (K_hat=15, K_wcss=17) acc=0.9976 wF1=0.9976 mF1=0.9161 consistent=True 120s
+[S3/multiclass] n=76 K*=11 (K_hat=39, K_wcss=18) acc=0.8945 wF1=0.8968 mF1=0.6535 consistent=True 168s
