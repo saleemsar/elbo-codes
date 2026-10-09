@@ -1,0 +1,441 @@
+{
+ "S1_binary": {
+  "K_star_equal": true,
+  "K_wcss_equal": true,
+  "selected_features_equal": true,
+  "cv_per_fold_max_abs_diff": 8.400124508112228e-05,
+  "ablation_max_abs_diff": 0.0,
+  "test_metrics_max_abs_diff": 0.0,
+  "confusion_matrices_equal": true,
+  "test_predictions_identical": true,
+  "n_test_rows": 169115,
+  "test_rows_with_different_prediction": {
+   "task_aware": 0,
+   "all_features": 0,
+   "wcss_kneedle": 0
+  },
+  "metrics_paper_vs_rerun": {
+   "task_aware": {
+    "accuracy": [
+     0.9999053898234929,
+     0.9999053898234929
+    ],
+    "weighted": [
+     0.9999056834566327,
+     0.9999056834566327
+    ],
+    "macro": [
+     0.9968487238957588,
+     0.9968487238957588
+    ]
+   },
+   "all_features": {
+    "accuracy": [
+     0.999940868639683,
+     0.999940868639683
+    ],
+    "weighted": [
+     0.9999409377321352,
+     0.9999409377321352
+    ],
+    "macro": [
+     0.9980227815596239,
+     0.9980227815596239
+    ]
+   },
+   "wcss_kneedle": {
+    "accuracy": [
+     0.993247198651805,
+     0.993247198651805
+    ],
+    "weighted": [
+     0.9942698061156987,
+     0.9942698061156987
+    ],
+    "macro": [
+     0.8424526999809725,
+     0.8424526999809725
+    ]
+   }
+  },
+  "rerun_environment": {
+   "python": "3.14.7",
+   "numpy": "2.4.6",
+   "pandas": "3.0.6",
+   "scikit_learn": "1.9.1",
+   "imbalanced_learn": "0.14.2",
+   "platform": "Windows-11-10.0.26200-SP0",
+   "cpu_count": 12,
+   "n_jobs": 4,
+   "git_commit": "d1ac1d39ce6f7cac120354cf3baf1c45c61fdbfa",
+   "finished_utc": "2026-10-09T13:40:49Z"
+  },
+  "identical": false
+ },
+ "S1_multiclass": {
+  "K_star_equal": true,
+  "K_wcss_equal": true,
+  "selected_features_equal": true,
+  "cv_per_fold_max_abs_diff": 0.00033454391721376986,
+  "ablation_max_abs_diff": 0.0,
+  "test_metrics_max_abs_diff": 2.0,
+  "confusion_matrices_equal": false,
+  "test_predictions_identical": false,
+  "n_test_rows": 169116,
+  "test_rows_with_different_prediction": {
+   "task_aware": 3,
+   "all_features": 2,
+   "wcss_kneedle": 14
+  },
+  "metrics_paper_vs_rerun": {
+   "task_aware": {
+    "accuracy": [
+     0.9920409659641902,
+     0.9920350528631235
+    ],
+    "weighted": [
+     0.9920934530469898,
+     0.9920876955449415
+    ],
+    "macro": [
+     0.9807362955953685,
+     0.9807168807842493
+    ]
+   },
+   "all_features": {
+    "accuracy": [
+     0.9919995742567232,
+     0.9919877480545898
+    ],
+    "weighted": [
+     0.992052275966658,
+     0.992040761947357
+    ],
+    "macro": [
+     0.9806584504576636,
+     0.9806196287219902
+    ]
+   },
+   "wcss_kneedle": {
+    "accuracy": [
+     0.9070460512311076,
+     0.9070697036353745
+    ],
+    "weighted": [
+     0.9176513615486968,
+     0.9176788529094563
+    ],
+    "macro": [
+     0.8485408723618099,
+     0.8486655381239624
+    ]
+   }
+  },
+  "rerun_environment": {
+   "python": "3.14.7",
+   "numpy": "2.4.6",
+   "pandas": "3.0.6",
+   "scikit_learn": "1.9.1",
+   "imbalanced_learn": "0.14.2",
+   "platform": "Windows-11-10.0.26200-SP0",
+   "cpu_count": 12,
+   "n_jobs": 4,
+   "git_commit": "d1ac1d39ce6f7cac120354cf3baf1c45c61fdbfa",
+   "finished_utc": "2026-10-09T13:55:00Z"
+  },
+  "identical": false
+ },
+ "S2_binary": {
+  "K_star_equal": true,
+  "K_wcss_equal": true,
+  "selected_features_equal": true,
+  "cv_per_fold_max_abs_diff": 0.0,
+  "ablation_max_abs_diff": 0.0,
+  "test_metrics_max_abs_diff": 0.0,
+  "confusion_matrices_equal": true,
+  "test_predictions_identical": true,
+  "n_test_rows": 123594,
+  "test_rows_with_different_prediction": {
+   "task_aware": 0,
+   "all_features": 0,
+   "wcss_kneedle": 0
+  },
+  "metrics_paper_vs_rerun": {
+   "task_aware": {
+    "accuracy": [
+     1.0,
+     1.0
+    ],
+    "weighted": [
+     1.0,
+     1.0
+    ],
+    "macro": [
+     1.0,
+     1.0
+    ]
+   },
+   "all_features": {
+    "accuracy": [
+     1.0,
+     1.0
+    ],
+    "weighted": [
+     1.0,
+     1.0
+    ],
+    "macro": [
+     1.0,
+     1.0
+    ]
+   },
+   "wcss_kneedle": {
+    "accuracy": [
+     1.0,
+     1.0
+    ],
+    "weighted": [
+     1.0,
+     1.0
+    ],
+    "macro": [
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "rerun_environment": {
+   "python": "3.14.7",
+   "numpy": "2.4.6",
+   "pandas": "3.0.6",
+   "scikit_learn": "1.9.1",
+   "imbalanced_learn": "0.14.2",
+   "platform": "Windows-11-10.0.26200-SP0",
+   "cpu_count": 12,
+   "n_jobs": 4,
+   "git_commit": "d1ac1d39ce6f7cac120354cf3baf1c45c61fdbfa",
+   "finished_utc": "2026-10-09T14:00:37Z"
+  },
+  "identical": true
+ },
+ "S2_multiclass": {
+  "K_star_equal": true,
+  "K_wcss_equal": true,
+  "selected_features_equal": true,
+  "cv_per_fold_max_abs_diff": 0.0015709993051988835,
+  "ablation_max_abs_diff": 0.0,
+  "test_metrics_max_abs_diff": 4.0,
+  "confusion_matrices_equal": false,
+  "test_predictions_identical": false,
+  "n_test_rows": 126248,
+  "test_rows_with_different_prediction": {
+   "task_aware": 0,
+   "all_features": 0,
+   "wcss_kneedle": 27
+  },
+  "metrics_paper_vs_rerun": {
+   "task_aware": {
+    "accuracy": [
+     0.9652509346682719,
+     0.9652509346682719
+    ],
+    "weighted": [
+     0.9661934691212599,
+     0.9661934691212599
+    ],
+    "macro": [
+     0.9640779312179834,
+     0.9640779312179834
+    ]
+   },
+   "all_features": {
+    "accuracy": [
+     0.9651004372346492,
+     0.9651004372346492
+    ],
+    "weighted": [
+     0.966057990732061,
+     0.966057990732061
+    ],
+    "macro": [
+     0.9639646915106284,
+     0.9639646915106284
+    ]
+   },
+   "wcss_kneedle": {
+    "accuracy": [
+     0.9298285913440213,
+     0.9298127495089031
+    ],
+    "weighted": [
+     0.9357488099583805,
+     0.9357396485601908
+    ],
+    "macro": [
+     0.8828061929184794,
+     0.8827574532530434
+    ]
+   }
+  },
+  "rerun_environment": {
+   "python": "3.14.7",
+   "numpy": "2.4.6",
+   "pandas": "3.0.6",
+   "scikit_learn": "1.9.1",
+   "imbalanced_learn": "0.14.2",
+   "platform": "Windows-11-10.0.26200-SP0",
+   "cpu_count": 12,
+   "n_jobs": 4,
+   "git_commit": "9675090ff58eeafc2ddc5c6d0d58c7b9e22c54d3",
+   "finished_utc": "2026-10-09T14:18:54Z"
+  },
+  "identical": false
+ },
+ "S3_binary": {
+  "K_star_equal": true,
+  "K_wcss_equal": true,
+  "selected_features_equal": true,
+  "cv_per_fold_max_abs_diff": 0.0005679970353598129,
+  "ablation_max_abs_diff": 0.0,
+  "test_metrics_max_abs_diff": 0.0,
+  "confusion_matrices_equal": true,
+  "test_predictions_identical": true,
+  "n_test_rows": 2537,
+  "test_rows_with_different_prediction": {
+   "task_aware": 0,
+   "all_features": 0,
+   "wcss_kneedle": 0
+  },
+  "metrics_paper_vs_rerun": {
+   "task_aware": {
+    "accuracy": [
+     0.9976350019708317,
+     0.9976350019708317
+    ],
+    "weighted": [
+     0.9976350019708317,
+     0.9976350019708317
+    ],
+    "macro": [
+     0.9160711922720657,
+     0.9160711922720657
+    ]
+   },
+   "all_features": {
+    "accuracy": [
+     0.9980291683090264,
+     0.9980291683090264
+    ],
+    "weighted": [
+     0.9980012091284022,
+     0.9980012091284022
+    ],
+    "macro": [
+     0.9280752983868681,
+     0.9280752983868681
+    ]
+   },
+   "wcss_kneedle": {
+    "accuracy": [
+     0.9976350019708317,
+     0.9976350019708317
+    ],
+    "weighted": [
+     0.9975659124509086,
+     0.9975659124509086
+    ],
+    "macro": [
+     0.9111694677871148,
+     0.9111694677871148
+    ]
+   }
+  },
+  "rerun_environment": {
+   "python": "3.14.7",
+   "numpy": "2.4.6",
+   "pandas": "3.0.6",
+   "scikit_learn": "1.9.1",
+   "imbalanced_learn": "0.14.2",
+   "platform": "Windows-11-10.0.26200-SP0",
+   "cpu_count": 12,
+   "n_jobs": 4,
+   "git_commit": "9675090ff58eeafc2ddc5c6d0d58c7b9e22c54d3",
+   "finished_utc": "2026-10-09T14:27:40Z"
+  },
+  "identical": false
+ },
+ "S3_multiclass": {
+  "K_star_equal": true,
+  "K_wcss_equal": true,
+  "selected_features_equal": true,
+  "cv_per_fold_max_abs_diff": 0.0013201152672657201,
+  "ablation_max_abs_diff": 0.0,
+  "test_metrics_max_abs_diff": 0.0,
+  "confusion_matrices_equal": true,
+  "test_predictions_identical": true,
+  "n_test_rows": 2674,
+  "test_rows_with_different_prediction": {
+   "task_aware": 0,
+   "all_features": 0,
+   "wcss_kneedle": 0
+  },
+  "metrics_paper_vs_rerun": {
+   "task_aware": {
+    "accuracy": [
+     0.8945400149588631,
+     0.8945400149588631
+    ],
+    "weighted": [
+     0.8967705531029734,
+     0.8967705531029734
+    ],
+    "macro": [
+     0.6534634090817952,
+     0.6534634090817952
+    ]
+   },
+   "all_features": {
+    "accuracy": [
+     0.8971578160059835,
+     0.8971578160059835
+    ],
+    "weighted": [
+     0.8992870031832958,
+     0.8992870031832958
+    ],
+    "macro": [
+     0.6966405001154892,
+     0.6966405001154892
+    ]
+   },
+   "wcss_kneedle": {
+    "accuracy": [
+     0.8986537023186237,
+     0.8986537023186237
+    ],
+    "weighted": [
+     0.9009727279306761,
+     0.9009727279306761
+    ],
+    "macro": [
+     0.6965655754567883,
+     0.6965655754567883
+    ]
+   }
+  },
+  "rerun_environment": {
+   "python": "3.14.7",
+   "numpy": "2.4.6",
+   "pandas": "3.0.6",
+   "scikit_learn": "1.9.1",
+   "imbalanced_learn": "0.14.2",
+   "platform": "Windows-11-10.0.26200-SP0",
+   "cpu_count": 12,
+   "n_jobs": 4,
+   "git_commit": "230767596cd8752206fdc8e11ef0833f3dc046f3",
+   "finished_utc": "2026-10-09T14:38:06Z"
+  },
+  "identical": false
+ },
+ "all_identical": false
+}

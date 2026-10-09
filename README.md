@@ -23,6 +23,7 @@ No reported number is typed by hand. The manuscript itself is not included.
 | `logs/` | Console logs of the two runs |
 | `paper/generated/` | Output of `make_tables.py`: the tables and in-text numbers exactly as they appear in the manuscript |
 | `paper/figures/` | Output of `make_tables.py`: Fig 4-7 of the manuscript (Fig 1-3 are schematic diagrams, not data) |
+| `review/` | Added after submission in response to the reviewer (tag `v2.0.1-review`): independent re-run and SMOTE-placement analysis. See `review/README.md` |
 
 `S` is `S1` (compromised UAV), `S2` (rogue access point) or `S3` (compromised
 ground control station); `task` is `binary` or `multiclass`.
