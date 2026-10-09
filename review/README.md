@@ -52,7 +52,7 @@ configuration (recomputed on the same machine), E1 and E2, and test-set
 predictions for all of them. `summary.csv` is Table R1 of the response letter.
 
 Result: in five of six cases E2 selects the same K\* and features, and test
-weighted and macro F1 agree to the fourth decimal under all placements. In S3
+weighted and macro F1 differ by at most 0.0001 between the placements. In S3
 multi-class, where the CV curve is nearly flat, E2 selects K\* = 19 (the 11
 reported features plus 8); test weighted F1 is unchanged (0.8968 / 0.8970 / 0.8969
 for reported / E1 / E2) and macro F1 is 0.6535 / 0.6775 / 0.6697. No consistent
