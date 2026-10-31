@@ -1,7 +1,7 @@
 {
-  "title": "UAV-EHFS: code and results (PLOS ONE PONE-D-26-48338)",
+  "title": "UAV-EHFS: code and outputs for task-aware elbow feature selection on UAV-NIDD",
   "upload_type": "software",
-  "description": "Code and results for the PLOS ONE manuscript PONE-D-26-48338: the pipeline (uav_ehfs.py), the table and figure generator (make_tables.py), diagnostics.py, all result JSON files with confusion matrices, per-fold cross-validation curves and ablation, test-set predictions, the duplicate-removal sensitivity results, and the generated tables and figures.",
+  "description": "Code and outputs for the UAV-EHFS study (PLOS ONE manuscript PONE-D-26-48338, revision 1): the pipeline (uav_ehfs.py), the feature audit of UAV-NIDD and the analyses added in revision 1 (review/), all result files with per-fold cross-validation curves, confusion matrices and test-set predictions, and the scripts that generate every table, in-text number and figure of the manuscript. review/run_revision.sh lists every command in the order it was run.",
   "creators": [
     {
       "name": "Alsaraireh, Saleem",
@@ -26,5 +26,6 @@
       "relation": "references",
       "scheme": "url"
     }
-  ]
+  ],
+  "version": "3.0.0"
 }

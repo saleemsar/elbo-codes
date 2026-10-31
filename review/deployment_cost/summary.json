@@ -1,0 +1,403 @@
+{
+ "assumptions": {
+  "node_bytes": 12,
+  "cycles_per_node": 20,
+  "f_clk_hz": 400000000.0,
+  "p_active_w": 0.5
+ },
+ "machine": {
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 166 Stepping 0, GenuineIntel",
+  "cpu_count": 12
+ },
+ "S1_binary": {
+  "selection": {
+   "n": 20,
+   "n_K": 19,
+   "balanced_fold_rows": 94552,
+   "fold_seconds": {
+    "preprocess_smote_correlation": 0.12407020000682678,
+    "kmeans": 0.23160649999044836,
+    "detector": 1.2078706000174861,
+    "total": 1.5635473000147613
+   },
+   "estimated_single_core_selection_s": 8.173413200071082,
+   "n_kmeans_runs": 95,
+   "n_detector_fits": 95
+  },
+  "sweep_runtime_s_parallel": 14.544793128967285,
+  "task_aware|unconstrained": {
+   "n_features": 4,
+   "feature_vector_bytes": 16,
+   "tree_nodes": 119,
+   "c_array_kb": 1.39453125,
+   "depth": 18,
+   "mean_path_length": 5.657231733668938,
+   "max_path_length": 18,
+   "measured_ms_per_sample_batch_single_thread": 5.958730086065984e-05,
+   "estimated_energy_nJ_per_inference": 141.43079334172347,
+   "estimated_time_us_per_inference_on_mcu": 0.2828615866834469
+  },
+  "task_aware|constrained": {
+   "n_features": 4,
+   "feature_vector_bytes": 16,
+   "tree_nodes": 99,
+   "c_array_kb": 1.16015625,
+   "depth": 12,
+   "mean_path_length": 5.570916344121768,
+   "max_path_length": 12,
+   "measured_ms_per_sample_batch_single_thread": 5.676038270506201e-05,
+   "estimated_energy_nJ_per_inference": 139.2729086030442,
+   "estimated_time_us_per_inference_on_mcu": 0.2785458172060884
+  },
+  "all_features|unconstrained": {
+   "n_features": 20,
+   "feature_vector_bytes": 80,
+   "tree_nodes": 211,
+   "c_array_kb": 2.47265625,
+   "depth": 18,
+   "mean_path_length": 5.70745375537245,
+   "max_path_length": 18,
+   "measured_ms_per_sample_batch_single_thread": 6.87376818536583e-05,
+   "estimated_energy_nJ_per_inference": 142.68634388431124,
+   "estimated_time_us_per_inference_on_mcu": 0.2853726877686225
+  },
+  "all_features|constrained": {
+   "n_features": 20,
+   "feature_vector_bytes": 80,
+   "tree_nodes": 163,
+   "c_array_kb": 1.91015625,
+   "depth": 12,
+   "mean_path_length": 5.606819746871512,
+   "max_path_length": 12,
+   "measured_ms_per_sample_batch_single_thread": 6.815235194312323e-05,
+   "estimated_energy_nJ_per_inference": 140.1704936717878,
+   "estimated_time_us_per_inference_on_mcu": 0.2803409873435756
+  }
+ },
+ "S1_multiclass": {
+  "selection": {
+   "n": 20,
+   "n_K": 19,
+   "balanced_fold_rows": 172562,
+   "fold_seconds": {
+    "preprocess_smote_correlation": 1.5747660999913933,
+    "kmeans": 0.2652280000038445,
+    "detector": 4.400380099978065,
+    "total": 6.240374199973303
+   },
+   "estimated_single_core_selection_s": 33.04186509986175,
+   "n_kmeans_runs": 95,
+   "n_detector_fits": 95
+  },
+  "sweep_runtime_s_parallel": 15.81288743019104,
+  "task_aware|unconstrained": {
+   "n_features": 18,
+   "feature_vector_bytes": 72,
+   "tree_nodes": 19963,
+   "c_array_kb": 233.94140625,
+   "depth": 45,
+   "mean_path_length": 11.637578951001483,
+   "max_path_length": 39,
+   "measured_ms_per_sample_batch_single_thread": 0.0001492412650375666,
+   "estimated_energy_nJ_per_inference": 290.9394737750371,
+   "estimated_time_us_per_inference_on_mcu": 0.5818789475500742
+  },
+  "task_aware|constrained": {
+   "n_features": 18,
+   "feature_vector_bytes": 72,
+   "tree_nodes": 8195,
+   "c_array_kb": 96.03515625,
+   "depth": 20,
+   "mean_path_length": 11.370773460958802,
+   "max_path_length": 20,
+   "measured_ms_per_sample_batch_single_thread": 0.00015935734747498693,
+   "estimated_energy_nJ_per_inference": 284.26933652397,
+   "estimated_time_us_per_inference_on_mcu": 0.56853867304794
+  },
+  "all_features|unconstrained": {
+   "n_features": 20,
+   "feature_vector_bytes": 80,
+   "tree_nodes": 19901,
+   "c_array_kb": 233.21484375,
+   "depth": 45,
+   "mean_path_length": 11.614972216150298,
+   "max_path_length": 38,
+   "measured_ms_per_sample_batch_single_thread": 0.0001669746090348111,
+   "estimated_energy_nJ_per_inference": 290.37430540375743,
+   "estimated_time_us_per_inference_on_mcu": 0.5807486108075148
+  },
+  "all_features|constrained": {
+   "n_features": 20,
+   "feature_vector_bytes": 80,
+   "tree_nodes": 7997,
+   "c_array_kb": 93.71484375,
+   "depth": 20,
+   "mean_path_length": 11.361017475638798,
+   "max_path_length": 20,
+   "measured_ms_per_sample_batch_single_thread": 0.00013938864038711175,
+   "estimated_energy_nJ_per_inference": 284.0254368909699,
+   "estimated_time_us_per_inference_on_mcu": 0.5680508737819399
+  }
+ },
+ "S2_binary": {
+  "selection": {
+   "n": 33,
+   "n_K": 32,
+   "balanced_fold_rows": 62860,
+   "fold_seconds": {
+    "preprocess_smote_correlation": 1.5161424999969313,
+    "kmeans": 0.61171870000544,
+    "detector": 2.3622429999959422,
+    "total": 4.490104199998314
+   },
+   "estimated_single_core_selection_s": 24.57838219999394,
+   "n_kmeans_runs": 160,
+   "n_detector_fits": 160
+  },
+  "sweep_runtime_s_parallel": 15.377872943878174,
+  "task_aware|unconstrained": {
+   "n_features": 29,
+   "feature_vector_bytes": 116,
+   "tree_nodes": 5,
+   "c_array_kb": 0.05859375,
+   "depth": 2,
+   "mean_path_length": 1.3875623903952516,
+   "max_path_length": 2,
+   "measured_ms_per_sample_batch_single_thread": 7.930392556849294e-05,
+   "estimated_energy_nJ_per_inference": 34.68905975988129,
+   "estimated_time_us_per_inference_on_mcu": 0.06937811951976258
+  },
+  "task_aware|constrained": {
+   "n_features": 29,
+   "feature_vector_bytes": 116,
+   "tree_nodes": 5,
+   "c_array_kb": 0.05859375,
+   "depth": 2,
+   "mean_path_length": 1.3875623903952516,
+   "max_path_length": 2,
+   "measured_ms_per_sample_batch_single_thread": 6.531363810251397e-05,
+   "estimated_energy_nJ_per_inference": 34.68905975988129,
+   "estimated_time_us_per_inference_on_mcu": 0.06937811951976258
+  },
+  "all_features|unconstrained": {
+   "n_features": 33,
+   "feature_vector_bytes": 132,
+   "tree_nodes": 5,
+   "c_array_kb": 0.05859375,
+   "depth": 2,
+   "mean_path_length": 1.3875623903952516,
+   "max_path_length": 2,
+   "measured_ms_per_sample_batch_single_thread": 6.055712936426974e-05,
+   "estimated_energy_nJ_per_inference": 34.68905975988129,
+   "estimated_time_us_per_inference_on_mcu": 0.06937811951976258
+  },
+  "all_features|constrained": {
+   "n_features": 33,
+   "feature_vector_bytes": 132,
+   "tree_nodes": 5,
+   "c_array_kb": 0.05859375,
+   "depth": 2,
+   "mean_path_length": 1.3875623903952516,
+   "max_path_length": 2,
+   "measured_ms_per_sample_batch_single_thread": 7.48131660537001e-05,
+   "estimated_energy_nJ_per_inference": 34.68905975988129,
+   "estimated_time_us_per_inference_on_mcu": 0.06937811951976258
+  }
+ },
+ "S2_multiclass": {
+  "selection": {
+   "n": 32,
+   "n_K": 31,
+   "balanced_fold_rows": 185988,
+   "fold_seconds": {
+    "preprocess_smote_correlation": 1.8039631999999983,
+    "kmeans": 0.5734707000374328,
+    "detector": 8.742135999971651,
+    "total": 11.119569900009083
+   },
+   "estimated_single_core_selection_s": 57.975283400082844,
+   "n_kmeans_runs": 155,
+   "n_detector_fits": 155
+  },
+  "sweep_runtime_s_parallel": 54.30522966384888,
+  "task_aware|unconstrained": {
+   "n_features": 27,
+   "feature_vector_bytes": 108,
+   "tree_nodes": 24999,
+   "c_array_kb": 292.95703125,
+   "depth": 43,
+   "mean_path_length": 11.764732724027326,
+   "max_path_length": 42,
+   "measured_ms_per_sample_batch_single_thread": 0.0001368509346969949,
+   "estimated_energy_nJ_per_inference": 294.11831810068315,
+   "estimated_time_us_per_inference_on_mcu": 0.5882366362013663
+  },
+  "task_aware|constrained": {
+   "n_features": 27,
+   "feature_vector_bytes": 108,
+   "tree_nodes": 5345,
+   "c_array_kb": 62.63671875,
+   "depth": 20,
+   "mean_path_length": 11.185395444967858,
+   "max_path_length": 20,
+   "measured_ms_per_sample_batch_single_thread": 0.00012891653568011585,
+   "estimated_energy_nJ_per_inference": 279.63488612419644,
+   "estimated_time_us_per_inference_on_mcu": 0.5592697722483929
+  },
+  "all_features|unconstrained": {
+   "n_features": 32,
+   "feature_vector_bytes": 128,
+   "tree_nodes": 24989,
+   "c_array_kb": 292.83984375,
+   "depth": 43,
+   "mean_path_length": 11.764853511562052,
+   "max_path_length": 42,
+   "measured_ms_per_sample_batch_single_thread": 0.00014567513515961855,
+   "estimated_energy_nJ_per_inference": 294.12133778905127,
+   "estimated_time_us_per_inference_on_mcu": 0.5882426755781025
+  },
+  "all_features|constrained": {
+   "n_features": 32,
+   "feature_vector_bytes": 128,
+   "tree_nodes": 5323,
+   "c_array_kb": 62.37890625,
+   "depth": 20,
+   "mean_path_length": 11.185194132409979,
+   "max_path_length": 20,
+   "measured_ms_per_sample_batch_single_thread": 0.00012965333978396708,
+   "estimated_energy_nJ_per_inference": 279.6298533102495,
+   "estimated_time_us_per_inference_on_mcu": 0.5592597066204988
+  }
+ },
+ "S3_binary": {
+  "selection": {
+   "n": 76,
+   "n_K": 75,
+   "balanced_fold_rows": 16118,
+   "fold_seconds": {
+    "preprocess_smote_correlation": 0.07111939998867456,
+    "kmeans": 3.1168597000505542,
+    "detector": 12.932899499923224,
+    "total": 16.120878599962452
+   },
+   "estimated_single_core_selection_s": 83.79237209985149,
+   "n_kmeans_runs": 375,
+   "n_detector_fits": 375
+  },
+  "sweep_runtime_s_parallel": 58.6146605014801,
+  "task_aware|unconstrained": {
+   "n_features": 9,
+   "feature_vector_bytes": 36,
+   "tree_nodes": 75,
+   "c_array_kb": 0.87890625,
+   "depth": 15,
+   "mean_path_length": 1.2459597950335042,
+   "max_path_length": 15,
+   "measured_ms_per_sample_batch_single_thread": 0.00013263697325184817,
+   "estimated_energy_nJ_per_inference": 31.1489948758376,
+   "estimated_time_us_per_inference_on_mcu": 0.06229798975167521
+  },
+  "task_aware|constrained": {
+   "n_features": 9,
+   "feature_vector_bytes": 36,
+   "tree_nodes": 69,
+   "c_array_kb": 0.80859375,
+   "depth": 12,
+   "mean_path_length": 1.24477729601892,
+   "max_path_length": 12,
+   "measured_ms_per_sample_batch_single_thread": 0.00012361055847028308,
+   "estimated_energy_nJ_per_inference": 31.119432400473002,
+   "estimated_time_us_per_inference_on_mcu": 0.062238864800946
+  },
+  "all_features|unconstrained": {
+   "n_features": 76,
+   "feature_vector_bytes": 304,
+   "tree_nodes": 73,
+   "c_array_kb": 0.85546875,
+   "depth": 16,
+   "mean_path_length": 1.216791486007095,
+   "max_path_length": 15,
+   "measured_ms_per_sample_batch_single_thread": 0.00015711470569124548,
+   "estimated_energy_nJ_per_inference": 30.41978715017737,
+   "estimated_time_us_per_inference_on_mcu": 0.060839574300354755
+  },
+  "all_features|constrained": {
+   "n_features": 76,
+   "feature_vector_bytes": 304,
+   "tree_nodes": 71,
+   "c_array_kb": 0.83203125,
+   "depth": 15,
+   "mean_path_length": 1.216791486007095,
+   "max_path_length": 15,
+   "measured_ms_per_sample_batch_single_thread": 0.00014552620741008985,
+   "estimated_energy_nJ_per_inference": 30.41978715017737,
+   "estimated_time_us_per_inference_on_mcu": 0.060839574300354755
+  }
+ },
+ "S3_multiclass": {
+  "selection": {
+   "n": 76,
+   "n_K": 75,
+   "balanced_fold_rows": 65030,
+   "fold_seconds": {
+    "preprocess_smote_correlation": 0.2125557000108529,
+    "kmeans": 3.0584666000213474,
+    "detector": 47.72972159998608,
+    "total": 51.00074390001828
+   },
+   "estimated_single_core_selection_s": 258.2747418001236,
+   "n_kmeans_runs": 375,
+   "n_detector_fits": 375
+  },
+  "sweep_runtime_s_parallel": 162.58067989349365,
+  "task_aware|unconstrained": {
+   "n_features": 23,
+   "feature_vector_bytes": 92,
+   "tree_nodes": 33733,
+   "c_array_kb": 395.30859375,
+   "depth": 62,
+   "mean_path_length": 5.742333582647719,
+   "max_path_length": 59,
+   "measured_ms_per_sample_batch_single_thread": 0.0002729618545202295,
+   "estimated_energy_nJ_per_inference": 143.55833956619296,
+   "estimated_time_us_per_inference_on_mcu": 0.2871166791323859
+  },
+  "task_aware|constrained": {
+   "n_features": 23,
+   "feature_vector_bytes": 92,
+   "tree_nodes": 57,
+   "c_array_kb": 0.66796875,
+   "depth": 6,
+   "mean_path_length": 2.222513089005236,
+   "max_path_length": 6,
+   "measured_ms_per_sample_batch_single_thread": 0.00019801795100737516,
+   "estimated_energy_nJ_per_inference": 55.562827225130896,
+   "estimated_time_us_per_inference_on_mcu": 0.11112565445026178
+  },
+  "all_features|unconstrained": {
+   "n_features": 76,
+   "feature_vector_bytes": 304,
+   "tree_nodes": 18421,
+   "c_array_kb": 215.87109375,
+   "depth": 61,
+   "mean_path_length": 4.68661181750187,
+   "max_path_length": 58,
+   "measured_ms_per_sample_batch_single_thread": 0.0002323111446338191,
+   "estimated_energy_nJ_per_inference": 117.16529543754675,
+   "estimated_time_us_per_inference_on_mcu": 0.2343305908750935
+  },
+  "all_features|constrained": {
+   "n_features": 76,
+   "feature_vector_bytes": 304,
+   "tree_nodes": 307,
+   "c_array_kb": 3.59765625,
+   "depth": 10,
+   "mean_path_length": 2.7782348541510844,
+   "max_path_length": 10,
+   "measured_ms_per_sample_batch_single_thread": 0.00017640239245828767,
+   "estimated_energy_nJ_per_inference": 69.45587135377711,
+   "estimated_time_us_per_inference_on_mcu": 0.13891174270755424
+  }
+ }
+}

@@ -1,0 +1,735 @@
+{
+ "scenario": "S1",
+ "scenario_name": "Compromised UAV",
+ "task": "binary",
+ "class_names": [
+  "Normal",
+  "Attack"
+ ],
+ "protocol": {
+  "seed": 6,
+  "test_size": 0.2,
+  "n_folds": 5,
+  "selection_sample_cap": 60000,
+  "min_per_class_selection": 50,
+  "kmeans_n_init": 10,
+  "K_range": [
+   2,
+   20
+  ],
+  "stopping_rule": "one-SE: K* = min{K : meanF1(K) >= meanF1(K_hat) - SE(K_hat)}, K_hat = argmax meanF1, full sweep K=2..n, 5-fold CV weighted F1",
+  "detector": "DecisionTreeClassifier(criterion=gini, class_weight=balanced, random_state=42)",
+  "smote": "all classes with >=2 samples to majority count, k=min(5, min class-1), training folds only",
+  "feature_set": "clean",
+  "stage2": "anova",
+  "impute": "median",
+  "label_perm": null,
+  "fast": true
+ },
+ "preprocessing": {
+  "n_rows_raw": 860643,
+  "n_columns_raw": 44,
+  "class_counts_raw": {
+   "DDoS": 193171,
+   "Brute-Force": 175925,
+   "UDP Flooding": 152775,
+   "MITM": 151586,
+   "ICMP Flooding": 47544,
+   "GPS Jamming": 41600,
+   "Replay": 25977,
+   "Fake Landing": 24050,
+   "Normal": 17949,
+   "De-authentication": 14606,
+   "Scanning": 9030,
+   "DoS": 6424,
+   "Reconnaissance": 6
+  },
+  "feature_set": "clean",
+  "p1_dropped_by_audit": [
+   "ip.proto",
+   "ip.ttl",
+   "radiotap.channel.flags.cck",
+   "radiotap.present.tsft",
+   "radiotap.rxflags",
+   "wlan.rsn.capabilities.mfpc",
+   "wlan.tag",
+   "wlan_radio.frequency",
+   "wlan_radio.phy"
+  ],
+  "p1_dropped_by_name": [
+   "frame.number",
+   "frame.time_epoch",
+   "frame.time_relative",
+   "ip.dst",
+   "ip.src",
+   "radiotap.mactime",
+   "radiotap.timestamp.ts",
+   "udp.dstport",
+   "udp.srcport",
+   "wlan.bssid",
+   "wlan.seq",
+   "wlan_radio.start_tsf",
+   "wlan_radio.timestamp"
+  ],
+  "p1_dropped_ip_content": [],
+  "p5_unparsable_fraction": {
+   "arp": 3e-06,
+   "arp.hw.type": 0.20031,
+   "arp.proto.type": 0.003415
+  },
+  "n_duplicate_rows": 439514,
+  "n_feature_vectors_with_conflicting_labels": 1,
+  "duplicates_removed": true,
+  "n_rows_used": 421129,
+  "class_counts_used": {
+   "Attack": 414779,
+   "Normal": 6350
+  },
+  "classes_dropped_fewer_than_2_rows": [],
+  "p2_dropped_zero_variance": [
+   "radiotap.vendor_oui",
+   "wlan.duration"
+  ],
+  "n_features_after_preprocessing": 20
+ },
+ "split": {
+  "n_train": 336903,
+  "n_test": 84226,
+  "train_counts": {
+   "Normal": 5080,
+   "Attack": 331823
+  },
+  "test_counts": {
+   "Normal": 1270,
+   "Attack": 82956
+  }
+ },
+ "selection": {
+  "n_selection_rows": 60000,
+  "selection_counts": {
+   "Normal": 905,
+   "Attack": 59095
+  },
+  "K": [
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20
+  ],
+  "cv_f1_mean": [
+   0.9991204955307641,
+   0.9991204955307641,
+   0.9976182067870981,
+   0.9982628625945456,
+   0.9976182067870981,
+   0.9986402095714375,
+   0.9986402095714375,
+   0.9986402095714375,
+   0.9986402095714375,
+   0.9986402095714375,
+   0.9986402095714375,
+   0.9986402095714375,
+   0.9986402095714375,
+   0.9986402095714375,
+   0.9986402095714375,
+   0.9986402095714375,
+   0.9986402095714375,
+   0.9986402095714375,
+   0.9986402095714375
+  ],
+  "cv_f1_sd": [
+   0.00022508539810319988,
+   0.00022508539810319988,
+   0.00010467728964168673,
+   0.0005293298225532214,
+   0.00010467728964168673,
+   0.00020788693330830765,
+   0.00020788693330830765,
+   0.00020788693330830765,
+   0.00020788693330830765,
+   0.00020788693330830765,
+   0.00020788693330830765,
+   0.00020788693330830765,
+   0.00020788693330830765,
+   0.00020788693330830765,
+   0.00020788693330830765,
+   0.00020788693330830765,
+   0.00020788693330830765,
+   0.00020788693330830765,
+   0.00020788693330830765
+  ],
+  "cv_f1_se": [
+   0.00010066125018027143,
+   0.00010066125018027143,
+   4.681310706784922e-05,
+   0.00023672349314938086,
+   4.681310706784922e-05,
+   9.296986290226823e-05,
+   9.296986290226823e-05,
+   9.296986290226823e-05,
+   9.296986290226823e-05,
+   9.296986290226823e-05,
+   9.296986290226823e-05,
+   9.296986290226823e-05,
+   9.296986290226823e-05,
+   9.296986290226823e-05,
+   9.296986290226823e-05,
+   9.296986290226823e-05,
+   9.296986290226823e-05,
+   9.296986290226823e-05,
+   9.296986290226823e-05
+  ],
+  "cv_f1_per_fold": [
+   [
+    0.9991689207870034,
+    0.9991689207870034,
+    0.9976714697138379,
+    0.9988517536271182,
+    0.9976714697138379,
+    0.9988517536271182,
+    0.9988517536271182,
+    0.9988517536271182,
+    0.9988517536271182,
+    0.9988517536271182,
+    0.9988517536271182,
+    0.9988517536271182,
+    0.9988517536271182,
+    0.9988517536271182,
+    0.9988517536271182,
+    0.9988517536271182,
+    0.9988517536271182,
+    0.9988517536271182,
+    0.9988517536271182
+   ],
+   [
+    0.9987550576548013,
+    0.9987550576548013,
+    0.9976658204567266,
+    0.9976658204567266,
+    0.9976658204567266,
+    0.9986038927420284,
+    0.9986038927420284,
+    0.9986038927420284,
+    0.9986038927420284,
+    0.9986038927420284,
+    0.9986038927420284,
+    0.9986038927420284,
+    0.9986038927420284,
+    0.9986038927420284,
+    0.9986038927420284,
+    0.9986038927420284,
+    0.9986038927420284,
+    0.9986038927420284,
+    0.9986038927420284
+   ],
+   [
+    0.9990845765690924,
+    0.9990845765690924,
+    0.9975048425571904,
+    0.9985274810686572,
+    0.9975048425571904,
+    0.9985274810686572,
+    0.9985274810686572,
+    0.9985274810686572,
+    0.9985274810686572,
+    0.9985274810686572,
+    0.9985274810686572,
+    0.9985274810686572,
+    0.9985274810686572,
+    0.9985274810686572,
+    0.9985274810686572,
+    0.9985274810686572,
+    0.9985274810686572,
+    0.9985274810686572,
+    0.9985274810686572
+   ],
+   [
+    0.9993369199046849,
+    0.9993369199046849,
+    0.9975108814182404,
+    0.9985312380307301,
+    0.9975108814182404,
+    0.9983721719625058,
+    0.9983721719625058,
+    0.9983721719625058,
+    0.9983721719625058,
+    0.9983721719625058,
+    0.9983721719625058,
+    0.9983721719625058,
+    0.9983721719625058,
+    0.9983721719625058,
+    0.9983721719625058,
+    0.9983721719625058,
+    0.9983721719625058,
+    0.9983721719625058,
+    0.9983721719625058
+   ],
+   [
+    0.9992570027382387,
+    0.9992570027382387,
+    0.9977380197894957,
+    0.9977380197894957,
+    0.9977380197894957,
+    0.9988457484568783,
+    0.9988457484568783,
+    0.9988457484568783,
+    0.9988457484568783,
+    0.9988457484568783,
+    0.9988457484568783,
+    0.9988457484568783,
+    0.9988457484568783,
+    0.9988457484568783,
+    0.9988457484568783,
+    0.9988457484568783,
+    0.9988457484568783,
+    0.9988457484568783,
+    0.9988457484568783
+   ]
+  ],
+  "K_hat_argmax": 2,
+  "one_se_threshold": 0.9990198342805838,
+  "K_star": 2,
+  "n_selected": 2,
+  "reduction_pct": 90.0,
+  "cv_f1_at_K_star": 0.9991204955307641,
+  "cv_f1_at_all_features": 0.9986402095714375,
+  "K_wcss_kneedle": 6,
+  "cv_f1_at_K_wcss": 0.9976182067870981,
+  "wcss_curve": [
+   26.295782839244414,
+   19.951830745275366,
+   14.45307913078523,
+   12.63337889089442,
+   10.644267636496492,
+   9.189258901560617,
+   7.832658724275047,
+   6.729534734491583,
+   5.5113315958465545,
+   4.776051715561971,
+   3.4957846487377653,
+   2.543281247265665,
+   1.6862074558862714,
+   1.1354717325014203,
+   0.5849462801732155,
+   0.20712797798516183,
+   0.12493539266612443,
+   0.04853013407644119,
+   0.0
+  ],
+  "selected_features": [
+   {
+    "feature": "udp.length",
+    "index": 19,
+    "score": 146472.58707341627,
+    "cluster": 1,
+    "cluster_size": 12,
+    "cluster_members": [
+     "frame.len",
+     "frame.time_delta_displayed",
+     "radiotap.channel.flags.ofdm",
+     "radiotap.length",
+     "wlan.fc.subtype",
+     "wlan.fixed.beacon",
+     "wlan_rsna_eapol.keydes.msgnr",
+     "arp",
+     "arp.hw.type",
+     "arp.proto.type",
+     "tcp.ack",
+     "udp.length"
+    ]
+   },
+   {
+    "feature": "frame.encap_type",
+    "index": 0,
+    "score": 58850.30312741669,
+    "cluster": 0,
+    "cluster_size": 8,
+    "cluster_members": [
+     "frame.encap_type",
+     "radiotap.channel.freq",
+     "radiotap.datarate",
+     "radiotap.dbm_antsignal",
+     "wlan.fc.retry",
+     "wlan.fcs.bad_checksum",
+     "wlan.fixed.capabilities.ess",
+     "wlan_radio.signal_dbm"
+    ]
+   }
+  ],
+  "wcss_features": [
+   "frame.encap_type",
+   "frame.len",
+   "radiotap.channel.flags.ofdm",
+   "radiotap.dbm_antsignal",
+   "wlan.fc.subtype",
+   "udp.length"
+  ],
+  "k_hat_features": [
+   "frame.encap_type",
+   "udp.length"
+  ],
+  "sweep_runtime_s": 20.519936561584473
+ },
+ "ablation_cv": {
+  "n_features": {
+   "A_full": 2,
+   "B_random_representative": 2,
+   "C_all_features": 20,
+   "D_no_smote": 2
+  }
+ },
+ "test": {
+  "task_aware": {
+   "n_test": 84226,
+   "accuracy": 0.999335122171301,
+   "balanced_accuracy": 0.9888076137886207,
+   "macro": {
+    "precision": 0.9888076137886207,
+    "recall": 0.9888076137886207,
+    "f1": 0.9888076137886207
+   },
+   "weighted": {
+    "precision": 0.999335122171301,
+    "recall": 0.999335122171301,
+    "f1": 0.999335122171301
+   },
+   "per_class": [
+    {
+     "class": "Normal",
+     "precision": 0.9779527559055118,
+     "recall": 0.9779527559055118,
+     "f1": 0.9779527559055118,
+     "support": 1270,
+     "tp": 1242,
+     "fp": 28,
+     "fn": 28
+    },
+    {
+     "class": "Attack",
+     "precision": 0.9996624716717296,
+     "recall": 0.9996624716717296,
+     "f1": 0.9996624716717296,
+     "support": 82956,
+     "tp": 82928,
+     "fp": 28,
+     "fn": 28
+    }
+   ],
+   "confusion_matrix": {
+    "labels": [
+     "Normal",
+     "Attack"
+    ],
+    "rows_true_cols_pred": [
+     [
+      1242,
+      28
+     ],
+     [
+      28,
+      82928
+     ]
+    ]
+   },
+   "consistency_checks": {
+    "accuracy_from_cm": 0.999335122171301,
+    "macro_f1_from_cm": 0.9888076137886207,
+    "weighted_f1_from_cm": 0.999335122171301,
+    "all_consistent": true
+   },
+   "binary_counts": {
+    "positive_class": "Attack",
+    "TP": 82928,
+    "FN": 28,
+    "FP": 28,
+    "TN": 1242
+   }
+  },
+  "all_features": {
+   "n_test": 84226,
+   "accuracy": 0.9974117255954218,
+   "balanced_accuracy": 0.9971353564530747,
+   "macro": {
+    "precision": 0.9276785323500573,
+    "recall": 0.9971353564530747,
+    "f1": 0.9597058289744679
+   },
+   "weighted": {
+    "precision": 0.9977721215932938,
+    "recall": 0.9974117255954218,
+    "f1": 0.9975089105123348
+   },
+   "per_class": [
+    {
+     "class": "Normal",
+     "precision": 0.8554054054054054,
+     "recall": 0.9968503937007874,
+     "f1": 0.9207272727272727,
+     "support": 1270,
+     "tp": 1266,
+     "fp": 214,
+     "fn": 4
+    },
+    {
+     "class": "Attack",
+     "precision": 0.9999516592947091,
+     "recall": 0.9974203192053619,
+     "f1": 0.998684385221663,
+     "support": 82956,
+     "tp": 82742,
+     "fp": 4,
+     "fn": 214
+    }
+   ],
+   "confusion_matrix": {
+    "labels": [
+     "Normal",
+     "Attack"
+    ],
+    "rows_true_cols_pred": [
+     [
+      1266,
+      4
+     ],
+     [
+      214,
+      82742
+     ]
+    ]
+   },
+   "consistency_checks": {
+    "accuracy_from_cm": 0.9974117255954218,
+    "macro_f1_from_cm": 0.9597058289744679,
+    "weighted_f1_from_cm": 0.9975089105123348,
+    "all_consistent": true
+   },
+   "binary_counts": {
+    "positive_class": "Attack",
+    "TP": 82742,
+    "FN": 214,
+    "FP": 4,
+    "TN": 1266
+   }
+  },
+  "wcss_kneedle": {
+   "n_test": 84226,
+   "accuracy": 0.9965687554911785,
+   "balanced_accuracy": 0.9974827657428109,
+   "macro": {
+    "precision": 0.9077049456605214,
+    "recall": 0.9974827657428109,
+    "f1": 0.9479771152270875
+   },
+   "weighted": {
+    "precision": 0.9971931991472203,
+    "recall": 0.9965687554911785,
+    "f1": 0.9967388838369639
+   },
+   "per_class": [
+    {
+     "class": "Normal",
+     "precision": 0.8154340836012862,
+     "recall": 0.9984251968503937,
+     "f1": 0.8976991150442478,
+     "support": 1270,
+     "tp": 1268,
+     "fp": 287,
+     "fn": 2
+    },
+    {
+     "class": "Attack",
+     "precision": 0.9999758077197566,
+     "recall": 0.9965403346352283,
+     "f1": 0.9982551154099272,
+     "support": 82956,
+     "tp": 82669,
+     "fp": 2,
+     "fn": 287
+    }
+   ],
+   "confusion_matrix": {
+    "labels": [
+     "Normal",
+     "Attack"
+    ],
+    "rows_true_cols_pred": [
+     [
+      1268,
+      2
+     ],
+     [
+      287,
+      82669
+     ]
+    ]
+   },
+   "consistency_checks": {
+    "accuracy_from_cm": 0.9965687554911785,
+    "macro_f1_from_cm": 0.9479771152270874,
+    "weighted_f1_from_cm": 0.9967388838369636,
+    "all_consistent": true
+   },
+   "binary_counts": {
+    "positive_class": "Attack",
+    "TP": 82669,
+    "FN": 287,
+    "FP": 2,
+    "TN": 1268
+   }
+  },
+  "k_hat": {
+   "n_test": 84226,
+   "accuracy": 0.999335122171301,
+   "balanced_accuracy": 0.9888076137886207,
+   "macro": {
+    "precision": 0.9888076137886207,
+    "recall": 0.9888076137886207,
+    "f1": 0.9888076137886207
+   },
+   "weighted": {
+    "precision": 0.999335122171301,
+    "recall": 0.999335122171301,
+    "f1": 0.999335122171301
+   },
+   "per_class": [
+    {
+     "class": "Normal",
+     "precision": 0.9779527559055118,
+     "recall": 0.9779527559055118,
+     "f1": 0.9779527559055118,
+     "support": 1270,
+     "tp": 1242,
+     "fp": 28,
+     "fn": 28
+    },
+    {
+     "class": "Attack",
+     "precision": 0.9996624716717296,
+     "recall": 0.9996624716717296,
+     "f1": 0.9996624716717296,
+     "support": 82956,
+     "tp": 82928,
+     "fp": 28,
+     "fn": 28
+    }
+   ],
+   "confusion_matrix": {
+    "labels": [
+     "Normal",
+     "Attack"
+    ],
+    "rows_true_cols_pred": [
+     [
+      1242,
+      28
+     ],
+     [
+      28,
+      82928
+     ]
+    ]
+   },
+   "consistency_checks": {
+    "accuracy_from_cm": 0.999335122171301,
+    "macro_f1_from_cm": 0.9888076137886207,
+    "weighted_f1_from_cm": 0.999335122171301,
+    "all_consistent": true
+   },
+   "binary_counts": {
+    "positive_class": "Attack",
+    "TP": 82928,
+    "FN": 28,
+    "FP": 28,
+    "TN": 1242
+   }
+  }
+ },
+ "efficiency": {
+  "task_aware": {
+   "n_features": 2,
+   "train_rows_after_smote": 663646,
+   "train_time_s": 0.5499291999876732,
+   "inference_ms_per_sample": 0.00014307814685632375,
+   "model_size_kb": 3.4970703125,
+   "tree_depth": 9,
+   "tree_leaves": 16
+  },
+  "all_features": {
+   "n_features": 20,
+   "train_rows_after_smote": 663646,
+   "train_time_s": 3.2732362000097055,
+   "inference_ms_per_sample": 0.00019605703696947476,
+   "model_size_kb": 16.7783203125,
+   "tree_depth": 17,
+   "tree_leaves": 101
+  },
+  "wcss_kneedle": {
+   "n_features": 6,
+   "train_rows_after_smote": 663646,
+   "train_time_s": 1.4230670999968424,
+   "inference_ms_per_sample": 0.0001461781398404824,
+   "model_size_kb": 11.1533203125,
+   "tree_depth": 16,
+   "tree_leaves": 65
+  },
+  "k_hat": {
+   "n_features": 2,
+   "train_rows_after_smote": 663646,
+   "train_time_s": 0.5459197000018321,
+   "inference_ms_per_sample": 0.00015035024802119445,
+   "model_size_kb": 3.4970703125,
+   "tree_depth": 9,
+   "tree_leaves": 16
+  }
+ },
+ "feature_names": [
+  "frame.encap_type",
+  "frame.len",
+  "frame.time_delta_displayed",
+  "radiotap.channel.flags.ofdm",
+  "radiotap.channel.freq",
+  "radiotap.datarate",
+  "radiotap.dbm_antsignal",
+  "radiotap.length",
+  "wlan.fc.retry",
+  "wlan.fc.subtype",
+  "wlan.fcs.bad_checksum",
+  "wlan.fixed.beacon",
+  "wlan.fixed.capabilities.ess",
+  "wlan_radio.signal_dbm",
+  "wlan_rsna_eapol.keydes.msgnr",
+  "arp",
+  "arp.hw.type",
+  "arp.proto.type",
+  "tcp.ack",
+  "udp.length"
+ ],
+ "environment": {
+  "python": "3.12.10",
+  "numpy": "2.4.6",
+  "pandas": "3.0.6",
+  "scikit_learn": "1.9.1",
+  "imbalanced_learn": "0.14.2",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cpu_count": 12,
+  "n_jobs": 5,
+  "git_commit": "89a80e8c91cf0262c95babaa0a1039c14fc0ffb0",
+  "finished_utc": "2026-10-21T16:33:56Z"
+ },
+ "runtime_s": 177.2284677028656
+}

@@ -1,0 +1,1247 @@
+{
+ "scenario": "S1",
+ "scenario_name": "Compromised UAV",
+ "task": "multiclass",
+ "class_names": [
+  "Brute-Force",
+  "DDoS",
+  "De-authentication",
+  "DoS",
+  "Fake Landing",
+  "ICMP Flooding",
+  "MITM",
+  "Normal",
+  "Replay",
+  "Scanning",
+  "UDP Flooding"
+ ],
+ "protocol": {
+  "seed": 42,
+  "test_size": 0.2,
+  "n_folds": 5,
+  "selection_sample_cap": 60000,
+  "min_per_class_selection": 50,
+  "kmeans_n_init": 10,
+  "K_range": [
+   2,
+   5
+  ],
+  "stopping_rule": "one-SE: K* = min{K : meanF1(K) >= meanF1(K_hat) - SE(K_hat)}, K_hat = argmax meanF1, full sweep K=2..n, 5-fold CV weighted F1",
+  "detector": "DecisionTreeClassifier(criterion=gini, class_weight=balanced, random_state=42)",
+  "smote": "all classes with >=2 samples to majority count, k=min(5, min class-1), training folds only",
+  "feature_set": "validated",
+  "stage2": "anova",
+  "impute": "median",
+  "label_perm": null,
+  "fast": true
+ },
+ "preprocessing": {
+  "n_rows_raw": 860643,
+  "n_columns_raw": 44,
+  "class_counts_raw": {
+   "DDoS": 193171,
+   "Brute-Force": 175925,
+   "UDP Flooding": 152775,
+   "MITM": 151586,
+   "ICMP Flooding": 47544,
+   "GPS Jamming": 41600,
+   "Replay": 25977,
+   "Fake Landing": 24050,
+   "Normal": 17949,
+   "De-authentication": 14606,
+   "Scanning": 9030,
+   "DoS": 6424,
+   "Reconnaissance": 6
+  },
+  "feature_set": "validated",
+  "p1_dropped_by_audit": [
+   "arp",
+   "arp.hw.type",
+   "frame.len",
+   "frame.time_delta_displayed",
+   "ip.proto",
+   "ip.ttl",
+   "radiotap.channel.flags.cck",
+   "radiotap.channel.freq",
+   "radiotap.datarate",
+   "radiotap.dbm_antsignal",
+   "radiotap.length",
+   "radiotap.present.tsft",
+   "radiotap.rxflags",
+   "tcp.ack",
+   "udp.length",
+   "wlan.fc.retry",
+   "wlan.fcs.bad_checksum",
+   "wlan.fixed.capabilities.ess",
+   "wlan.rsn.capabilities.mfpc",
+   "wlan.tag",
+   "wlan_radio.frequency",
+   "wlan_radio.phy",
+   "wlan_radio.signal_dbm",
+   "wlan_rsna_eapol.keydes.msgnr"
+  ],
+  "p1_dropped_by_name": [
+   "frame.number",
+   "frame.time_epoch",
+   "frame.time_relative",
+   "ip.dst",
+   "ip.src",
+   "radiotap.mactime",
+   "radiotap.timestamp.ts",
+   "udp.dstport",
+   "udp.srcport",
+   "wlan.bssid",
+   "wlan.seq",
+   "wlan_radio.start_tsf",
+   "wlan_radio.timestamp"
+  ],
+  "p1_dropped_ip_content": [],
+  "p5_unparsable_fraction": {
+   "arp.proto.type": 0.003415
+  },
+  "n_duplicate_rows": 860554,
+  "n_feature_vectors_with_conflicting_labels": 18,
+  "duplicates_removed": true,
+  "n_rows_used": 89,
+  "class_counts_used": {
+   "De-authentication": 20,
+   "UDP Flooding": 16,
+   "ICMP Flooding": 14,
+   "DoS": 13,
+   "Replay": 12,
+   "Normal": 2,
+   "Scanning": 2,
+   "Brute-Force": 2,
+   "MITM": 2,
+   "Fake Landing": 2,
+   "DDoS": 2,
+   "Reconnaissance": 1,
+   "GPS Jamming": 1
+  },
+  "classes_dropped_fewer_than_2_rows": [
+   "GPS Jamming",
+   "Reconnaissance"
+  ],
+  "p2_dropped_zero_variance": [
+   "radiotap.vendor_oui",
+   "wlan.duration"
+  ],
+  "n_features_after_preprocessing": 5
+ },
+ "split": {
+  "n_train": 69,
+  "n_test": 18,
+  "train_counts": {
+   "Brute-Force": 2,
+   "DDoS": 2,
+   "De-authentication": 16,
+   "DoS": 10,
+   "Fake Landing": 2,
+   "ICMP Flooding": 11,
+   "MITM": 1,
+   "Normal": 1,
+   "Replay": 9,
+   "Scanning": 2,
+   "UDP Flooding": 13
+  },
+  "test_counts": {
+   "Brute-Force": 0,
+   "DDoS": 0,
+   "De-authentication": 4,
+   "DoS": 3,
+   "Fake Landing": 0,
+   "ICMP Flooding": 3,
+   "MITM": 1,
+   "Normal": 1,
+   "Replay": 3,
+   "Scanning": 0,
+   "UDP Flooding": 3
+  }
+ },
+ "selection": {
+  "n_selection_rows": 69,
+  "selection_counts": {
+   "Brute-Force": 2,
+   "DDoS": 2,
+   "De-authentication": 16,
+   "DoS": 10,
+   "Fake Landing": 2,
+   "ICMP Flooding": 11,
+   "MITM": 1,
+   "Normal": 1,
+   "Replay": 9,
+   "Scanning": 2,
+   "UDP Flooding": 13
+  },
+  "K": [
+   2,
+   3,
+   4,
+   5
+  ],
+  "cv_f1_mean": [
+   0.1284004884004884,
+   0.14524332810047094,
+   0.1427960927960928,
+   0.19405197976626548
+  ],
+  "cv_f1_sd": [
+   0.15520765427759425,
+   0.16087250234820763,
+   0.15454014740851463,
+   0.10803586939300197
+  ],
+  "cv_f1_se": [
+   0.06941097311859735,
+   0.07194437019221736,
+   0.06911245497165533,
+   0.04831510959420827
+  ],
+  "cv_f1_per_fold": [
+   [
+    0.0642857142857143,
+    0.0642857142857143,
+    0.06746031746031746,
+    0.07936507936507937
+   ],
+   [
+    0.06462585034013604,
+    0.023809523809523808,
+    0.028571428571428574,
+    0.14285714285714285
+   ],
+   [
+    0.031746031746031744,
+    0.0,
+    0.0,
+    0.1326530612244898
+   ],
+   [
+    0.404421768707483,
+    0.3377551020408163,
+    0.3333333333333333,
+    0.3333333333333333
+   ],
+   [
+    0.07692307692307693,
+    0.3003663003663003,
+    0.2846153846153846,
+    0.282051282051282
+   ]
+  ],
+  "K_hat_argmax": 5,
+  "one_se_threshold": 0.14573687017205722,
+  "K_star": 5,
+  "n_selected": 5,
+  "reduction_pct": 0.0,
+  "cv_f1_at_K_star": 0.19405197976626548,
+  "cv_f1_at_all_features": 0.19405197976626548,
+  "K_wcss_kneedle": null,
+  "cv_f1_at_K_wcss": null,
+  "wcss_curve": [
+   2.016434291844991,
+   0.9113662573599486,
+   0.18917365353740728,
+   0.0
+  ],
+  "selected_features": [
+   {
+    "feature": "radiotap.channel.flags.ofdm",
+    "index": 1,
+    "score": 22.658511310789464,
+    "cluster": 0,
+    "cluster_size": 1,
+    "cluster_members": [
+     "radiotap.channel.flags.ofdm"
+    ]
+   },
+   {
+    "feature": "wlan.fc.subtype",
+    "index": 2,
+    "score": 4.076561987114248,
+    "cluster": 2,
+    "cluster_size": 1,
+    "cluster_members": [
+     "wlan.fc.subtype"
+    ]
+   },
+   {
+    "feature": "arp.proto.type",
+    "index": 4,
+    "score": 4.001828066336307,
+    "cluster": 3,
+    "cluster_size": 1,
+    "cluster_members": [
+     "arp.proto.type"
+    ]
+   },
+   {
+    "feature": "wlan.fixed.beacon",
+    "index": 3,
+    "score": 3.313436735039331,
+    "cluster": 1,
+    "cluster_size": 1,
+    "cluster_members": [
+     "wlan.fixed.beacon"
+    ]
+   },
+   {
+    "feature": "frame.encap_type",
+    "index": 0,
+    "score": -44799115.5,
+    "cluster": 4,
+    "cluster_size": 1,
+    "cluster_members": [
+     "frame.encap_type"
+    ]
+   }
+  ],
+  "wcss_features": null,
+  "k_hat_features": [
+   "frame.encap_type",
+   "radiotap.channel.flags.ofdm",
+   "wlan.fc.subtype",
+   "wlan.fixed.beacon",
+   "arp.proto.type"
+  ],
+  "sweep_runtime_s": 0.17126917839050293
+ },
+ "ablation_cv": {
+  "n_features": {
+   "A_full": 5,
+   "B_random_representative": 5,
+   "C_all_features": 5,
+   "D_no_smote": 5
+  }
+ },
+ "test": {
+  "task_aware": {
+   "n_test": 18,
+   "accuracy": 0.05555555555555555,
+   "balanced_accuracy": 0.047619047619047616,
+   "macro": {
+    "precision": 0.011363636363636364,
+    "recall": 0.0303030303030303,
+    "f1": 0.01652892561983471
+   },
+   "weighted": {
+    "precision": 0.020833333333333332,
+    "recall": 0.05555555555555555,
+    "f1": 0.0303030303030303
+   },
+   "per_class": [
+    {
+     "class": "Brute-Force",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 0,
+     "tp": 0,
+     "fp": 2,
+     "fn": 0
+    },
+    {
+     "class": "DDoS",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "De-authentication",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 4,
+     "tp": 0,
+     "fp": 5,
+     "fn": 4
+    },
+    {
+     "class": "DoS",
+     "precision": 0.125,
+     "recall": 0.3333333333333333,
+     "f1": 0.18181818181818182,
+     "support": 3,
+     "tp": 1,
+     "fp": 7,
+     "fn": 2
+    },
+    {
+     "class": "Fake Landing",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "ICMP Flooding",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 3,
+     "tp": 0,
+     "fp": 2,
+     "fn": 3
+    },
+    {
+     "class": "MITM",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 1,
+     "tp": 0,
+     "fp": 0,
+     "fn": 1
+    },
+    {
+     "class": "Normal",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 1,
+     "tp": 0,
+     "fp": 0,
+     "fn": 1
+    },
+    {
+     "class": "Replay",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 3,
+     "tp": 0,
+     "fp": 1,
+     "fn": 3
+    },
+    {
+     "class": "Scanning",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "UDP Flooding",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 3,
+     "tp": 0,
+     "fp": 0,
+     "fn": 3
+    }
+   ],
+   "confusion_matrix": {
+    "labels": [
+     "Brute-Force",
+     "DDoS",
+     "De-authentication",
+     "DoS",
+     "Fake Landing",
+     "ICMP Flooding",
+     "MITM",
+     "Normal",
+     "Replay",
+     "Scanning",
+     "UDP Flooding"
+    ],
+    "rows_true_cols_pred": [
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      3,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    ]
+   },
+   "consistency_checks": {
+    "accuracy_from_cm": 0.05555555555555555,
+    "macro_f1_from_cm": 0.01652892561983471,
+    "weighted_f1_from_cm": 0.0303030303030303,
+    "all_consistent": true
+   }
+  },
+  "all_features": {
+   "n_test": 18,
+   "accuracy": 0.05555555555555555,
+   "balanced_accuracy": 0.047619047619047616,
+   "macro": {
+    "precision": 0.011363636363636364,
+    "recall": 0.0303030303030303,
+    "f1": 0.01652892561983471
+   },
+   "weighted": {
+    "precision": 0.020833333333333332,
+    "recall": 0.05555555555555555,
+    "f1": 0.0303030303030303
+   },
+   "per_class": [
+    {
+     "class": "Brute-Force",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 0,
+     "tp": 0,
+     "fp": 2,
+     "fn": 0
+    },
+    {
+     "class": "DDoS",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "De-authentication",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 4,
+     "tp": 0,
+     "fp": 5,
+     "fn": 4
+    },
+    {
+     "class": "DoS",
+     "precision": 0.125,
+     "recall": 0.3333333333333333,
+     "f1": 0.18181818181818182,
+     "support": 3,
+     "tp": 1,
+     "fp": 7,
+     "fn": 2
+    },
+    {
+     "class": "Fake Landing",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "ICMP Flooding",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 3,
+     "tp": 0,
+     "fp": 2,
+     "fn": 3
+    },
+    {
+     "class": "MITM",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 1,
+     "tp": 0,
+     "fp": 0,
+     "fn": 1
+    },
+    {
+     "class": "Normal",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 1,
+     "tp": 0,
+     "fp": 0,
+     "fn": 1
+    },
+    {
+     "class": "Replay",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 3,
+     "tp": 0,
+     "fp": 1,
+     "fn": 3
+    },
+    {
+     "class": "Scanning",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "UDP Flooding",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 3,
+     "tp": 0,
+     "fp": 0,
+     "fn": 3
+    }
+   ],
+   "confusion_matrix": {
+    "labels": [
+     "Brute-Force",
+     "DDoS",
+     "De-authentication",
+     "DoS",
+     "Fake Landing",
+     "ICMP Flooding",
+     "MITM",
+     "Normal",
+     "Replay",
+     "Scanning",
+     "UDP Flooding"
+    ],
+    "rows_true_cols_pred": [
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      3,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    ]
+   },
+   "consistency_checks": {
+    "accuracy_from_cm": 0.05555555555555555,
+    "macro_f1_from_cm": 0.01652892561983471,
+    "weighted_f1_from_cm": 0.0303030303030303,
+    "all_consistent": true
+   }
+  },
+  "k_hat": {
+   "n_test": 18,
+   "accuracy": 0.05555555555555555,
+   "balanced_accuracy": 0.047619047619047616,
+   "macro": {
+    "precision": 0.011363636363636364,
+    "recall": 0.0303030303030303,
+    "f1": 0.01652892561983471
+   },
+   "weighted": {
+    "precision": 0.020833333333333332,
+    "recall": 0.05555555555555555,
+    "f1": 0.0303030303030303
+   },
+   "per_class": [
+    {
+     "class": "Brute-Force",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 0,
+     "tp": 0,
+     "fp": 2,
+     "fn": 0
+    },
+    {
+     "class": "DDoS",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "De-authentication",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 4,
+     "tp": 0,
+     "fp": 5,
+     "fn": 4
+    },
+    {
+     "class": "DoS",
+     "precision": 0.125,
+     "recall": 0.3333333333333333,
+     "f1": 0.18181818181818182,
+     "support": 3,
+     "tp": 1,
+     "fp": 7,
+     "fn": 2
+    },
+    {
+     "class": "Fake Landing",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "ICMP Flooding",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 3,
+     "tp": 0,
+     "fp": 2,
+     "fn": 3
+    },
+    {
+     "class": "MITM",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 1,
+     "tp": 0,
+     "fp": 0,
+     "fn": 1
+    },
+    {
+     "class": "Normal",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 1,
+     "tp": 0,
+     "fp": 0,
+     "fn": 1
+    },
+    {
+     "class": "Replay",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 3,
+     "tp": 0,
+     "fp": 1,
+     "fn": 3
+    },
+    {
+     "class": "Scanning",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "UDP Flooding",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 3,
+     "tp": 0,
+     "fp": 0,
+     "fn": 3
+    }
+   ],
+   "confusion_matrix": {
+    "labels": [
+     "Brute-Force",
+     "DDoS",
+     "De-authentication",
+     "DoS",
+     "Fake Landing",
+     "ICMP Flooding",
+     "MITM",
+     "Normal",
+     "Replay",
+     "Scanning",
+     "UDP Flooding"
+    ],
+    "rows_true_cols_pred": [
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      3,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    ]
+   },
+   "consistency_checks": {
+    "accuracy_from_cm": 0.05555555555555555,
+    "macro_f1_from_cm": 0.01652892561983471,
+    "weighted_f1_from_cm": 0.0303030303030303,
+    "all_consistent": true
+   }
+  }
+ },
+ "efficiency": {
+  "task_aware": {
+   "n_features": 5,
+   "train_rows_after_smote": 146,
+   "train_time_s": 0.0030279000056907535,
+   "inference_ms_per_sample": 0.01670555502641946,
+   "model_size_kb": 6.9345703125,
+   "tree_depth": 11,
+   "tree_leaves": 20
+  },
+  "all_features": {
+   "n_features": 5,
+   "train_rows_after_smote": 146,
+   "train_time_s": 0.0029322000045794994,
+   "inference_ms_per_sample": 0.016288888420806162,
+   "model_size_kb": 6.9345703125,
+   "tree_depth": 11,
+   "tree_leaves": 20
+  },
+  "k_hat": {
+   "n_features": 5,
+   "train_rows_after_smote": 146,
+   "train_time_s": 0.0027516999980434775,
+   "inference_ms_per_sample": 0.016022222148927137,
+   "model_size_kb": 6.9345703125,
+   "tree_depth": 11,
+   "tree_leaves": 20
+  }
+ },
+ "feature_names": [
+  "frame.encap_type",
+  "radiotap.channel.flags.ofdm",
+  "wlan.fc.subtype",
+  "wlan.fixed.beacon",
+  "arp.proto.type"
+ ],
+ "environment": {
+  "python": "3.12.10",
+  "numpy": "2.4.6",
+  "pandas": "3.0.6",
+  "scikit_learn": "1.9.1",
+  "imbalanced_learn": "0.14.2",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cpu_count": 12,
+  "n_jobs": 5,
+  "git_commit": "b9799910d5f8a83277aed156d177b2d8ccfb73ae",
+  "finished_utc": "2026-10-21T14:15:53Z"
+ },
+ "runtime_s": 19.621183395385742
+}

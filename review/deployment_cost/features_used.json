@@ -1,0 +1,526 @@
+{
+ "S1_binary": {
+  "task_aware|unconstrained": {
+   "n_subset": 4,
+   "n_used": 3,
+   "used": [
+    "frame.encap_type",
+    "frame.len",
+    "udp.length"
+   ]
+  },
+  "task_aware|constrained": {
+   "n_subset": 4,
+   "n_used": 3,
+   "used": [
+    "frame.encap_type",
+    "frame.len",
+    "udp.length"
+   ]
+  },
+  "all_features|unconstrained": {
+   "n_subset": 20,
+   "n_used": 4,
+   "used": [
+    "frame.encap_type",
+    "frame.len",
+    "frame.time_delta_displayed",
+    "udp.length"
+   ]
+  },
+  "all_features|constrained": {
+   "n_subset": 20,
+   "n_used": 4,
+   "used": [
+    "frame.encap_type",
+    "frame.len",
+    "frame.time_delta_displayed",
+    "udp.length"
+   ]
+  }
+ },
+ "S1_multiclass": {
+  "task_aware|unconstrained": {
+   "n_subset": 18,
+   "n_used": 18,
+   "used": [
+    "arp",
+    "arp.hw.type",
+    "arp.proto.type",
+    "frame.encap_type",
+    "frame.len",
+    "frame.time_delta_displayed",
+    "radiotap.channel.flags.ofdm",
+    "radiotap.datarate",
+    "radiotap.dbm_antsignal",
+    "radiotap.length",
+    "tcp.ack",
+    "udp.length",
+    "wlan.fc.retry",
+    "wlan.fc.subtype",
+    "wlan.fcs.bad_checksum",
+    "wlan.fixed.beacon",
+    "wlan.fixed.capabilities.ess",
+    "wlan_rsna_eapol.keydes.msgnr"
+   ]
+  },
+  "task_aware|constrained": {
+   "n_subset": 18,
+   "n_used": 16,
+   "used": [
+    "arp.hw.type",
+    "frame.encap_type",
+    "frame.len",
+    "frame.time_delta_displayed",
+    "radiotap.channel.flags.ofdm",
+    "radiotap.datarate",
+    "radiotap.dbm_antsignal",
+    "radiotap.length",
+    "tcp.ack",
+    "udp.length",
+    "wlan.fc.retry",
+    "wlan.fc.subtype",
+    "wlan.fcs.bad_checksum",
+    "wlan.fixed.beacon",
+    "wlan.fixed.capabilities.ess",
+    "wlan_rsna_eapol.keydes.msgnr"
+   ]
+  },
+  "all_features|unconstrained": {
+   "n_subset": 20,
+   "n_used": 19,
+   "used": [
+    "arp.hw.type",
+    "arp.proto.type",
+    "frame.encap_type",
+    "frame.len",
+    "frame.time_delta_displayed",
+    "radiotap.channel.flags.ofdm",
+    "radiotap.channel.freq",
+    "radiotap.datarate",
+    "radiotap.dbm_antsignal",
+    "radiotap.length",
+    "tcp.ack",
+    "udp.length",
+    "wlan.fc.retry",
+    "wlan.fc.subtype",
+    "wlan.fcs.bad_checksum",
+    "wlan.fixed.beacon",
+    "wlan.fixed.capabilities.ess",
+    "wlan_radio.signal_dbm",
+    "wlan_rsna_eapol.keydes.msgnr"
+   ]
+  },
+  "all_features|constrained": {
+   "n_subset": 20,
+   "n_used": 19,
+   "used": [
+    "arp.hw.type",
+    "arp.proto.type",
+    "frame.encap_type",
+    "frame.len",
+    "frame.time_delta_displayed",
+    "radiotap.channel.flags.ofdm",
+    "radiotap.channel.freq",
+    "radiotap.datarate",
+    "radiotap.dbm_antsignal",
+    "radiotap.length",
+    "tcp.ack",
+    "udp.length",
+    "wlan.fc.retry",
+    "wlan.fc.subtype",
+    "wlan.fcs.bad_checksum",
+    "wlan.fixed.beacon",
+    "wlan.fixed.capabilities.ess",
+    "wlan_radio.signal_dbm",
+    "wlan_rsna_eapol.keydes.msgnr"
+   ]
+  }
+ },
+ "S2_binary": {
+  "task_aware|unconstrained": {
+   "n_subset": 29,
+   "n_used": 1,
+   "used": [
+    "frame.encap_type"
+   ]
+  },
+  "task_aware|constrained": {
+   "n_subset": 29,
+   "n_used": 1,
+   "used": [
+    "frame.encap_type"
+   ]
+  },
+  "all_features|unconstrained": {
+   "n_subset": 33,
+   "n_used": 1,
+   "used": [
+    "frame.encap_type"
+   ]
+  },
+  "all_features|constrained": {
+   "n_subset": 33,
+   "n_used": 1,
+   "used": [
+    "frame.encap_type"
+   ]
+  }
+ },
+ "S2_multiclass": {
+  "task_aware|unconstrained": {
+   "n_subset": 27,
+   "n_used": 21,
+   "used": [
+    "frame.encap_type",
+    "frame.len",
+    "frame.time_delta_displayed",
+    "icmpv6.mldr.nb_mcast_records",
+    "nbns",
+    "nbss.continuation_data",
+    "radiotap.channel.flags.ofdm",
+    "radiotap.channel.freq",
+    "radiotap.datarate",
+    "radiotap.dbm_antsignal",
+    "radiotap.length",
+    "radiotap.present.tsft",
+    "radiotap.vendor_oui",
+    "udp.length",
+    "wlan.duration",
+    "wlan.fc.moredata",
+    "wlan.fc.pwrmgt",
+    "wlan.fc.retry",
+    "wlan.fc.subtype",
+    "wlan.fcs.bad_checksum",
+    "wlan_radio.data_rate"
+   ]
+  },
+  "task_aware|constrained": {
+   "n_subset": 27,
+   "n_used": 19,
+   "used": [
+    "frame.encap_type",
+    "frame.len",
+    "frame.time_delta_displayed",
+    "icmpv6.mldr.nb_mcast_records",
+    "nbns",
+    "nbss.continuation_data",
+    "radiotap.channel.flags.ofdm",
+    "radiotap.channel.freq",
+    "radiotap.datarate",
+    "radiotap.dbm_antsignal",
+    "radiotap.length",
+    "radiotap.present.tsft",
+    "radiotap.vendor_oui",
+    "udp.length",
+    "wlan.duration",
+    "wlan.fc.moredata",
+    "wlan.fc.retry",
+    "wlan.fcs.bad_checksum",
+    "wlan_radio.data_rate"
+   ]
+  },
+  "all_features|unconstrained": {
+   "n_subset": 32,
+   "n_used": 20,
+   "used": [
+    "frame.encap_type",
+    "frame.len",
+    "frame.time_delta_displayed",
+    "icmpv6.mldr.nb_mcast_records",
+    "nbns",
+    "nbss.continuation_data",
+    "radiotap.channel.flags.ofdm",
+    "radiotap.channel.freq",
+    "radiotap.datarate",
+    "radiotap.dbm_antsignal",
+    "radiotap.length",
+    "radiotap.present.tsft",
+    "udp.length",
+    "wlan.duration",
+    "wlan.fc.moredata",
+    "wlan.fc.pwrmgt",
+    "wlan.fc.retry",
+    "wlan.fc.subtype",
+    "wlan.fcs.bad_checksum",
+    "wlan_radio.data_rate"
+   ]
+  },
+  "all_features|constrained": {
+   "n_subset": 32,
+   "n_used": 19,
+   "used": [
+    "frame.encap_type",
+    "frame.len",
+    "frame.time_delta_displayed",
+    "icmpv6.mldr.nb_mcast_records",
+    "nbns",
+    "nbss.continuation_data",
+    "radiotap.channel.flags.ofdm",
+    "radiotap.channel.freq",
+    "radiotap.datarate",
+    "radiotap.dbm_antsignal",
+    "radiotap.length",
+    "radiotap.present.tsft",
+    "udp.length",
+    "wlan.duration",
+    "wlan.fc.moredata",
+    "wlan.fc.pwrmgt",
+    "wlan.fc.retry",
+    "wlan.fcs.bad_checksum",
+    "wlan_radio.data_rate"
+   ]
+  }
+ },
+ "S3_binary": {
+  "task_aware|unconstrained": {
+   "n_subset": 9,
+   "n_used": 8,
+   "used": [
+    "active.max",
+    "active.std",
+    "flow_pkts_payload.max",
+    "fwd_header_size_max",
+    "fwd_pkts_payload.max",
+    "fwd_pkts_payload.min",
+    "idle.max",
+    "unverified_bytes_col4"
+   ]
+  },
+  "task_aware|constrained": {
+   "n_subset": 9,
+   "n_used": 8,
+   "used": [
+    "active.max",
+    "active.std",
+    "flow_pkts_payload.max",
+    "fwd_header_size_max",
+    "fwd_pkts_payload.max",
+    "fwd_pkts_payload.min",
+    "idle.max",
+    "unverified_bytes_col4"
+   ]
+  },
+  "all_features|unconstrained": {
+   "n_subset": 76,
+   "n_used": 26,
+   "used": [
+    "active.tot",
+    "bwd_bulk_rate",
+    "bwd_header_size_max",
+    "bwd_header_size_min",
+    "bwd_subflow_bytes",
+    "down_up_ratio",
+    "flow_iat.avg",
+    "flow_iat.max",
+    "flow_iat.min",
+    "flow_iat.tot",
+    "flow_pkts_payload.avg",
+    "flow_pkts_payload.max",
+    "flow_pkts_payload.min",
+    "flow_pkts_payload.tot",
+    "fwd_bulk_rate",
+    "fwd_data_pkts_tot",
+    "fwd_header_size_max",
+    "fwd_iat.std",
+    "fwd_iat.tot",
+    "fwd_init_window_size",
+    "fwd_pkts_payload.avg",
+    "fwd_pkts_payload.max",
+    "fwd_pkts_payload.std",
+    "fwd_pkts_tot",
+    "payload_bytes_per_second",
+    "unverified_bytes_col4"
+   ]
+  },
+  "all_features|constrained": {
+   "n_subset": 76,
+   "n_used": 26,
+   "used": [
+    "active.tot",
+    "bwd_bulk_rate",
+    "bwd_header_size_max",
+    "bwd_header_size_min",
+    "bwd_pkts_payload.min",
+    "bwd_subflow_bytes",
+    "down_up_ratio",
+    "flow_iat.avg",
+    "flow_iat.max",
+    "flow_iat.min",
+    "flow_iat.tot",
+    "flow_pkts_payload.max",
+    "flow_pkts_payload.min",
+    "flow_pkts_payload.tot",
+    "fwd_bulk_rate",
+    "fwd_data_pkts_tot",
+    "fwd_header_size_max",
+    "fwd_iat.std",
+    "fwd_iat.tot",
+    "fwd_init_window_size",
+    "fwd_pkts_payload.avg",
+    "fwd_pkts_payload.max",
+    "fwd_pkts_payload.std",
+    "fwd_pkts_tot",
+    "payload_bytes_per_second",
+    "unverified_bytes_col4"
+   ]
+  }
+ },
+ "S3_multiclass": {
+  "task_aware|unconstrained": {
+   "n_subset": 23,
+   "n_used": 21,
+   "used": [
+    "active.max",
+    "active.min",
+    "active.std",
+    "bwd_bulk_bytes",
+    "bwd_header_size_max",
+    "bwd_iat.avg",
+    "bwd_pkts_payload.max",
+    "bwd_pkts_payload.tot",
+    "bwd_pkts_per_sec",
+    "flow_iat.tot",
+    "flow_pkts_payload.avg",
+    "fwd_iat.max",
+    "fwd_iat.min",
+    "fwd_init_window_size",
+    "fwd_last_window_size",
+    "fwd_pkts_payload.max",
+    "fwd_pkts_payload.min",
+    "fwd_pkts_payload.std",
+    "fwd_pkts_per_sec",
+    "idle.std",
+    "unverified_window_col83"
+   ]
+  },
+  "task_aware|constrained": {
+   "n_subset": 23,
+   "n_used": 13,
+   "used": [
+    "active.max",
+    "active.min",
+    "bwd_header_size_max",
+    "bwd_iat.avg",
+    "bwd_pkts_per_sec",
+    "flow_pkts_payload.avg",
+    "fwd_iat.max",
+    "fwd_iat.min",
+    "fwd_init_window_size",
+    "fwd_pkts_payload.min",
+    "fwd_pkts_payload.std",
+    "fwd_pkts_per_sec",
+    "idle.std"
+   ]
+  },
+  "all_features|unconstrained": {
+   "n_subset": 76,
+   "n_used": 57,
+   "used": [
+    "active.max",
+    "active.min",
+    "active.std",
+    "bwd_bulk_rate",
+    "bwd_data_pkts_tot",
+    "bwd_header_size_max",
+    "bwd_header_size_min",
+    "bwd_header_size_tot",
+    "bwd_iat.min",
+    "bwd_init_window_size",
+    "bwd_pkts_payload.avg",
+    "bwd_pkts_payload.min",
+    "bwd_pkts_per_sec",
+    "bwd_pkts_tot",
+    "bwd_subflow_bytes",
+    "bwd_subflow_pkts",
+    "flow_ACK_flag_count",
+    "flow_RST_flag_count",
+    "flow_SYN_flag_count",
+    "flow_iat.avg",
+    "flow_iat.max",
+    "flow_iat.min",
+    "flow_iat.std",
+    "flow_iat.tot",
+    "flow_pkts_payload.avg",
+    "flow_pkts_payload.max",
+    "flow_pkts_payload.min",
+    "flow_pkts_payload.std",
+    "flow_pkts_payload.tot",
+    "flow_pkts_per_sec",
+    "fwd_bulk_bytes",
+    "fwd_bulk_rate",
+    "fwd_data_pkts_tot",
+    "fwd_header_size_max",
+    "fwd_header_size_min",
+    "fwd_header_size_tot",
+    "fwd_iat.avg",
+    "fwd_iat.max",
+    "fwd_iat.min",
+    "fwd_iat.std",
+    "fwd_iat.tot",
+    "fwd_init_window_size",
+    "fwd_last_window_size",
+    "fwd_pkts_payload.avg",
+    "fwd_pkts_payload.max",
+    "fwd_pkts_payload.min",
+    "fwd_pkts_payload.std",
+    "fwd_pkts_payload.tot",
+    "fwd_pkts_per_sec",
+    "fwd_pkts_tot",
+    "fwd_subflow_bytes",
+    "idle.max",
+    "idle.min",
+    "idle.std",
+    "idle.tot",
+    "payload_bytes_per_second",
+    "unverified_bytes_col4"
+   ]
+  },
+  "all_features|constrained": {
+   "n_subset": 76,
+   "n_used": 40,
+   "used": [
+    "active.max",
+    "active.std",
+    "bwd_bulk_rate",
+    "bwd_header_size_tot",
+    "bwd_pkts_payload.min",
+    "bwd_pkts_payload.tot",
+    "bwd_pkts_per_sec",
+    "bwd_pkts_tot",
+    "bwd_subflow_bytes",
+    "bwd_subflow_pkts",
+    "flow_ACK_flag_count",
+    "flow_RST_flag_count",
+    "flow_iat.max",
+    "flow_iat.min",
+    "flow_iat.std",
+    "flow_pkts_payload.avg",
+    "flow_pkts_payload.max",
+    "flow_pkts_payload.std",
+    "flow_pkts_payload.tot",
+    "flow_pkts_per_sec",
+    "fwd_bulk_rate",
+    "fwd_data_pkts_tot",
+    "fwd_header_size_min",
+    "fwd_header_size_tot",
+    "fwd_iat.avg",
+    "fwd_iat.max",
+    "fwd_iat.min",
+    "fwd_iat.std",
+    "fwd_iat.tot",
+    "fwd_init_window_size",
+    "fwd_pkts_payload.avg",
+    "fwd_pkts_payload.min",
+    "fwd_pkts_payload.tot",
+    "fwd_pkts_per_sec",
+    "fwd_pkts_tot",
+    "fwd_subflow_bytes",
+    "idle.max",
+    "idle.std",
+    "unverified_bytes_col4",
+    "unverified_window_col83"
+   ]
+  }
+ }
+}

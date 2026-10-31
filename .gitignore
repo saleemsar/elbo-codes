@@ -7,6 +7,7 @@ __pycache__/
 *.blg
 *.synctex.gz
 paper/figure_sources/*.pdf
+.venv*/
 
 # UAV-NIDD archives are downloaded from Zenodo, not redistributed
 dataset/*.zip

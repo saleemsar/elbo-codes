@@ -45,31 +45,14 @@ REF = os.path.join(ROOT, "results")
 
 
 def prepare(scn, task):
-    """Identical to the first part of uav_ehfs.run()."""
-    df, label_col = u.load_raw(scn)
-    Xdf, y_str, _ = u.preprocess(df, label_col, task)
-    del df
-    class_names = ["Normal", "Attack"] if task == "binary" else sorted(y_str.unique())
-    code = {c: i for i, c in enumerate(class_names)}
-    y = y_str.map(code).to_numpy()
-    X = Xdf.to_numpy(dtype=np.float32)
-    feat_names = list(Xdf.columns)
-    row_ids = np.arange(len(y))
-    Xtr, Xte, ytr, yte, idtr, idte = u.train_test_split(
-        X, y, row_ids, test_size=u.TEST_SIZE, stratify=y, random_state=u.SEED)
-    keep = [j for j in range(X.shape[1])
-            if np.nanmax(Xtr[:, j]) != np.nanmin(Xtr[:, j]) and not np.all(np.isnan(Xtr[:, j]))]
-    Xtr, Xte = Xtr[:, keep], Xte[:, keep]
-    feat_names = [feat_names[j] for j in keep]
-    sel = u.selection_sample(Xtr, ytr)
-    Xs, ys = Xtr[sel], ytr[sel]
-    folds = list(u.StratifiedKFold(n_splits=u.N_FOLDS, shuffle=True, random_state=u.SEED).split(Xs, ys))
-    return dict(class_names=class_names, feat_names=feat_names, Xtr=Xtr, Xte=Xte, ytr=ytr,
-                yte=yte, idte=idte, Xs=Xs, ys=ys, folds=folds)
+    """The partitions, selection sample and folds of uav_ehfs.run()."""
+    return u.prepare(scn, task)
 
 
-def fold_curves(fold, Xs, ys, tr, va, Ks):
+def fold_curves(fold, Xs, ys, tr, va, Ks, cfg=None):
     """One CV fold: original curve (as run_fold) and E2 curve (subset-space SMOTE)."""
+    if cfg is not None:
+        u.set_config(cfg)
     A, B, _ = u.fit_transform_fold(Xs[tr], Xs[va])
     ytr, yva = ys[tr], ys[va]
     As, ytrs = u.safe_smote(A, ytr)
@@ -118,8 +101,8 @@ def run(scn, task):
     names, n = d["feat_names"], len(d["feat_names"])
     assert names == ref["feature_names"], "feature space differs from results/"
     Ks = list(range(2, n + 1))
-    outs = Parallel(n_jobs=u.N_JOBS)(
-        delayed(fold_curves)(i, d["Xs"], d["ys"], tr, va, Ks) for i, (tr, va) in enumerate(d["folds"]))
+    outs = Parallel(n_jobs=u.N_JOBS, max_nbytes=None)(
+        delayed(fold_curves)(i, d["Xs"], d["ys"], tr, va, Ks, u.config()) for i, (tr, va) in enumerate(d["folds"]))
     P_orig = np.array([[o[0][K] for K in Ks] for o in outs])
     P_e2 = np.array([[o[1][K] for K in Ks] for o in outs])
 

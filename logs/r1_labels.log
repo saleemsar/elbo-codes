@@ -1,0 +1,150 @@
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (75) found smaller than n_clusters (76). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+[S3/multiclass] n=76 K*=30 (K_hat=67, K_wcss=19) acc=0.8523 wF1=0.8529 mF1=0.5207 consistent=True 333s
+[S1/multiclass] n=20 K*=17 (K_hat=19, K_wcss=10) acc=0.8348 wF1=0.8338 mF1=0.7509 consistent=True 188s
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (31) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (31) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (31). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (31) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (31) found smaller than n_clusters (33). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (31) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (31) found smaller than n_clusters (33). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (31) found smaller than n_clusters (33). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (31) found smaller than n_clusters (33). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (33). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+[S2/multiclass] n=33 K*=26 (K_hat=28, K_wcss=8) acc=0.9471 wF1=0.9480 mF1=0.7911 consistent=True 323s
+[S3/multiclass] n=76 K*=34 (K_hat=40, K_wcss=17) acc=0.9013 wF1=0.9042 mF1=0.6745 consistent=True 330s
+[S1/multiclass] n=20 K*=19 (K_hat=20, K_wcss=8) acc=0.8359 wF1=0.8349 mF1=0.7533 consistent=True 188s
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (31). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (31). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (29) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (31). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (31). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (31). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (33). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (33). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (31) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (33). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (33). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (31) found smaller than n_clusters (33). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+[S2/multiclass] n=33 K*=28 (K_hat=28, K_wcss=10) acc=0.9469 wF1=0.9480 mF1=0.7861 consistent=True 345s
+[S3/multiclass] n=76 K*=39 (K_hat=65, K_wcss=19) acc=0.8994 wF1=0.9017 mF1=0.6395 consistent=True 339s
+[S1/multiclass] n=20 K*=18 (K_hat=20, K_wcss=11) acc=0.8336 wF1=0.8330 mF1=0.7236 consistent=True 185s
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (28) found smaller than n_clusters (29). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (29) found smaller than n_clusters (30). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (29) found smaller than n_clusters (30). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (29) found smaller than n_clusters (30). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (29) found smaller than n_clusters (31). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (31). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (29) found smaller than n_clusters (31). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (28) found smaller than n_clusters (30). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (29) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (31) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (29) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (28) found smaller than n_clusters (31). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (28) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+[S2/multiclass] n=32 K*=30 (K_hat=32, K_wcss=8) acc=0.9475 wF1=0.9484 mF1=0.8068 consistent=True 355s
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (75) found smaller than n_clusters (76). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+[S3/multiclass] n=76 K*=10 (K_hat=10, K_wcss=16) acc=0.9207 wF1=0.9218 mF1=0.6928 consistent=True 320s
+Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (31). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (31). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (33). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (31). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (33). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (31) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (33). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (33). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (31) found smaller than n_clusters (33). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+[S2/multiclass] n=33 K*=28 (K_hat=28, K_wcss=10) acc=0.9469 wF1=0.9480 mF1=0.7861 consistent=True 382s
+[S3/multiclass] n=76 K*=39 (K_hat=65, K_wcss=19) acc=0.8994 wF1=0.9017 mF1=0.6395 consistent=True 295s
+[S1/multiclass] n=20 K*=18 (K_hat=20, K_wcss=11) acc=0.8336 wF1=0.8330 mF1=0.7236 consistent=True 197s
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (28) found smaller than n_clusters (29). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (29) found smaller than n_clusters (30). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (29) found smaller than n_clusters (30). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (29) found smaller than n_clusters (30). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (29) found smaller than n_clusters (31). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (28) found smaller than n_clusters (30). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (29) found smaller than n_clusters (31). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (30) found smaller than n_clusters (31). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (29) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (29) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (31) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (28) found smaller than n_clusters (31). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (28) found smaller than n_clusters (32). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+[S2/multiclass] n=32 K*=30 (K_hat=32, K_wcss=8) acc=0.9475 wF1=0.9484 mF1=0.8068 consistent=True 393s
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\sklearn\base.py:1403: ConvergenceWarning: Number of distinct clusters (75) found smaller than n_clusters (76). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+[S3/multiclass] n=76 K*=10 (K_hat=10, K_wcss=16) acc=0.9207 wF1=0.9218 mF1=0.6928 consistent=True 397s
+label coding finished

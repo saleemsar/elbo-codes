@@ -9,11 +9,11 @@ import uav_ehfs as U
 
 U.KEEP_DUPLICATES = True
 df, label = U.load_raw("S3")
-X, y, _ = U.preprocess(df, label, "multiclass")
+X, y, _ = U.preprocess(df, label, "multiclass", "S3")
 h = pd.util.hash_pandas_object(X, index=False).values
 labels_per_vector = pd.Series(y.values).groupby(h).agg(lambda s: set(s))
 conflicting = labels_per_vector[labels_per_vector.map(len) > 1]
-p = pd.read_csv(os.path.join(U.OUT_DIR, "with_duplicates", "S3_multiclass_test_predictions.csv.gz"))
+p = pd.read_csv(os.path.join(U.OUT_DIR, "sensitivity", "with_duplicates", "S3_multiclass_test_predictions.csv.gz"))
 p["vector"] = h[p.row_id.values]
 mis = p[(p.y_true == "DoS") & (p.y_pred_task_aware != "DoS")]
 out = {"S3_conflicting_vectors": int(len(conflicting)),

@@ -1,62 +1,35 @@
-# Analyses added in response to the reviewer (PONE-D-26-48338)
+# Analyses added in revision 1 (PONE-D-26-48338)
 
-Everything in this folder was added after the manuscript was submitted (tag
-`v2.0.1-review`). Nothing outside `review/` was changed: the code and results
-that correspond to the manuscript are those of tag `v2.0.0-manuscript`.
-
-Both scripts import `uav_ehfs.py` unchanged, so data preparation, the
-train/test split, the selection sample, the folds and all seeds are those of the
-manuscript. They were run on Windows with Python 3.14 and the library versions
-in `requirements.txt` (the reported results were produced on Linux with
-Python 3.11.15).
-
-## 1. Independent re-run (`reproduce.py`)
+Every computation of the revision is listed, in the order it was run, in
+`run_revision.sh`:
 
 ```bash
-python review/reproduce.py            # re-runs uav_ehfs.py -> review/reproduction/, then compares
-python review/reproduce.py --compare  # comparison only
+bash review/run_revision.sh all     # or: main | sensitivity | stability | labels | review
 ```
 
-Writes `review/reproduction/` (same format as `results/`) and
-`review/reproduction_check.json`, which compares each scenario and task with
-`results/`: K\*, selected features, WCSS knee, per-fold CV curves, ablation, test
-metrics, confusion matrices and test-set predictions, with the number of test
-rows whose prediction differs for each configuration.
+The main analysis (`uav_ehfs.py`, results in `../results/`) uses the cleaned
+feature set (identifier and clock columns removed by content, S3 headers
+realigned), the ANOVA F statistic in Stage 2 and median imputation. The scripts
+below reuse `uav_ehfs.prepare()`, so they see exactly the partitions, selection
+sample, folds and seeds of the main analysis.
 
-Result: in all six cases, K\*, the selected features and the WCSS knee are
-identical and the ablation results are identical. Task-aware elbow test-set
-predictions are identical in five cases and differ in 3 of 169,116 rows in the
-sixth (S1 multi-class). No reported test metric changes by more than 0.00013.
-These differences also appear for the all-features detector and come from
-platform floating-point and tie-breaking differences.
+| Script | Output | Reviewer comment | Paper |
+|---|---|---|---|
+| `feature_audit.py` | `feature_audit/` (status of every column, S3 realignment check) | R1.7, R2.5 | Feature audit, Table 4, S4 and S5 Tables |
+| `duplicate_origin.py` | `duplicate_origin/` | R1.6 | Preprocessing, S6 Table |
+| `smote_placement.py` | `smote_placement/` (E1/E2 placements) | R2.4 | Sensitivity to the placement of SMOTE, S3 Table |
+| `baselines.py` | `baselines/` (other detectors, other selectors, size-constrained trees) | R1.2, R1.9, R1.11, R2.3 | Tables 14, 15, 20; S9 and S10 Tables |
+| `evaluation_checks.py` | `evaluation_checks/` (Wilson intervals, test-row overlap, capture-order split, S3 confusions, SMOTE on S1) | R1.3, R1.4, R1.12, R2.6 | Tables 11-13, 17, 22 |
+| `deployment_cost.py` | `deployment_cost/summary.json` (single-core selection cost, inference cost) | R1.5, R1.10 | Table 21 |
+| `tree_features_used.py` | `deployment_cost/features_used.json` | R1.10 | Table 20 (last column) |
+| `reproduce.py` | `reproduction/`, `reproduction_check.json` | — | Re-run of the earlier configuration on a second machine |
 
-## 2. SMOTE placement (`smote_placement.py`)
+Sensitivity analyses (`../results/sensitivity/`), resampling runs with seeds 1-10
+(`../results/stability/`) and the Pearson Stage 2 score under random class codings
+(`../results/label_coding/`) are produced by `uav_ehfs.py` options, as listed in
+`run_revision.sh`. `../results/round1/` holds the outputs of the configuration in
+which identifiers are removed only by name and IP-address content (clock columns
+retained), with the Pearson score in Stage 2 and mean imputation.
 
-In `uav_ehfs.py`, SMOTE is applied in the full feature space in the CV sweep
-(`run_fold`) and in the selected-feature subspace for the final model
-(`fit_final`). This script makes the two stages consistent in each direction:
-
-- **E1**: full-space SMOTE at both stages (K\* and F\* unchanged; final detector
-  trained on the full-space SMOTE-balanced training partition restricted to F\*).
-- **E2**: subset-space SMOTE at both stages (for every K the CV detector is
-  trained on SMOTE applied after restricting the fold to F_K; the one-SE rule
-  gives K\*_E2; final model as reported).
-
-```bash
-python review/smote_placement.py all      # or: python review/smote_placement.py S3 multiclass
-```
-
-Outputs per scenario and task in `review/smote_placement/`: K\*, subsets, CV
-curves (per fold for E2), test metrics and confusion matrices for the reported
-configuration (recomputed on the same machine), E1 and E2, and test-set
-predictions for all of them. `summary.csv` is Table R1 of the response letter.
-
-Result: in five of six cases E2 selects the same K\* and features, and test
-weighted and macro F1 differ by at most 0.0001 between the placements. In S3
-multi-class, where the CV curve is nearly flat, E2 selects K\* = 19 (the 11
-reported features plus 8); test weighted F1 is unchanged (0.8968 / 0.8970 / 0.8969
-for reported / E1 / E2) and macro F1 is 0.6535 / 0.6775 / 0.6697. No consistent
-placement lowers any reported test metric by more than 0.0002.
-
-`smote_placement.log` holds the console output of the runs (S1 binary was run
-first, separately, and its line is not in the log; its output file is complete).
+All tables, in-text numbers and Fig 4-7 are generated from these files by
+`python make_tables.py`.

@@ -1,0 +1,2098 @@
+{
+ "scenario": "S2",
+ "scenario_name": "Rogue access point",
+ "task": "multiclass",
+ "class_names": [
+  "Brute-Force",
+  "DDoS",
+  "De-authentication",
+  "DoS",
+  "Evil Twin",
+  "Fake Landing",
+  "MITM",
+  "Normal",
+  "Reconnaissance",
+  "Replay",
+  "Scanning"
+ ],
+ "protocol": {
+  "seed": 4,
+  "test_size": 0.2,
+  "n_folds": 5,
+  "selection_sample_cap": 60000,
+  "min_per_class_selection": 50,
+  "kmeans_n_init": 10,
+  "K_range": [
+   2,
+   33
+  ],
+  "stopping_rule": "one-SE: K* = min{K : meanF1(K) >= meanF1(K_hat) - SE(K_hat)}, K_hat = argmax meanF1, full sweep K=2..n, 5-fold CV weighted F1",
+  "detector": "DecisionTreeClassifier(criterion=gini, class_weight=balanced, random_state=42)",
+  "smote": "all classes with >=2 samples to majority count, k=min(5, min class-1), training folds only",
+  "feature_set": "clean",
+  "stage2": "anova",
+  "impute": "median",
+  "label_perm": null,
+  "fast": true
+ },
+ "preprocessing": {
+  "n_rows_raw": 631356,
+  "n_columns_raw": 50,
+  "class_counts_raw": {
+   "Brute-Force": 172509,
+   "De-authentication": 155564,
+   "Normal": 129541,
+   "Scanning": 70319,
+   "DDoS": 31612,
+   "Fake Landing": 24584,
+   "DoS": 23612,
+   "Evil Twin": 10034,
+   "Replay": 8525,
+   "MITM": 5016,
+   "Reconnaissance": 40
+  },
+  "feature_set": "clean",
+  "p1_dropped_by_audit": [
+   "data.len",
+   "ip.proto",
+   "ip.ttl",
+   "radiotap.channel.flags.cck",
+   "radiotap.rxflags"
+  ],
+  "p1_dropped_by_name": [
+   "frame.number",
+   "frame.time_epoch",
+   "frame.time_relative",
+   "ip.dst",
+   "ip.src",
+   "radiotap.mactime",
+   "radiotap.timestamp.ts",
+   "udp.dstport",
+   "udp.srcport",
+   "wlan.seq",
+   "wlan_radio.end_tsf"
+  ],
+  "p1_dropped_ip_content": [],
+  "p5_unparsable_fraction": {
+   "wlan_radio.data_rate": 8.7e-05,
+   "icmpv6.mldr.nb_mcast_records": 3e-06,
+   "nbss.continuation_data": 0.000443,
+   "dns": 0.00028,
+   "http.connection": 0.000393,
+   "http.content_length": 4.9e-05,
+   "http.content_type": 1.9e-05,
+   "http.date": 1.9e-05,
+   "http.file_data": 3.5e-05,
+   "http.host": 3.3e-05,
+   "http.last_modified": 0.000426,
+   "http.location": 1.7e-05
+  },
+  "n_duplicate_rows": 258803,
+  "n_feature_vectors_with_conflicting_labels": 1798,
+  "duplicates_removed": true,
+  "n_rows_used": 372553,
+  "class_counts_used": {
+   "Brute-Force": 131229,
+   "Normal": 127950,
+   "Scanning": 25965,
+   "DoS": 23612,
+   "De-authentication": 16535,
+   "Fake Landing": 16462,
+   "DDoS": 10553,
+   "Evil Twin": 9671,
+   "Replay": 5930,
+   "MITM": 4626,
+   "Reconnaissance": 20
+  },
+  "classes_dropped_fewer_than_2_rows": [],
+  "p2_dropped_zero_variance": [
+   "wlan.fc.protected"
+  ],
+  "n_features_after_preprocessing": 33
+ },
+ "split": {
+  "n_train": 298042,
+  "n_test": 74511,
+  "train_counts": {
+   "Brute-Force": 104983,
+   "DDoS": 8442,
+   "De-authentication": 13228,
+   "DoS": 18889,
+   "Evil Twin": 7737,
+   "Fake Landing": 13170,
+   "MITM": 3701,
+   "Normal": 102360,
+   "Reconnaissance": 16,
+   "Replay": 4744,
+   "Scanning": 20772
+  },
+  "test_counts": {
+   "Brute-Force": 26246,
+   "DDoS": 2111,
+   "De-authentication": 3307,
+   "DoS": 4723,
+   "Evil Twin": 1934,
+   "Fake Landing": 3292,
+   "MITM": 925,
+   "Normal": 25590,
+   "Reconnaissance": 4,
+   "Replay": 1186,
+   "Scanning": 5193
+  }
+ },
+ "selection": {
+  "n_selection_rows": 60013,
+  "selection_counts": {
+   "Brute-Force": 21135,
+   "DDoS": 1699,
+   "De-authentication": 2663,
+   "DoS": 3803,
+   "Evil Twin": 1558,
+   "Fake Landing": 2651,
+   "MITM": 745,
+   "Normal": 20606,
+   "Reconnaissance": 16,
+   "Replay": 955,
+   "Scanning": 4182
+  },
+  "K": [
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31,
+   32,
+   33
+  ],
+  "cv_f1_mean": [
+   0.09081144046375546,
+   0.35506738953617756,
+   0.6086481263062323,
+   0.7032485137846152,
+   0.8840096744742854,
+   0.8864998620671797,
+   0.8941826409089663,
+   0.8942911533897091,
+   0.8949332182982909,
+   0.8961107724382483,
+   0.8967351989787364,
+   0.9000430005037753,
+   0.898397819880653,
+   0.9002061607580789,
+   0.8999977633913983,
+   0.8996646851731473,
+   0.9070573061814937,
+   0.9190509354481693,
+   0.9250333441272869,
+   0.9271769958950149,
+   0.9272843454215426,
+   0.9273414190967527,
+   0.936222219263825,
+   0.9420616762626624,
+   0.942538165289393,
+   0.9455995078267007,
+   0.9454336405232275,
+   0.9455247696068394,
+   0.945619981134169,
+   0.9456219611046226,
+   0.945552050579143,
+   0.9455324437918318
+  ],
+  "cv_f1_sd": [
+   0.12394515280485678,
+   0.060505439701345455,
+   0.24570842511449134,
+   0.247123428423115,
+   0.0016319076609438501,
+   0.0078647177501779,
+   0.0017682263958734192,
+   0.0016122086088085751,
+   0.0023651813725629432,
+   0.005300280542824766,
+   0.004003576773033847,
+   0.004657943889404048,
+   0.005930380981564212,
+   0.005135912718487556,
+   0.0047796795065201915,
+   0.005827118985137545,
+   0.013904049532559035,
+   0.013867175136466453,
+   0.019260538487559247,
+   0.015190048986992888,
+   0.015213164153764166,
+   0.015220752392223895,
+   0.009280429309187021,
+   0.008397582106187589,
+   0.006727126590689976,
+   0.0017111871527891239,
+   0.0017814789288147681,
+   0.0018672917130361584,
+   0.0019233530645722191,
+   0.0019247515202171321,
+   0.0018810641728904827,
+   0.0018544313972369928
+  ],
+  "cv_f1_se": [
+   0.0554299574306517,
+   0.0270588552361446,
+   0.10988414824008383,
+   0.11051695695737775,
+   0.0007298112925746255,
+   0.0035172087026493983,
+   0.0007907748841564838,
+   0.000721001608641268,
+   0.0010577412656333995,
+   0.0023703575187151325,
+   0.0017904539635285857,
+   0.0020830958344174428,
+   0.0026521470014499006,
+   0.0022968499930087834,
+   0.0021375376574483593,
+   0.0026059668327494275,
+   0.006218079983465235,
+   0.006201589252206782,
+   0.008613574668286692,
+   0.006793196423293583,
+   0.006803533840135947,
+   0.006806927403541034,
+   0.0041503341591447186,
+   0.003755512887214261,
+   0.003008462470005838,
+   0.00076526615917216,
+   0.000796701597062666,
+   0.000835078240834176,
+   0.0008601496394232049,
+   0.0008607750478003136,
+   0.0008412374721245072,
+   0.0008293269327663662
+  ],
+  "cv_f1_per_fold": [
+   [
+    0.03713925487167725,
+    0.4137550163188344,
+    0.42658639518627783,
+    0.8838139345490169,
+    0.8838139345490169,
+    0.8804406436752718,
+    0.8937373220898865,
+    0.8936539916033748,
+    0.8941027633520826,
+    0.8937322835946607,
+    0.8942645281453208,
+    0.9023634717332034,
+    0.8940142447839793,
+    0.9024414185493623,
+    0.9023579876975971,
+    0.9024414185493623,
+    0.9023579876975971,
+    0.930122742370117,
+    0.9301056111652695,
+    0.930297813195841,
+    0.929994096300033,
+    0.9302748146515321,
+    0.9303652105183416,
+    0.9425559468655307,
+    0.9430648815684706,
+    0.942793302943194,
+    0.9425498695176808,
+    0.9425633894237416,
+    0.9425633894237416,
+    0.9425633894237416,
+    0.9425633894237416,
+    0.9425633894237416
+   ],
+   [
+    0.03566152170981913,
+    0.3133196072791856,
+    0.877955336754281,
+    0.8826860180756915,
+    0.8826860180756915,
+    0.8808562146169798,
+    0.8918843989206571,
+    0.8925067472759615,
+    0.8925938448073084,
+    0.8925067472759615,
+    0.9035612851725168,
+    0.9036147543779665,
+    0.8926757879994209,
+    0.9036147543779665,
+    0.9037251070565037,
+    0.9037785763194288,
+    0.9305610807013687,
+    0.9304751723196092,
+    0.9461917499446528,
+    0.9463905353479463,
+    0.9466947385101562,
+    0.9466048741447304,
+    0.9471887362806753,
+    0.9475020681717118,
+    0.9473760317628299,
+    0.9472332046029168,
+    0.9472842963986979,
+    0.9476209003994988,
+    0.9476209003994988,
+    0.9476209003994988,
+    0.9476209003994988,
+    0.9475228664629419
+   ],
+   [
+    0.035618590667597844,
+    0.31193664665220794,
+    0.877639232310251,
+    0.4322068182805358,
+    0.8864764096548332,
+    0.896562977506521,
+    0.8964762967239693,
+    0.8964809003038653,
+    0.8985658497622729,
+    0.9054344120023804,
+    0.8965598225009586,
+    0.8965598225009586,
+    0.9055213502648616,
+    0.9054344120023804,
+    0.8964787415752115,
+    0.9053400339390859,
+    0.9051760763973636,
+    0.9267691440710936,
+    0.9267691440710936,
+    0.9266874616002336,
+    0.9270117944469954,
+    0.9273197250663222,
+    0.927431154774785,
+    0.9274213493707715,
+    0.9451100818516874,
+    0.945302114724757,
+    0.9451471949078875,
+    0.9452340589369305,
+    0.9452340589369305,
+    0.9452340589369305,
+    0.9452340589369305,
+    0.9452340589369305
+   ],
+   [
+    0.31251623911032894,
+    0.4283844109005709,
+    0.4283844109005709,
+    0.4328723307733172,
+    0.8824569772034239,
+    0.8934938596377612,
+    0.8934953957807333,
+    0.8934108400022849,
+    0.8934953957807333,
+    0.8936611480244432,
+    0.8934945880853262,
+    0.8936611480244432,
+    0.9039833190289387,
+    0.8936611480244432,
+    0.893410879355616,
+    0.8934945880853262,
+    0.8934945880853262,
+    0.9041372253261784,
+    0.8934945880853262,
+    0.9039011848092802,
+    0.9040535915274833,
+    0.9039833386093601,
+    0.930787123446344,
+    0.9463836400388158,
+    0.9308489771810995,
+    0.9463258723056369,
+    0.9460717998132878,
+    0.9462271320179146,
+    0.946703189654563,
+    0.9467130895068313,
+    0.9463635368794336,
+    0.9463635368794336
+   ],
+   [
+    0.033121595959354114,
+    0.3079412665300892,
+    0.43267525637978105,
+    0.8846634672445143,
+    0.8846150328884609,
+    0.8811456148993642,
+    0.8953197910295848,
+    0.895403287763059,
+    0.8959082377890569,
+    0.8952192712937955,
+    0.8957957709895599,
+    0.9040158058823056,
+    0.8957943973260651,
+    0.8958790708362419,
+    0.9040161012720626,
+    0.8932688089725331,
+    0.9036967980258128,
+    0.9037503931538479,
+    0.9286056273700919,
+    0.9286079845217727,
+    0.9286675063230453,
+    0.9285243430118182,
+    0.9453388712989788,
+    0.9464453768664823,
+    0.9462908540828779,
+    0.9463430445569987,
+    0.9461150419785835,
+    0.9459783672561111,
+    0.9459783672561111,
+    0.9459783672561111,
+    0.9459783672561111,
+    0.9459783672561111
+   ]
+  ],
+  "K_hat_argmax": 31,
+  "one_se_threshold": 0.9447611860568222,
+  "K_star": 27,
+  "n_selected": 27,
+  "reduction_pct": 18.181818181818176,
+  "cv_f1_at_K_star": 0.9455995078267007,
+  "cv_f1_at_all_features": 0.9455324437918318,
+  "K_wcss_kneedle": 8,
+  "cv_f1_at_K_wcss": 0.8941826409089663,
+  "wcss_curve": [
+   48.99930762345804,
+   34.71214329956275,
+   30.107049949368776,
+   26.04448076348476,
+   22.344765089151746,
+   18.87201731269049,
+   15.621056648774696,
+   14.088122527564702,
+   12.89117002683993,
+   11.438346892784939,
+   10.20746951652879,
+   8.84160170441108,
+   7.85640043089921,
+   6.731851756603906,
+   5.731164517944774,
+   4.901272801232372,
+   3.781790017369426,
+   3.018415467985545,
+   2.313208756998042,
+   1.6977442188372596,
+   1.0915421500194484,
+   0.6521567803895035,
+   0.309959778308556,
+   0.029346145852093414,
+   0.013073717732717427,
+   0.000443625418848235,
+   2.2519400871650794e-05,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "selected_features": [
+   {
+    "feature": "wlan.fc.retry",
+    "index": 14,
+    "score": 405837.0013773095,
+    "cluster": 25,
+    "cluster_size": 1,
+    "cluster_members": [
+     "wlan.fc.retry"
+    ]
+   },
+   {
+    "feature": "wlan.fcs.bad_checksum",
+    "index": 16,
+    "score": 140406.49460440534,
+    "cluster": 14,
+    "cluster_size": 1,
+    "cluster_members": [
+     "wlan.fcs.bad_checksum"
+    ]
+   },
+   {
+    "feature": "wlan.fc.pwrmgt",
+    "index": 12,
+    "score": 110217.06670550125,
+    "cluster": 9,
+    "cluster_size": 1,
+    "cluster_members": [
+     "wlan.fc.pwrmgt"
+    ]
+   },
+   {
+    "feature": "wlan.duration",
+    "index": 10,
+    "score": 67038.80659546972,
+    "cluster": 2,
+    "cluster_size": 1,
+    "cluster_members": [
+     "wlan.duration"
+    ]
+   },
+   {
+    "feature": "frame.len",
+    "index": 1,
+    "score": 61584.1358295695,
+    "cluster": 19,
+    "cluster_size": 1,
+    "cluster_members": [
+     "frame.len"
+    ]
+   },
+   {
+    "feature": "radiotap.channel.flags.ofdm",
+    "index": 3,
+    "score": 20640.879980130052,
+    "cluster": 22,
+    "cluster_size": 1,
+    "cluster_members": [
+     "radiotap.channel.flags.ofdm"
+    ]
+   },
+   {
+    "feature": "wlan.fc.subtype",
+    "index": 15,
+    "score": 11595.35080785267,
+    "cluster": 6,
+    "cluster_size": 1,
+    "cluster_members": [
+     "wlan.fc.subtype"
+    ]
+   },
+   {
+    "feature": "frame.time_delta_displayed",
+    "index": 2,
+    "score": 7639.737691105633,
+    "cluster": 24,
+    "cluster_size": 1,
+    "cluster_members": [
+     "frame.time_delta_displayed"
+    ]
+   },
+   {
+    "feature": "icmpv6.mldr.nb_mcast_records",
+    "index": 20,
+    "score": 7502.8512805198025,
+    "cluster": 23,
+    "cluster_size": 1,
+    "cluster_members": [
+     "icmpv6.mldr.nb_mcast_records"
+    ]
+   },
+   {
+    "feature": "radiotap.channel.freq",
+    "index": 4,
+    "score": 5499.10763998571,
+    "cluster": 7,
+    "cluster_size": 1,
+    "cluster_members": [
+     "radiotap.channel.freq"
+    ]
+   },
+   {
+    "feature": "radiotap.dbm_antsignal",
+    "index": 6,
+    "score": 5342.256592140664,
+    "cluster": 10,
+    "cluster_size": 1,
+    "cluster_members": [
+     "radiotap.dbm_antsignal"
+    ]
+   },
+   {
+    "feature": "wlan_radio.data_rate",
+    "index": 17,
+    "score": 4523.140384316814,
+    "cluster": 8,
+    "cluster_size": 1,
+    "cluster_members": [
+     "wlan_radio.data_rate"
+    ]
+   },
+   {
+    "feature": "wlan.fc.moredata",
+    "index": 11,
+    "score": 3787.554767256171,
+    "cluster": 20,
+    "cluster_size": 1,
+    "cluster_members": [
+     "wlan.fc.moredata"
+    ]
+   },
+   {
+    "feature": "frame.encap_type",
+    "index": 0,
+    "score": 3417.0032376518584,
+    "cluster": 16,
+    "cluster_size": 1,
+    "cluster_members": [
+     "frame.encap_type"
+    ]
+   },
+   {
+    "feature": "radiotap.length",
+    "index": 7,
+    "score": 2882.7169048929422,
+    "cluster": 17,
+    "cluster_size": 1,
+    "cluster_members": [
+     "radiotap.length"
+    ]
+   },
+   {
+    "feature": "radiotap.datarate",
+    "index": 5,
+    "score": 427.148270973742,
+    "cluster": 21,
+    "cluster_size": 1,
+    "cluster_members": [
+     "radiotap.datarate"
+    ]
+   },
+   {
+    "feature": "radiotap.present.tsft",
+    "index": 8,
+    "score": 294.3496030550932,
+    "cluster": 4,
+    "cluster_size": 1,
+    "cluster_members": [
+     "radiotap.present.tsft"
+    ]
+   },
+   {
+    "feature": "udp.length",
+    "index": 21,
+    "score": 244.72638542621334,
+    "cluster": 13,
+    "cluster_size": 1,
+    "cluster_members": [
+     "udp.length"
+    ]
+   },
+   {
+    "feature": "eapol.keydes.replay_counter",
+    "index": 18,
+    "score": 176.25977625247842,
+    "cluster": 18,
+    "cluster_size": 1,
+    "cluster_members": [
+     "eapol.keydes.replay_counter"
+    ]
+   },
+   {
+    "feature": "wlan.fc.type",
+    "index": 13,
+    "score": 40.490027982344614,
+    "cluster": 12,
+    "cluster_size": 1,
+    "cluster_members": [
+     "wlan.fc.type"
+    ]
+   },
+   {
+    "feature": "radiotap.vendor_oui",
+    "index": 9,
+    "score": 22.021881322606905,
+    "cluster": 11,
+    "cluster_size": 1,
+    "cluster_members": [
+     "radiotap.vendor_oui"
+    ]
+   },
+   {
+    "feature": "nbss.continuation_data",
+    "index": 23,
+    "score": 9.396186009825787,
+    "cluster": 5,
+    "cluster_size": 2,
+    "cluster_members": [
+     "nbns",
+     "nbss.continuation_data"
+    ]
+   },
+   {
+    "feature": "http.connection",
+    "index": 25,
+    "score": 3.0002838308077275,
+    "cluster": 3,
+    "cluster_size": 2,
+    "cluster_members": [
+     "http.connection",
+     "http.content_length"
+    ]
+   },
+   {
+    "feature": "http.file_data",
+    "index": 29,
+    "score": 1.0222275695397725,
+    "cluster": 26,
+    "cluster_size": 1,
+    "cluster_members": [
+     "http.file_data"
+    ]
+   },
+   {
+    "feature": "arp",
+    "index": 19,
+    "score": 1.0007455581151654,
+    "cluster": 1,
+    "cluster_size": 1,
+    "cluster_members": [
+     "arp"
+    ]
+   },
+   {
+    "feature": "http.date",
+    "index": 28,
+    "score": 0.9999999878926603,
+    "cluster": 0,
+    "cluster_size": 5,
+    "cluster_members": [
+     "http.content_type",
+     "http.date",
+     "http.host",
+     "http.last_modified",
+     "http.location"
+    ]
+   },
+   {
+    "feature": "dns",
+    "index": 24,
+    "score": 0.0,
+    "cluster": 15,
+    "cluster_size": 1,
+    "cluster_members": [
+     "dns"
+    ]
+   }
+  ],
+  "wcss_features": [
+   "frame.len",
+   "radiotap.dbm_antsignal",
+   "wlan.fc.retry",
+   "wlan.fcs.bad_checksum",
+   "wlan_radio.data_rate",
+   "nbss.continuation_data",
+   "http.connection",
+   "http.file_data"
+  ],
+  "k_hat_features": [
+   "frame.encap_type",
+   "frame.len",
+   "frame.time_delta_displayed",
+   "radiotap.channel.flags.ofdm",
+   "radiotap.channel.freq",
+   "radiotap.datarate",
+   "radiotap.dbm_antsignal",
+   "radiotap.length",
+   "radiotap.present.tsft",
+   "radiotap.vendor_oui",
+   "wlan.duration",
+   "wlan.fc.moredata",
+   "wlan.fc.pwrmgt",
+   "wlan.fc.type",
+   "wlan.fc.retry",
+   "wlan.fc.subtype",
+   "wlan.fcs.bad_checksum",
+   "wlan_radio.data_rate",
+   "eapol.keydes.replay_counter",
+   "arp",
+   "icmpv6.mldr.nb_mcast_records",
+   "udp.length",
+   "nbns",
+   "nbss.continuation_data",
+   "dns",
+   "http.connection",
+   "http.content_type",
+   "http.date",
+   "http.file_data"
+  ],
+  "sweep_runtime_s": 55.8555645942688
+ },
+ "ablation_cv": {
+  "n_features": {
+   "A_full": 27,
+   "B_random_representative": 27,
+   "C_all_features": 33,
+   "D_no_smote": 27
+  }
+ },
+ "test": {
+  "task_aware": {
+   "n_test": 74511,
+   "accuracy": 0.9459006052797574,
+   "balanced_accuracy": 0.814979817012329,
+   "macro": {
+    "precision": 0.8033555558224905,
+    "recall": 0.814979817012329,
+    "f1": 0.8000575206062912
+   },
+   "weighted": {
+    "precision": 0.9535695757068405,
+    "recall": 0.9459006052797574,
+    "f1": 0.9468043900652809
+   },
+   "per_class": [
+    {
+     "class": "Brute-Force",
+     "precision": 0.9993124259902976,
+     "recall": 0.9967614112626686,
+     "f1": 0.9980352885073915,
+     "support": 26246,
+     "tp": 26161,
+     "fp": 18,
+     "fn": 85
+    },
+    {
+     "class": "DDoS",
+     "precision": 0.5035355414960923,
+     "recall": 0.6409284699194695,
+     "f1": 0.5639849937473947,
+     "support": 2111,
+     "tp": 1353,
+     "fp": 1334,
+     "fn": 758
+    },
+    {
+     "class": "De-authentication",
+     "precision": 0.9136874361593462,
+     "recall": 0.5409736921681282,
+     "f1": 0.679582146248813,
+     "support": 3307,
+     "tp": 1789,
+     "fp": 169,
+     "fn": 1518
+    },
+    {
+     "class": "DoS",
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "support": 4723,
+     "tp": 4723,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "Evil Twin",
+     "precision": 0.5662482566248257,
+     "recall": 0.6297828335056876,
+     "f1": 0.596328029375765,
+     "support": 1934,
+     "tp": 1218,
+     "fp": 933,
+     "fn": 716
+    },
+    {
+     "class": "Fake Landing",
+     "precision": 0.9743742550655542,
+     "recall": 0.9933171324422844,
+     "f1": 0.983754512635379,
+     "support": 3292,
+     "tp": 3270,
+     "fp": 86,
+     "fn": 22
+    },
+    {
+     "class": "MITM",
+     "precision": 0.44908285895003164,
+     "recall": 0.7675675675675676,
+     "f1": 0.5666400638467678,
+     "support": 925,
+     "tp": 710,
+     "fp": 871,
+     "fn": 215
+    },
+    {
+     "class": "Normal",
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "support": 25590,
+     "tp": 25590,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "Reconnaissance",
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "support": 4,
+     "tp": 4,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "Replay",
+     "precision": 0.43067033976124885,
+     "recall": 0.3954468802698145,
+     "f1": 0.4123076923076923,
+     "support": 1186,
+     "tp": 469,
+     "fp": 620,
+     "fn": 717
+    },
+    {
+     "class": "Scanning",
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "support": 5193,
+     "tp": 5193,
+     "fp": 0,
+     "fn": 0
+    }
+   ],
+   "confusion_matrix": {
+    "labels": [
+     "Brute-Force",
+     "DDoS",
+     "De-authentication",
+     "DoS",
+     "Evil Twin",
+     "Fake Landing",
+     "MITM",
+     "Normal",
+     "Reconnaissance",
+     "Replay",
+     "Scanning"
+    ],
+    "rows_true_cols_pred": [
+     [
+      26161,
+      0,
+      0,
+      0,
+      0,
+      85,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1353,
+      27,
+      0,
+      240,
+      1,
+      270,
+      0,
+      0,
+      220,
+      0
+     ],
+     [
+      0,
+      602,
+      1789,
+      0,
+      404,
+      0,
+      251,
+      0,
+      0,
+      261,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      4723,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      316,
+      57,
+      0,
+      1218,
+      0,
+      240,
+      0,
+      0,
+      103,
+      0
+     ],
+     [
+      18,
+      1,
+      2,
+      0,
+      0,
+      3270,
+      1,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      58,
+      12,
+      0,
+      109,
+      0,
+      710,
+      0,
+      0,
+      36,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      25590,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      0,
+      0
+     ],
+     [
+      0,
+      357,
+      71,
+      0,
+      180,
+      0,
+      109,
+      0,
+      0,
+      469,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      5193
+     ]
+    ]
+   },
+   "consistency_checks": {
+    "accuracy_from_cm": 0.9459006052797574,
+    "macro_f1_from_cm": 0.8000575206062912,
+    "weighted_f1_from_cm": 0.9468043900652809,
+    "all_consistent": true
+   }
+  },
+  "all_features": {
+   "n_test": 74511,
+   "accuracy": 0.9459408677913328,
+   "balanced_accuracy": 0.8153311209112136,
+   "macro": {
+    "precision": 0.8035650872780619,
+    "recall": 0.8153311209112136,
+    "f1": 0.8003047282353488
+   },
+   "weighted": {
+    "precision": 0.9536165280867496,
+    "recall": 0.9459408677913328,
+    "f1": 0.9468440651306501
+   },
+   "per_class": [
+    {
+     "class": "Brute-Force",
+     "precision": 0.9993123209169055,
+     "recall": 0.9966090070867942,
+     "f1": 0.9979588332920013,
+     "support": 26246,
+     "tp": 26157,
+     "fp": 18,
+     "fn": 89
+    },
+    {
+     "class": "DDoS",
+     "precision": 0.5044676098287416,
+     "recall": 0.6418758882046424,
+     "f1": 0.5649364185949551,
+     "support": 2111,
+     "tp": 1355,
+     "fp": 1331,
+     "fn": 756
+    },
+    {
+     "class": "De-authentication",
+     "precision": 0.9147524247064829,
+     "recall": 0.5418808587843967,
+     "f1": 0.6805924800607672,
+     "support": 3307,
+     "tp": 1792,
+     "fp": 167,
+     "fn": 1515
+    },
+    {
+     "class": "DoS",
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "support": 4723,
+     "tp": 4723,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "Evil Twin",
+     "precision": 0.5665116279069767,
+     "recall": 0.6297828335056876,
+     "f1": 0.5964740450538688,
+     "support": 1934,
+     "tp": 1218,
+     "fp": 932,
+     "fn": 716
+    },
+    {
+     "class": "Fake Landing",
+     "precision": 0.9732142857142857,
+     "recall": 0.9933171324422844,
+     "f1": 0.9831629585087192,
+     "support": 3292,
+     "tp": 3270,
+     "fp": 90,
+     "fn": 22
+    },
+    {
+     "class": "MITM",
+     "precision": 0.4494949494949495,
+     "recall": 0.7697297297297298,
+     "f1": 0.5675567955360702,
+     "support": 925,
+     "tp": 712,
+     "fp": 872,
+     "fn": 213
+    },
+    {
+     "class": "Normal",
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "support": 25590,
+     "tp": 25590,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "Reconnaissance",
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "support": 4,
+     "tp": 4,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "Replay",
+     "precision": 0.43146274149034036,
+     "recall": 0.3954468802698145,
+     "f1": 0.4126704795424549,
+     "support": 1186,
+     "tp": 469,
+     "fp": 618,
+     "fn": 717
+    },
+    {
+     "class": "Scanning",
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "support": 5193,
+     "tp": 5193,
+     "fp": 0,
+     "fn": 0
+    }
+   ],
+   "confusion_matrix": {
+    "labels": [
+     "Brute-Force",
+     "DDoS",
+     "De-authentication",
+     "DoS",
+     "Evil Twin",
+     "Fake Landing",
+     "MITM",
+     "Normal",
+     "Reconnaissance",
+     "Replay",
+     "Scanning"
+    ],
+    "rows_true_cols_pred": [
+     [
+      26157,
+      0,
+      0,
+      0,
+      0,
+      89,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1355,
+      27,
+      0,
+      239,
+      1,
+      270,
+      0,
+      0,
+      219,
+      0
+     ],
+     [
+      0,
+      601,
+      1792,
+      0,
+      403,
+      0,
+      251,
+      0,
+      0,
+      260,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      4723,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      316,
+      56,
+      0,
+      1218,
+      0,
+      241,
+      0,
+      0,
+      103,
+      0
+     ],
+     [
+      18,
+      1,
+      2,
+      0,
+      0,
+      3270,
+      1,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      57,
+      11,
+      0,
+      109,
+      0,
+      712,
+      0,
+      0,
+      36,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      25590,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      0,
+      0
+     ],
+     [
+      0,
+      356,
+      71,
+      0,
+      181,
+      0,
+      109,
+      0,
+      0,
+      469,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      5193
+     ]
+    ]
+   },
+   "consistency_checks": {
+    "accuracy_from_cm": 0.9459408677913328,
+    "macro_f1_from_cm": 0.8003047282353486,
+    "weighted_f1_from_cm": 0.9468440651306501,
+    "all_consistent": true
+   }
+  },
+  "wcss_kneedle": {
+   "n_test": 74511,
+   "accuracy": 0.9023634094294802,
+   "balanced_accuracy": 0.6694318187122433,
+   "macro": {
+    "precision": 0.7438363237937022,
+    "recall": 0.6694318187122433,
+    "f1": 0.6327796801736801
+   },
+   "weighted": {
+    "precision": 0.938570188735119,
+    "recall": 0.9023634094294802,
+    "f1": 0.8930819169984335
+   },
+   "per_class": [
+    {
+     "class": "Brute-Force",
+     "precision": 0.9983562691131499,
+     "recall": 0.99508496532805,
+     "f1": 0.9967179330610999,
+     "support": 26246,
+     "tp": 26117,
+     "fp": 43,
+     "fn": 129
+    },
+    {
+     "class": "DDoS",
+     "precision": 0.7042801556420234,
+     "recall": 0.08574135480814779,
+     "f1": 0.15287162162162163,
+     "support": 2111,
+     "tp": 181,
+     "fp": 76,
+     "fn": 1930
+    },
+    {
+     "class": "De-authentication",
+     "precision": 0.782608695652174,
+     "recall": 0.03810099788327789,
+     "f1": 0.0726643598615917,
+     "support": 3307,
+     "tp": 126,
+     "fp": 35,
+     "fn": 3181
+    },
+    {
+     "class": "DoS",
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "support": 4723,
+     "tp": 4723,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "Evil Twin",
+     "precision": 0.22626345184579758,
+     "recall": 0.8588417786970011,
+     "f1": 0.35816711590296496,
+     "support": 1934,
+     "tp": 1661,
+     "fp": 5680,
+     "fn": 273
+    },
+    {
+     "class": "Fake Landing",
+     "precision": 0.9617664493183166,
+     "recall": 0.985722964763062,
+     "f1": 0.9735973597359736,
+     "support": 3292,
+     "tp": 3245,
+     "fp": 129,
+     "fn": 47
+    },
+    {
+     "class": "MITM",
+     "precision": 0.21252973830293417,
+     "recall": 0.2897297297297297,
+     "f1": 0.24519670631290028,
+     "support": 925,
+     "tp": 268,
+     "fp": 993,
+     "fn": 657
+    },
+    {
+     "class": "Normal",
+     "precision": 0.9997655883731833,
+     "recall": 1.0,
+     "f1": 0.9998827804477787,
+     "support": 25590,
+     "tp": 25590,
+     "fp": 6,
+     "fn": 0
+    },
+    {
+     "class": "Reconnaissance",
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "support": 4,
+     "tp": 4,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "Replay",
+     "precision": 0.2966292134831461,
+     "recall": 0.11129848229342328,
+     "f1": 0.1618638871857756,
+     "support": 1186,
+     "tp": 132,
+     "fp": 313,
+     "fn": 1054
+    },
+    {
+     "class": "Scanning",
+     "precision": 1.0,
+     "recall": 0.9992297323319853,
+     "f1": 0.9996147177807744,
+     "support": 5193,
+     "tp": 5189,
+     "fp": 0,
+     "fn": 4
+    }
+   ],
+   "confusion_matrix": {
+    "labels": [
+     "Brute-Force",
+     "DDoS",
+     "De-authentication",
+     "DoS",
+     "Evil Twin",
+     "Fake Landing",
+     "MITM",
+     "Normal",
+     "Reconnaissance",
+     "Replay",
+     "Scanning"
+    ],
+    "rows_true_cols_pred": [
+     [
+      26117,
+      0,
+      0,
+      0,
+      0,
+      125,
+      0,
+      4,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      181,
+      35,
+      0,
+      1556,
+      0,
+      245,
+      0,
+      0,
+      94,
+      0
+     ],
+     [
+      0,
+      32,
+      126,
+      0,
+      2696,
+      0,
+      338,
+      0,
+      0,
+      115,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      4723,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      1661,
+      0,
+      203,
+      0,
+      0,
+      70,
+      0
+     ],
+     [
+      43,
+      2,
+      0,
+      0,
+      0,
+      3245,
+      0,
+      2,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      0,
+      0,
+      622,
+      0,
+      268,
+      0,
+      0,
+      34,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      25590,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      0,
+      0
+     ],
+     [
+      0,
+      41,
+      0,
+      0,
+      806,
+      0,
+      207,
+      0,
+      0,
+      132,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      0,
+      0,
+      0,
+      0,
+      5189
+     ]
+    ]
+   },
+   "consistency_checks": {
+    "accuracy_from_cm": 0.9023634094294802,
+    "macro_f1_from_cm": 0.6327796801736801,
+    "weighted_f1_from_cm": 0.8930819169984335,
+    "all_consistent": true
+   }
+  },
+  "k_hat": {
+   "n_test": 74511,
+   "accuracy": 0.9460079719772919,
+   "balanced_accuracy": 0.8154676578739694,
+   "macro": {
+    "precision": 0.8036530285469787,
+    "recall": 0.8154676578739694,
+    "f1": 0.8003968246407173
+   },
+   "weighted": {
+    "precision": 0.9536886869163396,
+    "recall": 0.9460079719772919,
+    "f1": 0.9469056556958702
+   },
+   "per_class": [
+    {
+     "class": "Brute-Force",
+     "precision": 0.9994269340974212,
+     "recall": 0.9967233102187,
+     "f1": 0.9980732912382442,
+     "support": 26246,
+     "tp": 26160,
+     "fp": 15,
+     "fn": 86
+    },
+    {
+     "class": "DDoS",
+     "precision": 0.5042798660215854,
+     "recall": 0.6418758882046424,
+     "f1": 0.5648186744476865,
+     "support": 2111,
+     "tp": 1355,
+     "fp": 1332,
+     "fn": 756
+    },
+    {
+     "class": "De-authentication",
+     "precision": 0.914665304036791,
+     "recall": 0.5412760810402177,
+     "f1": 0.6800911854103343,
+     "support": 3307,
+     "tp": 1790,
+     "fp": 167,
+     "fn": 1517
+    },
+    {
+     "class": "DoS",
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "support": 4723,
+     "tp": 4723,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "Evil Twin",
+     "precision": 0.5665116279069767,
+     "recall": 0.6297828335056876,
+     "f1": 0.5964740450538688,
+     "support": 1934,
+     "tp": 1218,
+     "fp": 932,
+     "fn": 716
+    },
+    {
+     "class": "Fake Landing",
+     "precision": 0.9741071428571428,
+     "recall": 0.994228432563791,
+     "f1": 0.9840649428743236,
+     "support": 3292,
+     "tp": 3273,
+     "fp": 87,
+     "fn": 19
+    },
+    {
+     "class": "MITM",
+     "precision": 0.45012626262626265,
+     "recall": 0.7708108108108108,
+     "f1": 0.5683539258668793,
+     "support": 925,
+     "tp": 713,
+     "fp": 871,
+     "fn": 212
+    },
+    {
+     "class": "Normal",
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "support": 25590,
+     "tp": 25590,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "Reconnaissance",
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "support": 4,
+     "tp": 4,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "Replay",
+     "precision": 0.43106617647058826,
+     "recall": 0.3954468802698145,
+     "f1": 0.4124890061565523,
+     "support": 1186,
+     "tp": 469,
+     "fp": 619,
+     "fn": 717
+    },
+    {
+     "class": "Scanning",
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "support": 5193,
+     "tp": 5193,
+     "fp": 0,
+     "fn": 0
+    }
+   ],
+   "confusion_matrix": {
+    "labels": [
+     "Brute-Force",
+     "DDoS",
+     "De-authentication",
+     "DoS",
+     "Evil Twin",
+     "Fake Landing",
+     "MITM",
+     "Normal",
+     "Reconnaissance",
+     "Replay",
+     "Scanning"
+    ],
+    "rows_true_cols_pred": [
+     [
+      26160,
+      0,
+      0,
+      0,
+      0,
+      86,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1355,
+      26,
+      0,
+      240,
+      1,
+      270,
+      0,
+      0,
+      219,
+      0
+     ],
+     [
+      0,
+      602,
+      1790,
+      0,
+      403,
+      0,
+      251,
+      0,
+      0,
+      261,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      4723,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      316,
+      57,
+      0,
+      1218,
+      0,
+      240,
+      0,
+      0,
+      103,
+      0
+     ],
+     [
+      15,
+      1,
+      2,
+      0,
+      0,
+      3273,
+      1,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      56,
+      11,
+      0,
+      109,
+      0,
+      713,
+      0,
+      0,
+      36,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      25590,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      0,
+      0
+     ],
+     [
+      0,
+      357,
+      71,
+      0,
+      180,
+      0,
+      109,
+      0,
+      0,
+      469,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      5193
+     ]
+    ]
+   },
+   "consistency_checks": {
+    "accuracy_from_cm": 0.9460079719772919,
+    "macro_f1_from_cm": 0.8003968246407173,
+    "weighted_f1_from_cm": 0.9469056556958702,
+    "all_consistent": true
+   }
+  }
+ },
+ "efficiency": {
+  "task_aware": {
+   "n_features": 27,
+   "train_rows_after_smote": 1154813,
+   "train_time_s": 21.942687500006286,
+   "inference_ms_per_sample": 0.00046830266664555774,
+   "model_size_kb": 3705.423828125,
+   "tree_depth": 44,
+   "tree_leaves": 12478
+  },
+  "all_features": {
+   "n_features": 33,
+   "train_rows_after_smote": 1154813,
+   "train_time_s": 17.61801479999849,
+   "inference_ms_per_sample": 0.00031368120145140916,
+   "model_size_kb": 3707.501953125,
+   "tree_depth": 44,
+   "tree_leaves": 12485
+  },
+  "wcss_kneedle": {
+   "n_features": 8,
+   "train_rows_after_smote": 1154813,
+   "train_time_s": 2.3027747000014642,
+   "inference_ms_per_sample": 0.00020862959816660565,
+   "model_size_kb": 154.798828125,
+   "tree_depth": 27,
+   "tree_leaves": 518
+  },
+  "k_hat": {
+   "n_features": 29,
+   "train_rows_after_smote": 1154813,
+   "train_time_s": 19.0907933999988,
+   "inference_ms_per_sample": 0.0005025526432313001,
+   "model_size_kb": 3705.720703125,
+   "tree_depth": 44,
+   "tree_leaves": 12479
+  }
+ },
+ "feature_names": [
+  "frame.encap_type",
+  "frame.len",
+  "frame.time_delta_displayed",
+  "radiotap.channel.flags.ofdm",
+  "radiotap.channel.freq",
+  "radiotap.datarate",
+  "radiotap.dbm_antsignal",
+  "radiotap.length",
+  "radiotap.present.tsft",
+  "radiotap.vendor_oui",
+  "wlan.duration",
+  "wlan.fc.moredata",
+  "wlan.fc.pwrmgt",
+  "wlan.fc.type",
+  "wlan.fc.retry",
+  "wlan.fc.subtype",
+  "wlan.fcs.bad_checksum",
+  "wlan_radio.data_rate",
+  "eapol.keydes.replay_counter",
+  "arp",
+  "icmpv6.mldr.nb_mcast_records",
+  "udp.length",
+  "nbns",
+  "nbss.continuation_data",
+  "dns",
+  "http.connection",
+  "http.content_length",
+  "http.content_type",
+  "http.date",
+  "http.file_data",
+  "http.host",
+  "http.last_modified",
+  "http.location"
+ ],
+ "environment": {
+  "python": "3.12.10",
+  "numpy": "2.4.6",
+  "pandas": "3.0.6",
+  "scikit_learn": "1.9.1",
+  "imbalanced_learn": "0.14.2",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cpu_count": 12,
+  "n_jobs": 5,
+  "git_commit": "89a80e8c91cf0262c95babaa0a1039c14fc0ffb0",
+  "finished_utc": "2026-10-21T15:46:37Z"
+ },
+ "runtime_s": 495.0591850280762
+}

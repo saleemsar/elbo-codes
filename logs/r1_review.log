@@ -1,0 +1,236 @@
+wrote minority
+S1 binary {'task_aware': 0.815, 'all_features': 0.0}
+S1 multiclass {'task_aware': 0.049, 'all_features': 0.049}
+S2 binary {'task_aware': 0.0, 'all_features': 0.0}
+S2 multiclass {'task_aware': 0.008, 'all_features': 0.008}
+S3 binary {'task_aware': 0.005, 'all_features': 0.005}
+S3 multiclass {'task_aware': 0.139, 'all_features': 0.092}
+wrote overlap
+S1 binary blocked wF1/mF1 0.9986 0.9769 random 0.9972 0.9551
+S1 multiclass blocked wF1/mF1 0.8482 0.762 random 0.8338 0.7509
+S2 binary blocked wF1/mF1 1.0 1.0 random 1.0 1.0
+S2 multiclass blocked wF1/mF1 0.9064 0.684 random 0.9479 0.8033
+S3 binary blocked wF1/mF1 0.9229 0.5129 random 0.9976 0.9161
+S3 multiclass blocked wF1/mF1 0.8765 0.5426 random 0.842 0.5175
+wrote blocked
+S3 pair Scanning Reconnaissance {'n_a': 1022, 'n_b': 644, 'test_a_pred_b': 118, 'test_b_pred_a': 107, 'task_aware': {'distinct_vectors_a': 1021, 'distinct_vectors_b': 643, 'shared_vectors': 619, 'rows_a_on_shared_vectors': 620, 'rows_b_on_shared_vectors': 620, 'pairwise_cv_balanced_accuracy': 0.2702501488981537}, 'all_features': {'distinct_vectors_a': 1022, 'distinct_vectors_b': 644, 'shared_vectors': 620, 'rows_a_on_shared_vectors': 620, 'rows_b_on_shared_vectors': 620, 'pairwise_cv_balanced_accuracy': 0.2714306985450523}}
+S3 pair DoS De-authentication {'n_a': 540, 'n_b': 54, 'test_a_pred_b': 5, 'test_b_pred_a': 2, 'task_aware': {'distinct_vectors_a': 538, 'distinct_vectors_b': 54, 'shared_vectors': 53, 'rows_a_on_shared_vectors': 54, 'rows_b_on_shared_vectors': 53, 'pairwise_cv_balanced_accuracy': 0.5435185185185185}, 'all_features': {'distinct_vectors_a': 540, 'distinct_vectors_b': 54, 'shared_vectors': 53, 'rows_a_on_shared_vectors': 53, 'rows_b_on_shared_vectors': 53, 'pairwise_cv_balanced_accuracy': 0.5435185185185185}}
+S3 pair DoS DDoS {'n_a': 540, 'n_b': 445, 'test_a_pred_b': 74, 'test_b_pred_a': 63, 'task_aware': {'distinct_vectors_a': 538, 'distinct_vectors_b': 445, 'shared_vectors': 333, 'rows_a_on_shared_vectors': 334, 'rows_b_on_shared_vectors': 333, 'pairwise_cv_balanced_accuracy': 0.2855597170203912}, 'all_features': {'distinct_vectors_a': 540, 'distinct_vectors_b': 445, 'shared_vectors': 0, 'rows_a_on_shared_vectors': 0, 'rows_b_on_shared_vectors': 0, 'pairwise_cv_balanced_accuracy': 1.0}}
+wrote confusion
+S1 smote smote_and_class_weight 0.8338 0.7509
+S1 smote class_weight_only 0.8344 0.7252
+S1 smote smote_only 0.8338 0.7509
+S1 smote neither 0.8718 0.7646
+wrote smote_s1
+[S1/binary] detectors
+   task_aware    cart                 wF1=0.9972 mF1=0.9551
+   task_aware    logistic_regression  wF1=0.9949 mF1=0.9198
+   task_aware    linear_svm           wF1=0.9949 mF1=0.9198
+   task_aware    random_forest        wF1=0.9972 mF1=0.9548
+   k_hat         cart                 wF1=0.9972 mF1=0.9551
+   k_hat         logistic_regression  wF1=0.9949 mF1=0.9198
+   k_hat         linear_svm           wF1=0.9949 mF1=0.9198
+   k_hat         random_forest        wF1=0.9972 mF1=0.9548
+   all_features  cart                 wF1=0.9978 mF1=0.9644
+   all_features  logistic_regression  wF1=0.9949 mF1=0.9198
+   all_features  linear_svm           wF1=0.9949 mF1=0.9198
+   all_features  random_forest        wF1=0.9979 mF1=0.9651
+   wcss_kneedle  cart                 wF1=0.9978 mF1=0.9644
+   wcss_kneedle  logistic_regression  wF1=0.9949 mF1=0.9198
+   wcss_kneedle  linear_svm           wF1=0.9949 mF1=0.9198
+   wcss_kneedle  random_forest        wF1=0.9978 mF1=0.9645
+[S1/multiclass] detectors
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\projec\elbow2\review\baselines.py", line 294, in <module>
+    main()
+  File "C:\Users\User\Documents\projec\elbow2\review\baselines.py", line 286, in main
+    out = PARTS[p](d, res)
+          ^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Documents\projec\elbow2\review\baselines.py", line 116, in part_detectors
+    S = subsets(res, d["feat_names"])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Documents\projec\elbow2\review\baselines.py", line 70, in subsets
+    assert [feat_names[j] for j in sorted(out["task_aware"])] == sorted(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: feature index mismatch with results JSON
+[S1/binary] pruning
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\joblib\externals\loky\backend\resource_tracker.py:444: UserWarning: resource_tracker: There appear to be 2 leaked folder objects to clean up at shutdown: {'C:\\Users\\User\\AppData\\Local\\Temp\\joblib_memmapping_folder_40388_f9a60f652677491790492041b4fe92db_d2fa46771b0a4667979b218a2b142418': 1, 'C:\\Users\\User\\AppData\\Local\\Temp\\joblib_memmapping_folder_40388_f9a60f652677491790492041b4fe92db_77e30a7dd0ce4e9991634d2a44fb42fb': 1}
+  warnings.warn(
+C:\Users\User\Documents\projec\elbow2\.venv312\Lib\site-packages\joblib\externals\loky\backend\resource_tracker.py:468: UserWarning: resource_tracker: C:\Users\User\AppData\Local\Temp\joblib_memmapping_folder_40388_f9a60f652677491790492041b4fe92db_d2fa46771b0a4667979b218a2b142418: FileNotFoundError(2, 'The system cannot find the path specified')
+  warnings.warn('resource_tracker: %s: %r' % (name, e))
+C:\Users\   wcss_kneedle  random_forest        wF1=0.9978 mF1=0.9645
+[S1/multiclass] detectors
+   task_aware    cart                 wF1=0.8338 mF1=0.7509
+   task_aware    logistic_regression  wF1=0.5557 mF1=0.4849
+   task_aware    linear_svm           wF1=0.5799 mF1=0.5256
+   task_aware    random_forest        wF1=0.8361 mF1=0.7500
+   k_hat         cart                 wF1=0.8337 mF1=0.7508
+   k_hat         logistic_regression  wF1=0.5589 mF1=0.4874
+   k_hat         linear_svm           wF1=0.5825 mF1=0.5271
+   k_hat         random_forest        wF1=0.8357 mF1=0.7501
+   all_features  cart                 wF1=0.8337 mF1=0.7508
+   all_features  logistic_regression  wF1=0.5589 mF1=0.4874
+   all_features  linear_svm           wF1=0.5825 mF1=0.5271
+   all_features  random_forest        wF1=0.8357 mF1=0.7501
+   wcss_kneedle  cart                 wF1=0.8247 mF1=0.7391
+   wcss_kneedle  logistic_regression  wF1=0.5283 mF1=0.4522
+   wcss_kneedle  linear_svm           wF1=0.5609 mF1=0.4948
+   wcss_kneedle  random_forest        wF1=0.8261 mF1=0.7383
+[S2/binary] detectors
+   task_aware    cart                 wF1=1.0000 mF1=1.0000
+   task_aware    logistic_regression  wF1=0.9989 mF1=0.9988
+   task_aware    linear_svm           wF1=0.9998 mF1=0.9998
+   task_aware    random_forest        wF1=1.0000 mF1=1.0000
+   k_hat         cart                 wF1=1.0000 mF1=1.0000
+   k_hat         logistic_regression  wF1=0.9989 mF1=0.9988
+   k_hat         linear_svm           wF1=0.9998 mF1=0.9998
+   k_hat         random_forest        wF1=1.0000 mF1=1.0000
+   all_features  cart                 wF1=1.0000 mF1=1.0000
+   all_features  logistic_regression  wF1=0.9995 mF1=0.9994
+   all_features  linear_svm           wF1=0.9998 mF1=0.9998
+   all_features  random_forest        wF1=1.0000 mF1=1.0000
+   wcss_kneedle  cart                 wF1=0.9927 mF1=0.9919
+   wcss_kneedle  logistic_regression  wF1=0.7399 mF1=0.7170
+   wcss_kneedle  linear_svm           wF1=0.5389 mF1=0.5563
+   wcss_kneedle  random_forest        wF1=0.9929 mF1=0.9922
+[S2/multiclass] detectors
+   task_aware    cart                 wF1=0.9479 mF1=0.8033
+   task_aware    logistic_regression  wF1=0.8117 mF1=0.5638
+   task_aware    linear_svm           wF1=0.8191 mF1=0.5641
+   task_aware    random_forest        wF1=0.9491 mF1=0.8064
+   k_hat         cart                 wF1=0.9479 mF1=0.8033
+   k_hat         logistic_regression  wF1=0.8117 mF1=0.5638
+   k_hat         linear_svm           wF1=0.8191 mF1=0.5641
+   k_hat         random_forest        wF1=0.9491 mF1=0.8064
+   all_features  cart                 wF1=0.9478 mF1=0.8031
+   all_features  logistic_regression  wF1=0.8148 mF1=0.5659
+   all_features  linear_svm           wF1=0.8194 mF1=0.5698
+   all_features  random_forest        wF1=0.9485 mF1=0.8041
+   wcss_kneedle  cart                 wF1=0.8861 mF1=0.6139
+   wcss_kneedle  logistic_regression  wF1=0.3201 mF1=0.3229
+   wcss_kneedle  linear_svm           wF1=0.4228 mF1=0.3181
+   wcss_kneedle  random_forest        wF1=0.8862 mF1=0.6141
+[S3/binary] detectors
+   task_aware    cart                 wF1=0.9976 mF1=0.9161
+   task_aware    logistic_regression  wF1=0.9749 mF1=0.6233
+   task_aware    linear_svm           wF1=0.9753 mF1=0.6255
+   task_aware    random_forest        wF1=0.9972 mF1=0.8993
+   k_hat         cart                 wF1=0.9968 mF1=0.8881
+   k_hat         logistic_regression  wF1=0.9750 mF1=0.6189
+   k_hat         linear_svm           wF1=0.9755 mF1=0.6211
+   k_hat         random_forest        wF1=0.9984 mF1=0.9440
+   all_features  cart                 wF1=0.9980 mF1=0.9281
+   all_features  logistic_regression  wF1=0.9797 mF1=0.6454
+   all_features  linear_svm           wF1=0.9863 mF1=0.7025
+   all_features  random_forest        wF1=0.9988 mF1=0.9568
+   wcss_kneedle  cart                 wF1=0.9976 mF1=0.9112
+   wcss_kneedle  logistic_regression  wF1=0.9750 mF1=0.6189
+   wcss_kneedle  linear_svm           wF1=0.9755 mF1=0.6211
+   wcss_kneedle  random_forest        wF1=0.9980 mF1=0.9281
+[S3/multiclass] detectors
+   task_aware    cart                 wF1=0.8420 mF1=0.5175
+   task_aware    logistic_regression  wF1=0.8563 mF1=0.4772
+   task_aware    linear_svm           wF1=0.8448 mF1=0.4571
+   task_aware    random_forest        wF1=0.8931 mF1=0.6583
+   k_hat         cart                 wF1=0.8977 mF1=0.6726
+   k_hat         logistic_regression  wF1=0.9127 mF1=0.6243
+   k_hat         linear_svm           wF1=0.9180 mF1=0.6646
+   k_hat         random_forest        wF1=0.9340 mF1=0.7799
+   all_features  cart                 wF1=0.8988 mF1=0.6827
+   all_features  logistic_regression  wF1=0.9181 mF1=0.6521
+   all_features  linear_svm           wF1=0.9244 mF1=0.6976
+   all_features  random_forest        wF1=0.9331 mF1=0.7712
+   wcss_kneedle  cart                 wF1=0.8459 mF1=0.5321
+   wcss_kneedle  logistic_regression  wF1=0.8460 mF1=0.4664
+   wcss_kneedle  linear_svm           wF1=0.8428 mF1=0.4537
+   wcss_kneedle  random_forest        wF1=0.8979 mF1=0.6776
+[S1/binary] pruning
+   task_aware    chosen depth=12 leaf=1: wF1 0.9972 (unconstr. 0.9972), mF1 0.9551 (0.9551), nodes 99 (119), 9 KB (10 KB)
+   all_features  chosen depth=12 leaf=1: wF1 0.9978 (unconstr. 0.9978), mF1 0.9639 (0.9644), nodes 163 (211), 14 KB (18 KB)
+[S1/multiclass] pruning
+   task_aware    chosen depth=20 leaf=1: wF1 0.8331 (unconstr. 0.8338), mF1 0.7491 (0.7509), nodes 8195 (19963), 1346 KB (3276 KB)
+   all_features  chosen depth=20 leaf=1: wF1 0.8331 (unconstr. 0.8337), mF1 0.7491 (0.7508), nodes 7997 (19901), 1313 KB (3266 KB)
+[S2/binary] pruning
+   task_aware    chosen depth=6 leaf=1: wF1 1.0000 (unconstr. 1.0000), mF1 1.0000 (1.0000), nodes 5 (5), 1 KB (1 KB)
+   all_features  chosen depth=6 leaf=1: wF1 1.0000 (unconstr. 1.0000), mF1 1.0000 (1.0000), nodes 5 (5), 1 KB (1 KB)
+[S2/multiclass] pruning
+   task_aware    chosen depth=20 leaf=10: wF1 0.9488 (unconstr. 0.9479), mF1 0.8056 (0.8033), nodes 5345 (24999), 795 KB (3712 KB)
+   all_features  chosen depth=20 leaf=10: wF1 0.9487 (unconstr. 0.9478), mF1 0.8053 (0.8031), nodes 5323 (24989), 791 KB (3710 KB)
+[S3/binary] pruning
+   task_aware    chosen depth=12 leaf=1: wF1 0.9973 (unconstr. 0.9976), mF1 0.9047 (0.9161), nodes 69 (75), 6 KB (7 KB)
+   all_features  chosen depth=15 leaf=1: wF1 0.9980 (unconstr. 0.9980), mF1 0.9281 (0.9281), nodes 71 (73), 7 KB (7 KB)
+[S3/multiclass] pruning
+   task_aware    chosen depth=6 leaf=50: wF1 0.8865 (unconstr. 0.8420), mF1 0.5588 (0.5175), nodes 57 (33733), 9 KB (4745 KB)
+   all_features  chosen depth=10 leaf=1: wF1 0.9291 (unconstr. 0.8988), mF1 0.7357 (0.6827), nodes 307 (18421), 44 KB (2592 KB)
+[S1/binary] single-core selection ~8s (fold: kmeans 0.2s, trees 1.2s) | task_aware|unconstrained: 4 feat, 119 nodes, path 5.7 | task_aware|constrained: 4 feat, 99 nodes, path 5.6 | all_features|unconstrained: 20 feat, 211 nodes, path 5.7 | all_features|constrained: 20 feat, 163 nodes, path 5.6
+[S1/multiclass] single-core selection ~33s (fold: kmeans 0.3s, trees 4.4s) | task_aware|unconstrained: 18 feat, 19963 nodes, path 11.6 | task_aware|constrained: 18 feat, 8195 nodes, path 11.4 | all_features|unconstrained: 20 feat, 19901 nodes, path 11.6 | all_features|constrained: 20 feat, 7997 nodes, path 11.4
+[S2/binary] single-core selection ~25s (fold: kmeans 0.6s, trees 2.4s) | task_aware|unconstrained: 29 feat, 5 nodes, path 1.4 | task_aware|constrained: 29 feat, 5 nodes, path 1.4 | all_features|unconstrained: 33 feat, 5 nodes, path 1.4 | all_features|constrained: 33 feat, 5 nodes, path 1.4
+[S2/multiclass] single-core selection ~58s (fold: kmeans 0.6s, trees 8.7s) | task_aware|unconstrained: 27 feat, 24999 nodes, path 11.8 | task_aware|constrained: 27 feat, 5345 nodes, path 11.2 | all_features|unconstrained: 32 feat, 24989 nodes, path 11.8 | all_features|constrained: 32 feat, 5323 nodes, path 11.2
+[S3/binary] single-core selection ~84s (fold: kmeans 3.1s, trees 12.9s) | task_aware|unconstrained: 9 feat, 75 nodes, path 1.2 | task_aware|constrained: 9 feat, 69 nodes, path 1.2 | all_features|unconstrained: 76 feat, 73 nodes, path 1.2 | all_features|constrained: 76 feat, 71 nodes, path 1.2
+[S3/multiclass] single-core selection ~258s (fold: kmeans 3.1s, trees 47.7s) | task_aware|unconstrained: 23 feat, 33733 nodes, path 5.7 | task_aware|constrained: 23 feat, 57 nodes, path 2.2 | all_features|unconstrained: 76 feat, 18421 nodes, path 4.7 | all_features|constrained: 76 feat, 307 nodes, path 2.8
+[S1/binary] selectors
+   variance           k*=  8 test wF1=0.9972 mF1=0.9551 | at K*=4: wF1=0.9993 mF1=0.9878
+   anova_f            k*= 11 test wF1=0.9972 mF1=0.9551 | at K*=4: wF1=0.9993 mF1=0.9878
+   mutual_info        k*=  2 test wF1=0.9972 mF1=0.9546 | at K*=4: wF1=0.9978 mF1=0.9644
+   chi2               k*= 11 test wF1=0.9972 mF1=0.9551 | at K*=4: wF1=0.9993 mF1=0.9878
+   mrmr               k*=  9 test wF1=0.9972 mF1=0.9551 | at K*=4: wF1=0.9993 mF1=0.9878
+   forest_importance  k*=  2 test wF1=0.9972 mF1=0.9546 | at K*=4: wF1=0.9972 mF1=0.9551
+   l1_logistic        k*=  3 test wF1=0.9972 mF1=0.9551 | at K*=4: wF1=0.9978 mF1=0.9644
+   rfe_cart           k*=  2 test wF1=0.9972 mF1=0.9546 | at K*=4: wF1=0.9978 mF1=0.9644
+   pca                k*=  2 test wF1=0.9972 mF1=0.9552 | at K*=4: wF1=0.9978 mF1=0.9635
+[S1/multiclass] selectors
+   variance           k*= 15 test wF1=0.8337 mF1=0.7507 | at K*=18: wF1=0.8337 mF1=0.7508
+   anova_f            k*= 19 test wF1=0.8337 mF1=0.7508 | at K*=18: wF1=0.8337 mF1=0.7508
+   mutual_info        k*= 15 test wF1=0.8334 mF1=0.7503 | at K*=18: wF1=0.8335 mF1=0.7506
+   chi2               k*= 20 test wF1=0.8337 mF1=0.7508 | at K*=18: wF1=0.8318 mF1=0.7471
+   mrmr               k*= 20 test wF1=0.8337 mF1=0.7508 | at K*=18: wF1=0.8318 mF1=0.7471
+   forest_importance  k*= 13 test wF1=0.8333 mF1=0.7503 | at K*=18: wF1=0.8338 mF1=0.7509
+   l1_logistic        k*= 14 test wF1=0.8336 mF1=0.7507 | at K*=18: wF1=0.8336 mF1=0.7506
+   rfe_cart           k*= 11 test wF1=0.8334 mF1=0.7247 | at K*=18: wF1=0.8337 mF1=0.7508
+   pca                k*= 12 test wF1=0.8333 mF1=0.7503 | at K*=18: wF1=0.8332 mF1=0.7503
+[S2/binary] selectors
+   variance           k*= 19 test wF1=1.0000 mF1=1.0000 | at K*=30: wF1=1.0000 mF1=1.0000
+   anova_f            k*= 14 test wF1=1.0000 mF1=1.0000 | at K*=30: wF1=1.0000 mF1=1.0000
+   mutual_info        k*=  1 test wF1=1.0000 mF1=1.0000 | at K*=30: wF1=1.0000 mF1=1.0000
+   chi2               k*= 11 test wF1=1.0000 mF1=1.0000 | at K*=30: wF1=1.0000 mF1=1.0000
+   mrmr               k*= 18 test wF1=1.0000 mF1=1.0000 | at K*=30: wF1=1.0000 mF1=1.0000
+   forest_importance  k*=  1 test wF1=1.0000 mF1=1.0000 | at K*=30: wF1=1.0000 mF1=1.0000
+   l1_logistic        k*=  1 test wF1=1.0000 mF1=1.0000 | at K*=30: wF1=1.0000 mF1=1.0000
+   rfe_cart           k*=  2 test wF1=1.0000 mF1=1.0000 | at K*=30: wF1=1.0000 mF1=1.0000
+   pca                k*= 24 test wF1=0.9999 mF1=0.9999 | at K*=30: wF1=0.9999 mF1=0.9999
+[S2/multiclass] selectors
+   variance           k*= 21 test wF1=0.9480 mF1=0.8035 | at K*=29: wF1=0.9480 mF1=0.8036
+   anova_f            k*= 20 test wF1=0.9480 mF1=0.8034 | at K*=29: wF1=0.9480 mF1=0.8036
+   mutual_info        k*= 21 test wF1=0.9475 mF1=0.8029 | at K*=29: wF1=0.9480 mF1=0.8036
+   chi2               k*= 18 test wF1=0.9480 mF1=0.8037 | at K*=29: wF1=0.9480 mF1=0.8038
+   mrmr               k*= 17 test wF1=0.9476 mF1=0.8033 | at K*=29: wF1=0.9480 mF1=0.8036
+   forest_importance  k*= 19 test wF1=0.9480 mF1=0.8032 | at K*=29: wF1=0.9480 mF1=0.8036
+   l1_logistic        k*= 16 test wF1=0.9475 mF1=0.8030 | at K*=29: wF1=0.9480 mF1=0.8036
+   rfe_cart           k*= 14 test wF1=0.9479 mF1=0.7933 | at K*=29: wF1=0.9480 mF1=0.8036
+   pca                k*= 18 test wF1=0.9334 mF1=0.7311 | at K*=29: wF1=0.9470 mF1=0.8019
+[S3/binary] selectors
+   variance           k*= 26 test wF1=0.9980 mF1=0.9281 | at K*=9: wF1=0.9759 mF1=0.6233
+   anova_f            k*= 25 test wF1=0.9979 mF1=0.9237 | at K*=9: wF1=0.9759 mF1=0.6233
+   mutual_info        k*= 11 test wF1=0.9984 mF1=0.9408 | at K*=9: wF1=0.9913 mF1=0.7785
+   chi2               k*= 25 test wF1=0.9988 mF1=0.9568 | at K*=9: wF1=0.9753 mF1=0.6200
+   mrmr               k*= 19 test wF1=0.9980 mF1=0.9281 | at K*=9: wF1=0.9759 mF1=0.6233
+   forest_importance  k*= 19 test wF1=0.9976 mF1=0.9161 | at K*=9: wF1=0.9843 mF1=0.6762
+   l1_logistic        k*= 44 test wF1=0.9970 mF1=0.8864 | at K*=9: wF1=0.9972 mF1=0.8993
+   rfe_cart           k*=  7 test wF1=0.9988 mF1=0.9542 | at K*=9: wF1=0.9975 mF1=0.9057
+   pca                k*= 14 test wF1=0.9973 mF1=0.9096 | at K*=9: wF1=0.9984 mF1=0.9440
+[S3/multiclass] selectors
+   variance           k*= 19 test wF1=0.9115 mF1=0.6819 | at K*=23: wF1=0.9111 mF1=0.6788
+   anova_f            k*= 28 test wF1=0.9142 mF1=0.7053 | at K*=23: wF1=0.9030 mF1=0.6628
+   mutual_info        k*= 37 test wF1=0.8939 mF1=0.6612 | at K*=23: wF1=0.8953 mF1=0.6631
+   chi2               k*= 21 test wF1=0.9114 mF1=0.6788 | at K*=23: wF1=0.9118 mF1=0.6864
+   mrmr               k*= 27 test wF1=0.9133 mF1=0.7003 | at K*=23: wF1=0.9042 mF1=0.6612
+   forest_importance  k*= 11 test wF1=0.8964 mF1=0.6308 | at K*=23: wF1=0.8973 mF1=0.6583
+   l1_logistic        k*= 21 test wF1=0.8986 mF1=0.6785 | at K*=23: wF1=0.8983 mF1=0.6760
+   rfe_cart           k*= 11 test wF1=0.8964 mF1=0.6621 | at K*=23: wF1=0.8982 mF1=0.6736
+   pca                k*=  3 test wF1=0.9175 mF1=0.6842 | at K*=23: wF1=0.8961 mF1=0.6573
+[S1/binary] K*=4 -> E2 K*=4 (same subset: True) | mF1 reported=0.9551 E1=0.9551 E2=0.9551 | checks cv_diff=0.0e+00 cm=True 68s
+[S1/multiclass] K*=18 -> E2 K*=18 (same subset: True) | mF1 reported=0.7509 E1=0.7508 E2=0.7509 | checks cv_diff=0.0e+00 cm=True 256s
+[S2/binary] K*=30 -> E2 K*=30 (same subset: True) | mF1 reported=1.0000 E1=1.0000 E2=1.0000 | checks cv_diff=0.0e+00 cm=True 486s
+[S2/multiclass] K*=29 -> E2 K*=29 (same subset: True) | mF1 reported=0.8033 E1=0.8035 E2=0.8033 | checks cv_diff=0.0e+00 cm=True 610s
+[S3/binary] K*=9 -> E2 K*=9 (same subset: True) | mF1 reported=0.9161 E1=0.9161 E2=0.9161 | checks cv_diff=0.0e+00 cm=True 302s
+[S3/multiclass] K*=23 -> E2 K*=32 (same subset: False) | mF1 reported=0.5175 E1=0.5134 E2=0.6625 | checks cv_diff=0.0e+00 cm=True 438s

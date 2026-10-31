@@ -1,0 +1,486 @@
+{
+ "scenario": "S1",
+ "scenario_name": "Compromised UAV",
+ "task": "binary",
+ "class_names": [
+  "Normal",
+  "Attack"
+ ],
+ "protocol": {
+  "seed": 42,
+  "test_size": 0.2,
+  "n_folds": 5,
+  "selection_sample_cap": 60000,
+  "min_per_class_selection": 50,
+  "kmeans_n_init": 10,
+  "K_range": [
+   2,
+   5
+  ],
+  "stopping_rule": "one-SE: K* = min{K : meanF1(K) >= meanF1(K_hat) - SE(K_hat)}, K_hat = argmax meanF1, full sweep K=2..n, 5-fold CV weighted F1",
+  "detector": "DecisionTreeClassifier(criterion=gini, class_weight=balanced, random_state=42)",
+  "smote": "all classes with >=2 samples to majority count, k=min(5, min class-1), training folds only",
+  "feature_set": "validated",
+  "stage2": "anova",
+  "impute": "median",
+  "label_perm": null,
+  "fast": true
+ },
+ "preprocessing": {
+  "n_rows_raw": 860643,
+  "n_columns_raw": 44,
+  "class_counts_raw": {
+   "DDoS": 193171,
+   "Brute-Force": 175925,
+   "UDP Flooding": 152775,
+   "MITM": 151586,
+   "ICMP Flooding": 47544,
+   "GPS Jamming": 41600,
+   "Replay": 25977,
+   "Fake Landing": 24050,
+   "Normal": 17949,
+   "De-authentication": 14606,
+   "Scanning": 9030,
+   "DoS": 6424,
+   "Reconnaissance": 6
+  },
+  "feature_set": "validated",
+  "p1_dropped_by_audit": [
+   "arp",
+   "arp.hw.type",
+   "frame.len",
+   "frame.time_delta_displayed",
+   "ip.proto",
+   "ip.ttl",
+   "radiotap.channel.flags.cck",
+   "radiotap.channel.freq",
+   "radiotap.datarate",
+   "radiotap.dbm_antsignal",
+   "radiotap.length",
+   "radiotap.present.tsft",
+   "radiotap.rxflags",
+   "tcp.ack",
+   "udp.length",
+   "wlan.fc.retry",
+   "wlan.fcs.bad_checksum",
+   "wlan.fixed.capabilities.ess",
+   "wlan.rsn.capabilities.mfpc",
+   "wlan.tag",
+   "wlan_radio.frequency",
+   "wlan_radio.phy",
+   "wlan_radio.signal_dbm",
+   "wlan_rsna_eapol.keydes.msgnr"
+  ],
+  "p1_dropped_by_name": [
+   "frame.number",
+   "frame.time_epoch",
+   "frame.time_relative",
+   "ip.dst",
+   "ip.src",
+   "radiotap.mactime",
+   "radiotap.timestamp.ts",
+   "udp.dstport",
+   "udp.srcport",
+   "wlan.bssid",
+   "wlan.seq",
+   "wlan_radio.start_tsf",
+   "wlan_radio.timestamp"
+  ],
+  "p1_dropped_ip_content": [],
+  "p5_unparsable_fraction": {
+   "arp.proto.type": 0.003415
+  },
+  "n_duplicate_rows": 860608,
+  "n_feature_vectors_with_conflicting_labels": 2,
+  "duplicates_removed": true,
+  "n_rows_used": 35,
+  "class_counts_used": {
+   "Attack": 33,
+   "Normal": 2
+  },
+  "classes_dropped_fewer_than_2_rows": [],
+  "p2_dropped_zero_variance": [
+   "radiotap.vendor_oui",
+   "wlan.duration"
+  ],
+  "n_features_after_preprocessing": 5
+ },
+ "split": {
+  "n_train": 28,
+  "n_test": 7,
+  "train_counts": {
+   "Normal": 2,
+   "Attack": 26
+  },
+  "test_counts": {
+   "Normal": 0,
+   "Attack": 7
+  }
+ },
+ "selection": {
+  "n_selection_rows": 28,
+  "selection_counts": {
+   "Normal": 2,
+   "Attack": 26
+  },
+  "K": [
+   2,
+   3,
+   4,
+   5
+  ],
+  "cv_f1_mean": [
+   0.9521885521885523,
+   0.9521885521885523,
+   0.9521885521885523,
+   0.9521885521885523
+  ],
+  "cv_f1_sd": [
+   0.06852492958863401,
+   0.06852492958863401,
+   0.06852492958863401,
+   0.06852492958863401
+  ],
+  "cv_f1_se": [
+   0.03064528014271447,
+   0.03064528014271447,
+   0.03064528014271447,
+   0.03064528014271447
+  ],
+  "cv_f1_per_fold": [
+   [
+    0.851851851851852,
+    0.851851851851852,
+    0.851851851851852,
+    0.851851851851852
+   ],
+   [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   [
+    0.9090909090909091,
+    0.9090909090909091,
+    0.9090909090909091,
+    0.9090909090909091
+   ],
+   [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ]
+  ],
+  "K_hat_argmax": 2,
+  "one_se_threshold": 0.9215432720458377,
+  "K_star": 2,
+  "n_selected": 2,
+  "reduction_pct": 60.0,
+  "cv_f1_at_K_star": 0.9521885521885523,
+  "cv_f1_at_all_features": 0.9521885521885523,
+  "K_wcss_kneedle": null,
+  "cv_f1_at_K_wcss": null,
+  "wcss_curve": [
+   1.465879712954361,
+   0.5166298303707111,
+   0.0745600165073749,
+   0.0
+  ],
+  "selected_features": [
+   {
+    "feature": "frame.encap_type",
+    "index": 0,
+    "score": 294.43728814397906,
+    "cluster": 0,
+    "cluster_size": 3,
+    "cluster_members": [
+     "frame.encap_type",
+     "radiotap.channel.flags.ofdm",
+     "arp.proto.type"
+    ]
+   },
+   {
+    "feature": "wlan.fixed.beacon",
+    "index": 3,
+    "score": 7.49999941388769,
+    "cluster": 1,
+    "cluster_size": 2,
+    "cluster_members": [
+     "wlan.fc.subtype",
+     "wlan.fixed.beacon"
+    ]
+   }
+  ],
+  "wcss_features": null,
+  "k_hat_features": [
+   "frame.encap_type",
+   "wlan.fixed.beacon"
+  ],
+  "sweep_runtime_s": 7.716825485229492
+ },
+ "ablation_cv": {
+  "n_features": {
+   "A_full": 2,
+   "B_random_representative": 2,
+   "C_all_features": 5,
+   "D_no_smote": 2
+  }
+ },
+ "test": {
+  "task_aware": {
+   "n_test": 7,
+   "accuracy": 1.0,
+   "balanced_accuracy": 1.0,
+   "macro": {
+    "precision": 0.5,
+    "recall": 0.5,
+    "f1": 0.5
+   },
+   "weighted": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+   },
+   "per_class": [
+    {
+     "class": "Normal",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "Attack",
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "support": 7,
+     "tp": 7,
+     "fp": 0,
+     "fn": 0
+    }
+   ],
+   "confusion_matrix": {
+    "labels": [
+     "Normal",
+     "Attack"
+    ],
+    "rows_true_cols_pred": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      7
+     ]
+    ]
+   },
+   "consistency_checks": {
+    "accuracy_from_cm": 1.0,
+    "macro_f1_from_cm": 0.5,
+    "weighted_f1_from_cm": 1.0,
+    "all_consistent": true
+   },
+   "binary_counts": {
+    "positive_class": "Attack",
+    "TP": 7,
+    "FN": 0,
+    "FP": 0,
+    "TN": 0
+   }
+  },
+  "all_features": {
+   "n_test": 7,
+   "accuracy": 1.0,
+   "balanced_accuracy": 1.0,
+   "macro": {
+    "precision": 0.5,
+    "recall": 0.5,
+    "f1": 0.5
+   },
+   "weighted": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+   },
+   "per_class": [
+    {
+     "class": "Normal",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "Attack",
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "support": 7,
+     "tp": 7,
+     "fp": 0,
+     "fn": 0
+    }
+   ],
+   "confusion_matrix": {
+    "labels": [
+     "Normal",
+     "Attack"
+    ],
+    "rows_true_cols_pred": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      7
+     ]
+    ]
+   },
+   "consistency_checks": {
+    "accuracy_from_cm": 1.0,
+    "macro_f1_from_cm": 0.5,
+    "weighted_f1_from_cm": 1.0,
+    "all_consistent": true
+   },
+   "binary_counts": {
+    "positive_class": "Attack",
+    "TP": 7,
+    "FN": 0,
+    "FP": 0,
+    "TN": 0
+   }
+  },
+  "k_hat": {
+   "n_test": 7,
+   "accuracy": 1.0,
+   "balanced_accuracy": 1.0,
+   "macro": {
+    "precision": 0.5,
+    "recall": 0.5,
+    "f1": 0.5
+   },
+   "weighted": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+   },
+   "per_class": [
+    {
+     "class": "Normal",
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0,
+     "support": 0,
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    {
+     "class": "Attack",
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "support": 7,
+     "tp": 7,
+     "fp": 0,
+     "fn": 0
+    }
+   ],
+   "confusion_matrix": {
+    "labels": [
+     "Normal",
+     "Attack"
+    ],
+    "rows_true_cols_pred": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      7
+     ]
+    ]
+   },
+   "consistency_checks": {
+    "accuracy_from_cm": 1.0,
+    "macro_f1_from_cm": 0.5,
+    "weighted_f1_from_cm": 1.0,
+    "all_consistent": true
+   },
+   "binary_counts": {
+    "positive_class": "Attack",
+    "TP": 7,
+    "FN": 0,
+    "FP": 0,
+    "TN": 0
+   }
+  }
+ },
+ "efficiency": {
+  "task_aware": {
+   "n_features": 2,
+   "train_rows_after_smote": 52,
+   "train_time_s": 0.002737399991019629,
+   "inference_ms_per_sample": 0.040299999195017984,
+   "model_size_kb": 1.3095703125,
+   "tree_depth": 1,
+   "tree_leaves": 2
+  },
+  "all_features": {
+   "n_features": 5,
+   "train_rows_after_smote": 52,
+   "train_time_s": 0.0026329999964218587,
+   "inference_ms_per_sample": 0.04085714213683137,
+   "model_size_kb": 1.3095703125,
+   "tree_depth": 1,
+   "tree_leaves": 2
+  },
+  "k_hat": {
+   "n_features": 2,
+   "train_rows_after_smote": 52,
+   "train_time_s": 0.0024699000059626997,
+   "inference_ms_per_sample": 0.036214284981334846,
+   "model_size_kb": 1.3095703125,
+   "tree_depth": 1,
+   "tree_leaves": 2
+  }
+ },
+ "feature_names": [
+  "frame.encap_type",
+  "radiotap.channel.flags.ofdm",
+  "wlan.fc.subtype",
+  "wlan.fixed.beacon",
+  "arp.proto.type"
+ ],
+ "environment": {
+  "python": "3.12.10",
+  "numpy": "2.4.6",
+  "pandas": "3.0.6",
+  "scikit_learn": "1.9.1",
+  "imbalanced_learn": "0.14.2",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cpu_count": 12,
+  "n_jobs": 5,
+  "git_commit": "b9799910d5f8a83277aed156d177b2d8ccfb73ae",
+  "finished_utc": "2026-10-21T14:15:33Z"
+ },
+ "runtime_s": 27.812320470809937
+}

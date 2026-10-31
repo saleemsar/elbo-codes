@@ -1,0 +1,12 @@
+\documentclass[border=4pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,backgrounds,calc,shapes.geometric}
+\definecolor{snblue}{HTML}{1F5A96}
+\definecolor{snred}{HTML}{B8433A}
+\definecolor{sngreen}{HTML}{3A8A4A}
+\tikzset{
+  pb/.style={rectangle,rounded corners=3pt,draw=snblue!60,fill=snblue!8,text width=2.3cm,align=center,inner sep=4pt,line width=0.5pt,font=\small},
+  db/.style={pb,draw=snred!55,fill=snred!6},
+  gb/.style={pb,draw=sngreen!60,fill=sngreen!8},
+  dm/.style={diamond,aspect=2.2,draw=gray!70,fill=gray!6,align=center,inner sep=1pt,font=\small},
+  ar/.style={-Stealth,line width=0.6pt,gray!70}}

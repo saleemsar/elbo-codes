@@ -1,0 +1,747 @@
+{
+ "scenario": "S1",
+ "scenario_name": "Compromised UAV",
+ "task": "binary",
+ "class_names": [
+  "Normal",
+  "Attack"
+ ],
+ "protocol": {
+  "seed": 42,
+  "test_size": 0.2,
+  "n_folds": 5,
+  "selection_sample_cap": 60000,
+  "min_per_class_selection": 50,
+  "kmeans_n_init": 10,
+  "K_range": [
+   2,
+   20
+  ],
+  "stopping_rule": "one-SE: K* = min{K : meanF1(K) >= meanF1(K_hat) - SE(K_hat)}, K_hat = argmax meanF1, full sweep K=2..n, 5-fold CV weighted F1",
+  "detector": "DecisionTreeClassifier(criterion=gini, class_weight=balanced, random_state=42)",
+  "smote": "all classes with >=2 samples to majority count, k=min(5, min class-1), training folds only",
+  "feature_set": "clean",
+  "stage2": "mi",
+  "impute": "median",
+  "label_perm": null,
+  "fast": true
+ },
+ "preprocessing": {
+  "n_rows_raw": 860643,
+  "n_columns_raw": 44,
+  "class_counts_raw": {
+   "DDoS": 193171,
+   "Brute-Force": 175925,
+   "UDP Flooding": 152775,
+   "MITM": 151586,
+   "ICMP Flooding": 47544,
+   "GPS Jamming": 41600,
+   "Replay": 25977,
+   "Fake Landing": 24050,
+   "Normal": 17949,
+   "De-authentication": 14606,
+   "Scanning": 9030,
+   "DoS": 6424,
+   "Reconnaissance": 6
+  },
+  "feature_set": "clean",
+  "p1_dropped_by_audit": [
+   "ip.proto",
+   "ip.ttl",
+   "radiotap.channel.flags.cck",
+   "radiotap.present.tsft",
+   "radiotap.rxflags",
+   "wlan.rsn.capabilities.mfpc",
+   "wlan.tag",
+   "wlan_radio.frequency",
+   "wlan_radio.phy"
+  ],
+  "p1_dropped_by_name": [
+   "frame.number",
+   "frame.time_epoch",
+   "frame.time_relative",
+   "ip.dst",
+   "ip.src",
+   "radiotap.mactime",
+   "radiotap.timestamp.ts",
+   "udp.dstport",
+   "udp.srcport",
+   "wlan.bssid",
+   "wlan.seq",
+   "wlan_radio.start_tsf",
+   "wlan_radio.timestamp"
+  ],
+  "p1_dropped_ip_content": [],
+  "p5_unparsable_fraction": {
+   "arp": 3e-06,
+   "arp.hw.type": 0.20031,
+   "arp.proto.type": 0.003415
+  },
+  "n_duplicate_rows": 439514,
+  "n_feature_vectors_with_conflicting_labels": 1,
+  "duplicates_removed": true,
+  "n_rows_used": 421129,
+  "class_counts_used": {
+   "Attack": 414779,
+   "Normal": 6350
+  },
+  "classes_dropped_fewer_than_2_rows": [],
+  "p2_dropped_zero_variance": [
+   "radiotap.vendor_oui",
+   "wlan.duration"
+  ],
+  "n_features_after_preprocessing": 20
+ },
+ "split": {
+  "n_train": 336903,
+  "n_test": 84226,
+  "train_counts": {
+   "Normal": 5080,
+   "Attack": 331823
+  },
+  "test_counts": {
+   "Normal": 1270,
+   "Attack": 82956
+  }
+ },
+ "selection": {
+  "n_selection_rows": 60000,
+  "selection_counts": {
+   "Normal": 905,
+   "Attack": 59095
+  },
+  "K": [
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20
+  ],
+  "cv_f1_mean": [
+   0.9992687344199738,
+   0.9995518125173216,
+   0.9995354344671069,
+   0.9994526921523935,
+   0.9994526921523935,
+   0.9994359666153674,
+   0.999452432473318,
+   0.999468942292625,
+   0.9994361823330866,
+   0.999452432473318,
+   0.999452432473318,
+   0.9994692463022927,
+   0.999468942292625,
+   0.999468942292625,
+   0.9994359666153674,
+   0.9994526921523935,
+   0.9994361823330866,
+   0.9994359666153674,
+   0.9994361823330866
+  ],
+  "cv_f1_sd": [
+   0.0002897970226211731,
+   0.00017130283409828094,
+   0.00019870749511657,
+   0.0002566132611474577,
+   0.0002566132611474577,
+   0.0001956390738196199,
+   0.0002058565303455976,
+   0.0002218383189569022,
+   0.00024154568911016454,
+   0.0002058565303455976,
+   0.0002058565303455976,
+   0.0002758863818619718,
+   0.0002218383189569022,
+   0.0002218383189569022,
+   0.0001956390738196199,
+   0.0002566132611474577,
+   0.00024154568911016454,
+   0.0001956390738196199,
+   0.00024154568911016454
+  ],
+  "cv_f1_se": [
+   0.00012960116845159747,
+   7.660895635642501e-05,
+   8.886469334387161e-05,
+   0.00011476093917072421,
+   0.00011476093917072421,
+   8.74924536231539e-05,
+   9.206183909300089e-05,
+   9.920911224038271e-05,
+   0.00010802251610447172,
+   9.206183909300089e-05,
+   9.206183909300089e-05,
+   0.0001233801407819668,
+   9.920911224038271e-05,
+   9.920911224038271e-05,
+   8.74924536231539e-05,
+   0.00011476093917072421,
+   0.00010802251610447172,
+   8.74924536231539e-05,
+   0.00010802251610447172
+  ],
+  "cv_f1_per_fold": [
+   [
+    0.999002704944404,
+    0.9997503390642978,
+    0.9997503390642978,
+    0.999501352472202,
+    0.999501352472202,
+    0.999501352472202,
+    0.999501352472202,
+    0.999501352472202,
+    0.999501352472202,
+    0.999501352472202,
+    0.999501352472202,
+    0.999501352472202,
+    0.999501352472202,
+    0.999501352472202,
+    0.999501352472202,
+    0.999501352472202,
+    0.999501352472202,
+    0.999501352472202,
+    0.999501352472202
+   ],
+   [
+    0.9995850192182671,
+    0.9996684599523423,
+    0.9996684599523423,
+    0.9995838984404964,
+    0.9995838984404964,
+    0.9995838984404964,
+    0.9995838984404964,
+    0.9995838984404964,
+    0.9995838984404964,
+    0.9995838984404964,
+    0.9995838984404964,
+    0.9995838984404964,
+    0.9995838984404964,
+    0.9995838984404964,
+    0.9995838984404964,
+    0.9995838984404964,
+    0.9995838984404964,
+    0.9995838984404964,
+    0.9995838984404964
+   ],
+   [
+    0.999419026905574,
+    0.999420578619476,
+    0.999420578619476,
+    0.9996675683148013,
+    0.9996675683148013,
+    0.9995026899285137,
+    0.9995850192182671,
+    0.9996675683148013,
+    0.9995850192182671,
+    0.9995850192182671,
+    0.9995850192182671,
+    0.9997503390642978,
+    0.9996675683148013,
+    0.9996675683148013,
+    0.9995026899285137,
+    0.9996675683148013,
+    0.9995850192182671,
+    0.9995026899285137,
+    0.9995850192182671
+   ],
+   [
+    0.9994158710641291,
+    0.9995827650458067,
+    0.9995827650458067,
+    0.9995,
+    0.9995,
+    0.9995,
+    0.9995,
+    0.9995,
+    0.9995,
+    0.9995,
+    0.9995,
+    0.9995,
+    0.9995,
+    0.9995,
+    0.9995,
+    0.9995,
+    0.9995,
+    0.9995,
+    0.9995
+   ],
+   [
+    0.9989210499674945,
+    0.9993369199046849,
+    0.9992550296536121,
+    0.9990106415344672,
+    0.9990106415344672,
+    0.9990918922356248,
+    0.9990918922356248,
+    0.9990918922356248,
+    0.9990106415344672,
+    0.9990918922356248,
+    0.9990918922356248,
+    0.9990106415344672,
+    0.9990918922356248,
+    0.9990918922356248,
+    0.9990918922356248,
+    0.9990106415344672,
+    0.9990106415344672,
+    0.9990918922356248,
+    0.9990106415344672
+   ]
+  ],
+  "K_hat_argmax": 3,
+  "one_se_threshold": 0.9994752035609652,
+  "K_star": 3,
+  "n_selected": 3,
+  "reduction_pct": 85.0,
+  "cv_f1_at_K_star": 0.9995518125173216,
+  "cv_f1_at_all_features": 0.9994361823330866,
+  "K_wcss_kneedle": 8,
+  "cv_f1_at_K_wcss": 0.999452432473318,
+  "wcss_curve": [
+   26.43488524053735,
+   20.1123177115214,
+   14.688003132721182,
+   12.74499747584012,
+   11.125673501716916,
+   9.41026874404723,
+   7.915429890263672,
+   6.726042681802927,
+   5.6216400707603835,
+   4.686111780475018,
+   3.5408076625556966,
+   2.6707296654153607,
+   1.6956889909691628,
+   1.1309615166926892,
+   0.5792726839638691,
+   0.20965139322479603,
+   0.12903774158767886,
+   0.05211689007128198,
+   0.0
+  ],
+  "selected_features": [
+   {
+    "feature": "udp.length",
+    "index": 19,
+    "score": 0.6556802863018435,
+    "cluster": 2,
+    "cluster_size": 2,
+    "cluster_members": [
+     "radiotap.length",
+     "udp.length"
+    ]
+   },
+   {
+    "feature": "frame.len",
+    "index": 1,
+    "score": 0.5927967872045086,
+    "cluster": 0,
+    "cluster_size": 13,
+    "cluster_members": [
+     "frame.len",
+     "frame.time_delta_displayed",
+     "radiotap.channel.flags.ofdm",
+     "wlan.fc.retry",
+     "wlan.fc.subtype",
+     "wlan.fcs.bad_checksum",
+     "wlan.fixed.beacon",
+     "wlan_radio.signal_dbm",
+     "wlan_rsna_eapol.keydes.msgnr",
+     "arp",
+     "arp.hw.type",
+     "arp.proto.type",
+     "tcp.ack"
+    ]
+   },
+   {
+    "feature": "frame.encap_type",
+    "index": 0,
+    "score": 0.2112130696529042,
+    "cluster": 1,
+    "cluster_size": 5,
+    "cluster_members": [
+     "frame.encap_type",
+     "radiotap.channel.freq",
+     "radiotap.datarate",
+     "radiotap.dbm_antsignal",
+     "wlan.fixed.capabilities.ess"
+    ]
+   }
+  ],
+  "wcss_features": [
+   "frame.encap_type",
+   "frame.len",
+   "frame.time_delta_displayed",
+   "radiotap.channel.flags.ofdm",
+   "radiotap.dbm_antsignal",
+   "wlan_rsna_eapol.keydes.msgnr",
+   "arp.hw.type",
+   "udp.length"
+  ],
+  "k_hat_features": [
+   "frame.encap_type",
+   "frame.len",
+   "udp.length"
+  ],
+  "sweep_runtime_s": 18.803511381149292
+ },
+ "ablation_cv": {
+  "n_features": {
+   "A_full": 3,
+   "B_random_representative": 3,
+   "C_all_features": 20,
+   "D_no_smote": 3
+  }
+ },
+ "test": {
+  "task_aware": {
+   "n_test": 84226,
+   "accuracy": 0.9970792866810724,
+   "balanced_accuracy": 0.9981296127764154,
+   "macro": {
+    "precision": 0.9190824621934646,
+    "recall": 0.9981296127764154,
+    "f1": 0.9550765167643138
+   },
+   "weighted": {
+    "precision": 0.9975480476154543,
+    "recall": 0.9970792866810724,
+    "f1": 0.9972051268600916
+   },
+   "per_class": [
+    {
+     "class": "Normal",
+     "precision": 0.8381770145310435,
+     "recall": 0.9992125984251968,
+     "f1": 0.9116379310344828,
+     "support": 1270,
+     "tp": 1269,
+     "fp": 245,
+     "fn": 1
+    },
+    {
+     "class": "Attack",
+     "precision": 0.9999879098558855,
+     "recall": 0.9970466271276339,
+     "f1": 0.9985151024941449,
+     "support": 82956,
+     "tp": 82711,
+     "fp": 1,
+     "fn": 245
+    }
+   ],
+   "confusion_matrix": {
+    "labels": [
+     "Normal",
+     "Attack"
+    ],
+    "rows_true_cols_pred": [
+     [
+      1269,
+      1
+     ],
+     [
+      245,
+      82711
+     ]
+    ]
+   },
+   "consistency_checks": {
+    "accuracy_from_cm": 0.9970792866810724,
+    "macro_f1_from_cm": 0.9550765167643138,
+    "weighted_f1_from_cm": 0.9972051268600918,
+    "all_consistent": true
+   },
+   "binary_counts": {
+    "positive_class": "Attack",
+    "TP": 82711,
+    "FN": 245,
+    "FP": 1,
+    "TN": 1269
+   }
+  },
+  "all_features": {
+   "n_test": 84226,
+   "accuracy": 0.9977322916914017,
+   "balanced_accuracy": 0.9984611138131095,
+   "macro": {
+    "precision": 0.9348808677866625,
+    "recall": 0.9984611138131095,
+    "f1": 0.964429233718898
+   },
+   "weighted": {
+    "precision": 0.9980244872716151,
+    "recall": 0.9977322916914017,
+    "f1": 0.9978095249387211
+   },
+   "per_class": [
+    {
+     "class": "Normal",
+     "precision": 0.8697738176833447,
+     "recall": 0.9992125984251968,
+     "f1": 0.9300109930377428,
+     "support": 1270,
+     "tp": 1269,
+     "fp": 190,
+     "fn": 1
+    },
+    {
+     "class": "Attack",
+     "precision": 0.9999879178899803,
+     "recall": 0.9977096292010222,
+     "f1": 0.9988474744000531,
+     "support": 82956,
+     "tp": 82766,
+     "fp": 1,
+     "fn": 190
+    }
+   ],
+   "confusion_matrix": {
+    "labels": [
+     "Normal",
+     "Attack"
+    ],
+    "rows_true_cols_pred": [
+     [
+      1269,
+      1
+     ],
+     [
+      190,
+      82766
+     ]
+    ]
+   },
+   "consistency_checks": {
+    "accuracy_from_cm": 0.9977322916914017,
+    "macro_f1_from_cm": 0.964429233718898,
+    "weighted_f1_from_cm": 0.9978095249387211,
+    "all_consistent": true
+   },
+   "binary_counts": {
+    "positive_class": "Attack",
+    "TP": 82766,
+    "FN": 190,
+    "FP": 1,
+    "TN": 1269
+   }
+  },
+  "wcss_kneedle": {
+   "n_test": 84226,
+   "accuracy": 0.9977322916914017,
+   "balanced_accuracy": 0.9984611138131095,
+   "macro": {
+    "precision": 0.9348808677866625,
+    "recall": 0.9984611138131095,
+    "f1": 0.964429233718898
+   },
+   "weighted": {
+    "precision": 0.9980244872716151,
+    "recall": 0.9977322916914017,
+    "f1": 0.9978095249387211
+   },
+   "per_class": [
+    {
+     "class": "Normal",
+     "precision": 0.8697738176833447,
+     "recall": 0.9992125984251968,
+     "f1": 0.9300109930377428,
+     "support": 1270,
+     "tp": 1269,
+     "fp": 190,
+     "fn": 1
+    },
+    {
+     "class": "Attack",
+     "precision": 0.9999879178899803,
+     "recall": 0.9977096292010222,
+     "f1": 0.9988474744000531,
+     "support": 82956,
+     "tp": 82766,
+     "fp": 1,
+     "fn": 190
+    }
+   ],
+   "confusion_matrix": {
+    "labels": [
+     "Normal",
+     "Attack"
+    ],
+    "rows_true_cols_pred": [
+     [
+      1269,
+      1
+     ],
+     [
+      190,
+      82766
+     ]
+    ]
+   },
+   "consistency_checks": {
+    "accuracy_from_cm": 0.9977322916914017,
+    "macro_f1_from_cm": 0.964429233718898,
+    "weighted_f1_from_cm": 0.9978095249387211,
+    "all_consistent": true
+   },
+   "binary_counts": {
+    "positive_class": "Attack",
+    "TP": 82766,
+    "FN": 190,
+    "FP": 1,
+    "TN": 1269
+   }
+  },
+  "k_hat": {
+   "n_test": 84226,
+   "accuracy": 0.9970792866810724,
+   "balanced_accuracy": 0.9981296127764154,
+   "macro": {
+    "precision": 0.9190824621934646,
+    "recall": 0.9981296127764154,
+    "f1": 0.9550765167643138
+   },
+   "weighted": {
+    "precision": 0.9975480476154543,
+    "recall": 0.9970792866810724,
+    "f1": 0.9972051268600916
+   },
+   "per_class": [
+    {
+     "class": "Normal",
+     "precision": 0.8381770145310435,
+     "recall": 0.9992125984251968,
+     "f1": 0.9116379310344828,
+     "support": 1270,
+     "tp": 1269,
+     "fp": 245,
+     "fn": 1
+    },
+    {
+     "class": "Attack",
+     "precision": 0.9999879098558855,
+     "recall": 0.9970466271276339,
+     "f1": 0.9985151024941449,
+     "support": 82956,
+     "tp": 82711,
+     "fp": 1,
+     "fn": 245
+    }
+   ],
+   "confusion_matrix": {
+    "labels": [
+     "Normal",
+     "Attack"
+    ],
+    "rows_true_cols_pred": [
+     [
+      1269,
+      1
+     ],
+     [
+      245,
+      82711
+     ]
+    ]
+   },
+   "consistency_checks": {
+    "accuracy_from_cm": 0.9970792866810724,
+    "macro_f1_from_cm": 0.9550765167643138,
+    "weighted_f1_from_cm": 0.9972051268600918,
+    "all_consistent": true
+   },
+   "binary_counts": {
+    "positive_class": "Attack",
+    "TP": 82711,
+    "FN": 245,
+    "FP": 1,
+    "TN": 1269
+   }
+  }
+ },
+ "efficiency": {
+  "task_aware": {
+   "n_features": 3,
+   "train_rows_after_smote": 663646,
+   "train_time_s": 0.6111283999925945,
+   "inference_ms_per_sample": 0.0001151425924819761,
+   "model_size_kb": 10.3720703125,
+   "tree_depth": 18,
+   "tree_leaves": 60
+  },
+  "all_features": {
+   "n_features": 20,
+   "train_rows_after_smote": 663646,
+   "train_time_s": 2.9756825000076788,
+   "inference_ms_per_sample": 0.00017066226589528374,
+   "model_size_kb": 17.5595703125,
+   "tree_depth": 18,
+   "tree_leaves": 106
+  },
+  "wcss_kneedle": {
+   "n_features": 8,
+   "train_rows_after_smote": 663646,
+   "train_time_s": 1.829765500006033,
+   "inference_ms_per_sample": 0.00016697694300059,
+   "model_size_kb": 17.5595703125,
+   "tree_depth": 18,
+   "tree_leaves": 106
+  },
+  "k_hat": {
+   "n_features": 3,
+   "train_rows_after_smote": 663646,
+   "train_time_s": 0.9520112999889534,
+   "inference_ms_per_sample": 0.00015514093025701192,
+   "model_size_kb": 10.3720703125,
+   "tree_depth": 18,
+   "tree_leaves": 60
+  }
+ },
+ "feature_names": [
+  "frame.encap_type",
+  "frame.len",
+  "frame.time_delta_displayed",
+  "radiotap.channel.flags.ofdm",
+  "radiotap.channel.freq",
+  "radiotap.datarate",
+  "radiotap.dbm_antsignal",
+  "radiotap.length",
+  "wlan.fc.retry",
+  "wlan.fc.subtype",
+  "wlan.fcs.bad_checksum",
+  "wlan.fixed.beacon",
+  "wlan.fixed.capabilities.ess",
+  "wlan_radio.signal_dbm",
+  "wlan_rsna_eapol.keydes.msgnr",
+  "arp",
+  "arp.hw.type",
+  "arp.proto.type",
+  "tcp.ack",
+  "udp.length"
+ ],
+ "environment": {
+  "python": "3.12.10",
+  "numpy": "2.4.6",
+  "pandas": "3.0.6",
+  "scikit_learn": "1.9.1",
+  "imbalanced_learn": "0.14.2",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cpu_count": 12,
+  "n_jobs": 5,
+  "git_commit": "5864f3d1248609ad9b6e2398356dc389593a6c69",
+  "finished_utc": "2026-10-21T14:33:42Z"
+ },
+ "runtime_s": 119.1564109325409
+}

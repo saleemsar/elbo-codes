@@ -1,0 +1,17 @@
+{
+ "S1": {
+  "rows": 434602,
+  "max_accuracy": 0.9689969213211168,
+  "share_rows_on_conflicting_vectors": 0.06153216045945486
+ },
+ "S2": {
+  "rows": 372553,
+  "max_accuracy": 0.9948839493978038,
+  "share_rows_on_conflicting_vectors": 0.009942209564813597
+ },
+ "S3": {
+  "rows": 13368,
+  "max_accuracy": 0.948608617594255,
+  "share_rows_on_conflicting_vectors": 0.10233393177737882
+ }
+}

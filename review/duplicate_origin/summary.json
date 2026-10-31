@@ -1,0 +1,32 @@
+{
+ "S1": {
+  "rows": 860643,
+  "dup_analysis": 426041,
+  "dup_raw": 14802,
+  "dup_analysis_pct": 49.502639305728394,
+  "dup_raw_pct": 1.7198768827492932,
+  "share_of_analysis_dups_adjacent": 0.008644707903699408,
+  "n_columns_raw": 44,
+  "n_columns_analysis": 22
+ },
+ "S2": {
+  "rows": 631356,
+  "dup_analysis": 258803,
+  "dup_raw": 117,
+  "dup_analysis_pct": 40.99161170559874,
+  "dup_raw_pct": 0.01853154163419687,
+  "share_of_analysis_dups_adjacent": 0.17446861126030225,
+  "n_columns_raw": 50,
+  "n_columns_analysis": 34
+ },
+ "S3": {
+  "rows": 823632,
+  "dup_analysis": 810264,
+  "dup_raw": 449852,
+  "dup_analysis_pct": 98.37694504341745,
+  "dup_raw_pct": 54.61808186180236,
+  "share_of_analysis_dups_adjacent": 0.17272888836231154,
+  "n_columns_raw": 84,
+  "n_columns_analysis": 80
+ }
+}

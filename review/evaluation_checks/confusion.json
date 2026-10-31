@@ -1,0 +1,132 @@
+{
+ "largest_confusions": [
+  [
+   "Scanning",
+   "Reconnaissance",
+   118
+  ],
+  [
+   "Reconnaissance",
+   "Scanning",
+   107
+  ],
+  [
+   "DoS",
+   "DDoS",
+   74
+  ],
+  [
+   "DDoS",
+   "DoS",
+   63
+  ],
+  [
+   "DDoS",
+   "De-authentication",
+   11
+  ],
+  [
+   "De-authentication",
+   "DDoS",
+   9
+  ],
+  [
+   "Brute-Force",
+   "MITM",
+   8
+  ],
+  [
+   "DoS",
+   "De-authentication",
+   5
+  ],
+  [
+   "Fake Landing",
+   "MITM",
+   4
+  ],
+  [
+   "MITM",
+   "Fake Landing",
+   4
+  ],
+  [
+   "MITM",
+   "Brute-Force",
+   3
+  ],
+  [
+   "Brute-Force",
+   "Fake Landing",
+   2
+  ]
+ ],
+ "pairs": {
+  "Scanning|Reconnaissance": {
+   "n_a": 1022,
+   "n_b": 644,
+   "test_a_pred_b": 118,
+   "test_b_pred_a": 107,
+   "task_aware": {
+    "distinct_vectors_a": 1021,
+    "distinct_vectors_b": 643,
+    "shared_vectors": 619,
+    "rows_a_on_shared_vectors": 620,
+    "rows_b_on_shared_vectors": 620,
+    "pairwise_cv_balanced_accuracy": 0.2702501488981537
+   },
+   "all_features": {
+    "distinct_vectors_a": 1022,
+    "distinct_vectors_b": 644,
+    "shared_vectors": 620,
+    "rows_a_on_shared_vectors": 620,
+    "rows_b_on_shared_vectors": 620,
+    "pairwise_cv_balanced_accuracy": 0.2714306985450523
+   }
+  },
+  "DoS|De-authentication": {
+   "n_a": 540,
+   "n_b": 54,
+   "test_a_pred_b": 5,
+   "test_b_pred_a": 2,
+   "task_aware": {
+    "distinct_vectors_a": 538,
+    "distinct_vectors_b": 54,
+    "shared_vectors": 53,
+    "rows_a_on_shared_vectors": 54,
+    "rows_b_on_shared_vectors": 53,
+    "pairwise_cv_balanced_accuracy": 0.5435185185185185
+   },
+   "all_features": {
+    "distinct_vectors_a": 540,
+    "distinct_vectors_b": 54,
+    "shared_vectors": 53,
+    "rows_a_on_shared_vectors": 53,
+    "rows_b_on_shared_vectors": 53,
+    "pairwise_cv_balanced_accuracy": 0.5435185185185185
+   }
+  },
+  "DoS|DDoS": {
+   "n_a": 540,
+   "n_b": 445,
+   "test_a_pred_b": 74,
+   "test_b_pred_a": 63,
+   "task_aware": {
+    "distinct_vectors_a": 538,
+    "distinct_vectors_b": 445,
+    "shared_vectors": 333,
+    "rows_a_on_shared_vectors": 334,
+    "rows_b_on_shared_vectors": 333,
+    "pairwise_cv_balanced_accuracy": 0.2855597170203912
+   },
+   "all_features": {
+    "distinct_vectors_a": 540,
+    "distinct_vectors_b": 445,
+    "shared_vectors": 0,
+    "rows_a_on_shared_vectors": 0,
+    "rows_b_on_shared_vectors": 0,
+    "pairwise_cv_balanced_accuracy": 1.0
+   }
+  }
+ }
+}

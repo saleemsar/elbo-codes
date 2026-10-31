@@ -39,6 +39,7 @@ from imblearn.over_sampling import SMOTE
 from joblib import Parallel, delayed
 from kneed import KneeLocator
 from sklearn.cluster import KMeans
+from sklearn.feature_selection import f_classif, mutual_info_classif
 from sklearn.impute import SimpleImputer
 from sklearn.metrics import (accuracy_score, balanced_accuracy_score,
                              confusion_matrix, f1_score,
@@ -62,11 +63,38 @@ DATA_DIR = os.path.join(HERE, "dataset")
 OUT_DIR = os.path.join(HERE, "results")
 KEEP_DUPLICATES = False  # set by --keep-duplicates (sensitivity analysis only)
 
+# Revision 1 options (main analysis = defaults; the others are sensitivity analyses)
+FEATURE_SET = "clean"    # clean: drop every column the feature audit classifies as an identifier or clock
+                         #        (by content or header), S3 headers realigned;
+                         # validated: keep only columns whose values match their header's domain;
+                         # published: the first-round preprocessing (name/IP rules, S3 headers as shipped)
+STAGE2 = "anova"         # feature-class score: anova (F statistic), mi (mutual information), pearson (first round)
+IMPUTE = "median"        # median, mean (first round) or zero
+MI_MAX_ROWS = 20_000     # rows used to estimate mutual information (sensitivity analysis only)
+AUDIT_FILE = os.path.join(HERE, "review", "feature_audit", "summary.json")
+LABEL_PERM = None        # seed of a random class-code order (Pearson label-coding analysis)
+FAST = False             # skip the ablation (stability and label-coding repeats)
+
 SCENARIOS = {
     "S1": {"name": "Compromised UAV", "zip": "UAV-Case1-Label (1).zip", "label": "Label"},
     "S2": {"name": "Rogue access point", "zip": "Access Point Case2 Label.zip", "label": "Normal"},
     "S3": {"name": "Compromised GCS", "zip": "GSC Case3 Label .zip", "label": "Class"},
 }
+
+
+def s3_realigned_names(header):
+    """The S3 CSV header is offset by one column from its values: value column i holds
+    the field named by header i+1 (verified with arithmetic identities, see
+    review/feature_audit.py). The four leading columns are the Zeek connection
+    endpoints; column 4 (mostly the originator payload byte count) and the last column
+    (a TCP window field) have no matching header and are kept under neutral names."""
+    feats = [h for h in header]
+    n = len(feats)
+    names = ["id.orig_h", "id.orig_p", "id.resp_h", "id.resp_p", "unverified_bytes_col4"]
+    names += [feats[i + 1] for i in range(5, n - 1)]
+    names += ["unverified_window_col%d" % (n - 1)]
+    assert len(names) == n and len(set(names)) == n
+    return names
 
 # P1: identifiers / capture artefacts dropped by name (addresses, ports,
 # flow ids, absolute timestamps, frame and sequence counters).
@@ -104,7 +132,24 @@ def load_raw(scn):
         name = [n for n in z.namelist() if n.lower().endswith(".csv")][0]
         df = pd.read_csv(z.open(name), low_memory=False, dtype=str, encoding="utf-8-sig")
     df.columns = [c.strip() for c in df.columns]
+    if scn == "S3" and FEATURE_SET != "published":
+        lab = df.pop(cfg["label"])
+        df.columns = s3_realigned_names(list(df.columns))
+        df[cfg["label"]] = lab
     return df, cfg["label"]
+
+
+def audit_exclusions(scn):
+    """Columns removed by the feature audit (review/feature_audit/summary.json)."""
+    if FEATURE_SET == "published":
+        return None
+    with open(AUDIT_FILE) as fh:
+        aud = json.load(fh)[scn]
+    if FEATURE_SET == "clean":
+        return set(aud["identifier"])
+    if FEATURE_SET == "validated":
+        return set(aud["identifier"]) | set(aud["invalid"])
+    raise ValueError(FEATURE_SET)
 
 
 def canon_label(v):
@@ -124,7 +169,7 @@ def parse_numeric(col):
     return num.astype("float64")
 
 
-def preprocess(df, label_col, task):
+def preprocess(df, label_col, task, scn=None):
     """P1 (identifier removal), P3 (label), P5 (numeric parsing), duplicate removal.
     None of these steps learns from labels or from value distributions across rows,
     except that duplicate removal is applied before the split so that no identical
@@ -136,6 +181,11 @@ def preprocess(df, label_col, task):
 
     dropped_name = [c for c in X.columns if c in ID_COLUMNS]
     X = X.drop(columns=dropped_name)
+    excl = audit_exclusions(scn) if scn is not None else None
+    dropped_audit = [c for c in X.columns if excl is not None and c in excl]
+    X = X.drop(columns=dropped_audit)
+    log["feature_set"] = FEATURE_SET
+    log["p1_dropped_by_audit"] = sorted(dropped_audit)
     dropped_ip = []
     for c in X.columns:
         s = X[c].dropna().astype(str).str.strip()
@@ -171,9 +221,20 @@ def preprocess(df, label_col, task):
 
 
 # ------------------------------------------------------------------------ helpers
-def safe_smote(X, y, seed=SEED):
+def config():
+    """Options that worker processes must share with the parent (joblib workers may
+    re-import this module and would otherwise see the defaults)."""
+    return {"SEED": SEED, "STAGE2": STAGE2, "IMPUTE": IMPUTE, "FEATURE_SET": FEATURE_SET}
+
+
+def set_config(cfg):
+    globals().update(cfg)
+
+
+def safe_smote(X, y, seed=None):
     """SMOTE every class with >= 2 samples up to the majority count.
     k_neighbors = min(5, smallest oversampled class - 1). Singleton classes are left as is."""
+    seed = SEED if seed is None else seed
     counts = np.bincount(y)
     maj = counts.max()
     targets = {c: maj for c in np.flatnonzero(counts) if 2 <= counts[c] < maj}
@@ -186,7 +247,10 @@ def safe_smote(X, y, seed=SEED):
 
 
 def fit_transform_fold(Xtr, Xva=None):
-    imp = SimpleImputer(strategy="mean", keep_empty_features=True)
+    if IMPUTE == "zero":
+        imp = SimpleImputer(strategy="constant", fill_value=0.0, keep_empty_features=True)
+    else:
+        imp = SimpleImputer(strategy=IMPUTE, keep_empty_features=True)
     sc = MinMaxScaler()
     A = sc.fit_transform(imp.fit_transform(Xtr)).astype(np.float32)
     if Xva is None:
@@ -196,11 +260,22 @@ def fit_transform_fold(Xtr, Xva=None):
 
 
 def correlations(X, y):
-    """Stage 1 matrix R (Eq 3) and Stage 2 scores rho (Eq 5)."""
+    """Stage 1 matrix R (Eq 3) and Stage 2 feature-class scores rho (Eq 5).
+    Stage 2 uses the one-way ANOVA F statistic, which does not depend on how the
+    classes are coded; for two classes it is a monotone function of |Pearson r|, so
+    binary selections are the same as with the first-round Pearson score."""
     with np.errstate(invalid="ignore", divide="ignore"):
         R = np.corrcoef(X, rowvar=False)
     R = np.nan_to_num(R)
     np.fill_diagonal(R, 1.0)
+    if STAGE2 == "anova":
+        with np.errstate(invalid="ignore", divide="ignore"):
+            F, _ = f_classif(X, y)
+        return R, np.nan_to_num(F, nan=0.0, posinf=0.0)
+    if STAGE2 == "mi":
+        rng = np.random.RandomState(SEED)
+        idx = rng.choice(len(y), size=min(MI_MAX_ROWS, len(y)), replace=False)
+        return R, mutual_info_classif(X[idx], y[idx], random_state=SEED)
     yc = (y - y.mean()).astype(np.float64)
     Xc = X - X.mean(axis=0)
     denom = np.sqrt((Xc.astype(np.float64) ** 2).sum(0) * (yc ** 2).sum())
@@ -250,8 +325,10 @@ def selection_sample(X, y):
 
 
 # ----------------------------------------------------------------- CV machinery
-def run_fold(fold, Xs, ys, tr, va, Ks, K_star=None):
+def run_fold(fold, Xs, ys, tr, va, Ks, K_star=None, cfg=None):
     """Full K sweep on one fold. If K_star is given, also the ablation variants."""
+    if cfg is not None:
+        set_config(cfg)
     A, B, _ = fit_transform_fold(Xs[tr], Xs[va])
     ytr, yva = ys[tr], ys[va]
     As, ytrs = safe_smote(A, ytr)
@@ -351,17 +428,29 @@ def git_commit():
         return None
 
 
-def run(scn, task):
-    t_start = time.time()
-    os.makedirs(OUT_DIR, exist_ok=True)
+def prepare(scn, task):
+    """Data, split, P2 and selection sample shared by the main run and every review
+    script, so that all of them see exactly the same partitions and folds."""
     df, label_col = load_raw(scn)
-    Xdf, y_str, prep = preprocess(df, label_col, task)
+    Xdf, y_str, prep = preprocess(df, label_col, task, scn)
     del df
 
     if task == "binary":
         class_names = ["Normal", "Attack"]   # Attack (=1) is the positive class
     else:
         class_names = sorted(y_str.unique())
+        if LABEL_PERM is not None:   # arbitrary class coding (only matters for the Pearson score)
+            class_names = list(np.random.RandomState(LABEL_PERM).permutation(class_names))
+    # A stratified split needs >= 2 rows per class. This only happens in the
+    # header-validated sensitivity run, where deduplication on very few columns can
+    # leave single-row classes; they are removed and recorded.
+    counts = y_str.value_counts()
+    tiny = sorted(counts[counts < 2].index)
+    prep["classes_dropped_fewer_than_2_rows"] = tiny
+    if tiny:
+        keep_rows = ~y_str.isin(tiny).to_numpy()
+        Xdf, y_str = Xdf[keep_rows].reset_index(drop=True), y_str[keep_rows].reset_index(drop=True)
+        class_names = [c for c in class_names if c not in tiny]
     code = {c: i for i, c in enumerate(class_names)}
     y = y_str.map(code).to_numpy()
     X = Xdf.to_numpy(dtype=np.float32)
@@ -377,22 +466,35 @@ def run(scn, task):
     prep["p2_dropped_zero_variance"] = [feat_names[j] for j in range(X.shape[1]) if j not in keep]
     Xtr, Xte = Xtr[:, keep], Xte[:, keep]
     feat_names = [feat_names[j] for j in keep]
+    prep["n_features_after_preprocessing"] = len(feat_names)
+
+    sel = selection_sample(Xtr, ytr)
+    Xs, ys = Xtr[sel], ytr[sel]
+    skf = StratifiedKFold(n_splits=N_FOLDS, shuffle=True, random_state=SEED)
+    folds = list(skf.split(Xs, ys))
+    return {"Xtr": Xtr, "Xte": Xte, "ytr": ytr, "yte": yte, "idtr": idtr, "idte": idte,
+            "feat_names": feat_names, "class_names": class_names, "prep": prep,
+            "Xs": Xs, "ys": ys, "folds": folds, "Xdf_columns": list(Xdf.columns)}
+
+
+def run(scn, task):
+    t_start = time.time()
+    os.makedirs(OUT_DIR, exist_ok=True)
+    d = prepare(scn, task)
+    Xtr, Xte, ytr, yte, idte = d["Xtr"], d["Xte"], d["ytr"], d["yte"], d["idte"]
+    feat_names, class_names, prep = d["feat_names"], d["class_names"], d["prep"]
+    Xs, ys, folds = d["Xs"], d["ys"], d["folds"]
     n = len(feat_names)
-    prep["n_features_after_preprocessing"] = n
 
     split = {"n_train": int(len(ytr)), "n_test": int(len(yte)),
              "train_counts": {class_names[c]: int((ytr == c).sum()) for c in range(len(class_names))},
              "test_counts": {class_names[c]: int((yte == c).sum()) for c in range(len(class_names))}}
 
-    # ---------------- selection sample + 5-fold CV sweep over K = 2..n
-    sel = selection_sample(Xtr, ytr)
-    Xs, ys = Xtr[sel], ytr[sel]
-    skf = StratifiedKFold(n_splits=N_FOLDS, shuffle=True, random_state=SEED)
-    folds = list(skf.split(Xs, ys))
+    # ---------------- 5-fold CV sweep over K = 2..n on the selection sample
     Ks = list(range(2, n + 1))
     t0 = time.time()
-    fold_out = Parallel(n_jobs=N_JOBS)(
-        delayed(run_fold)(i, Xs, ys, tr, va, Ks) for i, (tr, va) in enumerate(folds))
+    fold_out = Parallel(n_jobs=N_JOBS, max_nbytes=None)(
+        delayed(run_fold)(i, Xs, ys, tr, va, Ks, cfg=config()) for i, (tr, va) in enumerate(folds))
     t_sweep = time.time() - t0
     per_fold = np.array([[fo["curve"][K] for K in Ks] for fo in fold_out])  # folds x Ks
     mean = per_fold.mean(0)
@@ -401,10 +503,10 @@ def run(scn, task):
     K_star, K_hat, thr = one_se_rule(Ks, mean, se)
 
     # Ablation on the same folds at K*.
-    ab_out = Parallel(n_jobs=N_JOBS)(
-        delayed(run_fold)(i, Xs, ys, tr, va, [K_star], K_star) for i, (tr, va) in enumerate(folds))
+    ab_out = [] if FAST else Parallel(n_jobs=N_JOBS, max_nbytes=None)(
+        delayed(run_fold)(i, Xs, ys, tr, va, [K_star], K_star, cfg=config()) for i, (tr, va) in enumerate(folds))
     ablation = {}
-    for v in ["A_full", "B_random_representative", "C_all_features", "D_no_smote"]:
+    for v in ([] if FAST else ["A_full", "B_random_representative", "C_all_features", "D_no_smote"]):
         vals = [a["ablation"][v] for a in ab_out]
         ablation[v] = {"per_fold": vals, "mean": float(np.mean(vals)), "sd": float(np.std(vals, ddof=1))}
     ablation["n_features"] = {"A_full": K_star, "B_random_representative": K_star,
@@ -429,20 +531,23 @@ def run(scn, task):
         F_wcss = representatives(lab_w, rho, K_wcss)
     else:
         F_wcss = None
+    lab_h, _ = kmeans_labels(R, K_hat)
+    F_hat = representatives(lab_h, rho, K_hat)
 
     selected = []
     for f in F_star:
         cl = int(lab_star[f])
-        selected.append({"feature": feat_names[f], "index": int(f), "abs_rho": float(rho[f]),
+        selected.append({"feature": feat_names[f], "index": int(f), "score": float(rho[f]),
                          "cluster": cl, "cluster_size": int((lab_star == cl).sum()),
                          "cluster_members": [feat_names[j] for j in np.flatnonzero(lab_star == cl)]})
-    selected.sort(key=lambda d: -d["abs_rho"])
+    selected.sort(key=lambda d: -d["score"])
 
     # ---------------- sealed test evaluation (single use)
     positive = "Attack" if task == "binary" else None
     configs = {"task_aware": F_star, "all_features": list(range(n))}
     if F_wcss is not None:
         configs["wcss_kneedle"] = F_wcss
+    configs["k_hat"] = F_hat
     test, efficiency, preds = {}, {}, {}
     for tag, F in configs.items():
         pred, eff = fit_final(Xtr, ytr, Xte, F)
@@ -459,7 +564,9 @@ def run(scn, task):
                      "stopping_rule": "one-SE: K* = min{K : meanF1(K) >= meanF1(K_hat) - SE(K_hat)}, "
                                       "K_hat = argmax meanF1, full sweep K=2..n, 5-fold CV weighted F1",
                      "detector": "DecisionTreeClassifier(criterion=gini, class_weight=balanced, random_state=42)",
-                     "smote": "all classes with >=2 samples to majority count, k=min(5, min class-1), training folds only"},
+                     "smote": "all classes with >=2 samples to majority count, k=min(5, min class-1), training folds only",
+                     "feature_set": FEATURE_SET, "stage2": STAGE2, "impute": IMPUTE,
+                     "label_perm": LABEL_PERM, "fast": FAST},
         "preprocessing": prep,
         "split": split,
         "selection": {"n_selection_rows": int(len(ys)),
@@ -475,6 +582,7 @@ def run(scn, task):
                       "wcss_curve": wcss,
                       "selected_features": selected,
                       "wcss_features": [feat_names[f] for f in F_wcss] if F_wcss else None,
+                      "k_hat_features": [feat_names[f] for f in F_hat],
                       "sweep_runtime_s": t_sweep},
         "ablation_cv": ablation,
         "test": test,
@@ -509,10 +617,24 @@ if __name__ == "__main__":
     ap.add_argument("task", nargs="?", choices=["binary", "multiclass"])
     ap.add_argument("--keep-duplicates", action="store_true",
                     help="sensitivity analysis: do not remove duplicate rows (results/with_duplicates/)")
+    ap.add_argument("--features", choices=["clean", "validated", "published"], default=FEATURE_SET)
+    ap.add_argument("--stage2", choices=["anova", "mi", "pearson"], default=STAGE2)
+    ap.add_argument("--impute", choices=["median", "mean", "zero"], default=IMPUTE)
+    ap.add_argument("--out", help="output directory (default results/, or results/with_duplicates/)")
+    ap.add_argument("--label-perm", type=int, default=None,
+                    help="code the classes in a random order drawn with this seed (label-coding analysis)")
+    ap.add_argument("--fast", action="store_true", help="skip the ablation")
+    ap.add_argument("--seed", type=int, default=SEED,
+                    help="seed for the split, selection sample, folds, K-means, SMOTE and detector (stability analysis)")
     a = ap.parse_args()
+    FEATURE_SET, STAGE2, IMPUTE, SEED = a.features, a.stage2, a.impute, a.seed
+    LABEL_PERM, FAST = a.label_perm, a.fast
+    if a.out:
+        OUT_DIR = a.out
     if a.keep_duplicates:
         KEEP_DUPLICATES = True
-        OUT_DIR = os.path.join(OUT_DIR, "with_duplicates")
+        if not a.out:
+            OUT_DIR = os.path.join(OUT_DIR, "with_duplicates")
     jobs = ([(s, t) for s in ["S1", "S2", "S3"] for t in ["binary", "multiclass"]]
             if a.scenario == "all" else [(a.scenario, a.task)])
     for s, t in jobs:

@@ -1,0 +1,13 @@
+\input{preamble}
+\input{../generated/macros}
+\begin{document}
+\begin{tikzpicture}[node distance=0.35cm and 0.6cm]
+\node[pb,text width=3.0cm](u){\textbf{S1: UAV}\\DJI Mavic Air\\\SOneMultiColsRaw{} raw features};
+\node[pb,text width=3.0cm,right=of u](a){\textbf{S2: Access point}\\Wi-Fi AP\\\STwoMultiColsRaw{} raw features};
+\node[pb,text width=3.0cm,right=of a](g){\textbf{S3: GCS}\\Ground station\\\SThreeMultiColsRaw{} raw features};
+\foreach \n/\s in {u/SOne,a/STwo,g/SThree}{
+ \node[db,text width=3.0cm,below=of \n](\n c){\csname \s MultiNClasses\endcsname{} classes};
+ \node[font=\scriptsize,text=gray,below=0.1cm of \n c,align=center]{\csname \s MultiRowsRaw\endcsname{} raw rows\\\csname \s MultiRowsUsed\endcsname{} unique rows};
+ \draw[ar](\n)--(\n c);}
+\end{tikzpicture}
+\end{document}

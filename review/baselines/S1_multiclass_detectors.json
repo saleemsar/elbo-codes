@@ -1,0 +1,2297 @@
+{
+ "task_aware|cart": {
+  "accuracy": 0.8345739234477284,
+  "balanced_accuracy": 0.8133356993738213,
+  "weighted_f1": 0.8337823907320631,
+  "macro_f1": 0.7508746416850227,
+  "per_class": [
+   {
+    "class": "Brute-Force",
+    "precision": 0.9734318503379972,
+    "recall": 0.9891373801916933,
+    "f1": 0.9812217732350844,
+    "support": 12520,
+    "tp": 12384,
+    "fp": 338,
+    "fn": 136
+   },
+   {
+    "class": "DDoS",
+    "precision": 0.9975179621162639,
+    "recall": 0.9802939854932923,
+    "f1": 0.9888309754281459,
+    "support": 15579,
+    "tp": 15272,
+    "fp": 38,
+    "fn": 307
+   },
+   {
+    "class": "De-authentication",
+    "precision": 0.5629235237173281,
+    "recall": 0.8144257703081232,
+    "f1": 0.6657126502575844,
+    "support": 2856,
+    "tp": 2326,
+    "fp": 1806,
+    "fn": 530
+   },
+   {
+    "class": "DoS",
+    "precision": 0.20561224489795918,
+    "recall": 0.6306729264475743,
+    "f1": 0.3101192766448634,
+    "support": 639,
+    "tp": 403,
+    "fp": 1557,
+    "fn": 236
+   },
+   {
+    "class": "Fake Landing",
+    "precision": 0.28453973883604705,
+    "recall": 0.949435180204411,
+    "f1": 0.43785661126271397,
+    "support": 1859,
+    "tp": 1765,
+    "fp": 4438,
+    "fn": 94
+   },
+   {
+    "class": "GPS Jamming",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 8320,
+    "tp": 8320,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "ICMP Flooding",
+    "precision": 0.8301815431164902,
+    "recall": 0.7341955624930315,
+    "f1": 0.7792438317259334,
+    "support": 8969,
+    "tp": 6585,
+    "fp": 1347,
+    "fn": 2384
+   },
+   {
+    "class": "MITM",
+    "precision": 0.8245614035087719,
+    "recall": 0.12144702842377261,
+    "f1": 0.21171171171171171,
+    "support": 5031,
+    "tp": 611,
+    "fp": 130,
+    "fn": 4420
+   },
+   {
+    "class": "Normal",
+    "precision": 0.9844115354637568,
+    "recall": 0.9944881889763779,
+    "f1": 0.9894242068155111,
+    "support": 1270,
+    "tp": 1263,
+    "fp": 20,
+    "fn": 7
+   },
+   {
+    "class": "Reconnaissance",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 1,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "Replay",
+    "precision": 0.5479140850888062,
+    "recall": 0.5166504381694255,
+    "f1": 0.5318231933446927,
+    "support": 5135,
+    "tp": 2653,
+    "fp": 2189,
+    "fn": 2482
+   },
+   {
+    "class": "Scanning",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 705,
+    "tp": 705,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "UDP Flooding",
+    "precision": 0.8895037329819938,
+    "recall": 0.8426176311519741,
+    "f1": 0.8654261114790522,
+    "support": 24037,
+    "tp": 20254,
+    "fp": 2516,
+    "fn": 3783
+   }
+  ],
+  "n_features": 18,
+  "train_time_s": 7.156283000003896,
+  "inference_ms_per_sample": 0.000342756065927798,
+  "model_size_kb": 3276.361328125,
+  "tree_depth": 45,
+  "tree_leaves": 9982,
+  "tree_nodes": 19963,
+  "c_array_kb": 233.94140625
+ },
+ "task_aware|logistic_regression": {
+  "accuracy": 0.6172846607839302,
+  "balanced_accuracy": 0.5844490419479957,
+  "weighted_f1": 0.5556567684674151,
+  "macro_f1": 0.48485961265458893,
+  "per_class": [
+   {
+    "class": "Brute-Force",
+    "precision": 1.0,
+    "recall": 0.00039936102236421724,
+    "f1": 0.0007984031936127744,
+    "support": 12520,
+    "tp": 5,
+    "fp": 0,
+    "fn": 12515
+   },
+   {
+    "class": "DDoS",
+    "precision": 0.45134743552593454,
+    "recall": 0.9998074330829964,
+    "f1": 0.6219329593323883,
+    "support": 15579,
+    "tp": 15576,
+    "fp": 18934,
+    "fn": 3
+   },
+   {
+    "class": "De-authentication",
+    "precision": 0.5820689655172414,
+    "recall": 0.738795518207283,
+    "f1": 0.6511340842462583,
+    "support": 2856,
+    "tp": 2110,
+    "fp": 1515,
+    "fn": 746
+   },
+   {
+    "class": "DoS",
+    "precision": 0.051452945881098375,
+    "recall": 0.30203442879499215,
+    "f1": 0.08792710706150342,
+    "support": 639,
+    "tp": 193,
+    "fp": 3558,
+    "fn": 446
+   },
+   {
+    "class": "Fake Landing",
+    "precision": 0.25,
+    "recall": 0.004841312533620226,
+    "f1": 0.00949868073878628,
+    "support": 1859,
+    "tp": 9,
+    "fp": 27,
+    "fn": 1850
+   },
+   {
+    "class": "GPS Jamming",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 8320,
+    "tp": 8320,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "ICMP Flooding",
+    "precision": 0.7264714245095252,
+    "recall": 0.5697402163005909,
+    "f1": 0.6386302568268449,
+    "support": 8969,
+    "tp": 5110,
+    "fp": 1924,
+    "fn": 3859
+   },
+   {
+    "class": "MITM",
+    "precision": 0.37012987012987014,
+    "recall": 0.011329755515802028,
+    "f1": 0.021986499517839923,
+    "support": 5031,
+    "tp": 57,
+    "fp": 97,
+    "fn": 4974
+   },
+   {
+    "class": "Normal",
+    "precision": 0.7556270096463023,
+    "recall": 0.9251968503937008,
+    "f1": 0.831858407079646,
+    "support": 1270,
+    "tp": 1175,
+    "fp": 380,
+    "fn": 95
+   },
+   {
+    "class": "Reconnaissance",
+    "precision": 0.2,
+    "recall": 1.0,
+    "f1": 0.3333333333333333,
+    "support": 1,
+    "tp": 1,
+    "fp": 4,
+    "fn": 0
+   },
+   {
+    "class": "Replay",
+    "precision": 0.395431622663898,
+    "recall": 0.25959104186952286,
+    "f1": 0.3134258170703033,
+    "support": 5135,
+    "tp": 1333,
+    "fp": 2038,
+    "fn": 3802
+   },
+   {
+    "class": "Scanning",
+    "precision": 1.0,
+    "recall": 0.9929078014184397,
+    "f1": 0.99644128113879,
+    "support": 705,
+    "tp": 700,
+    "fp": 0,
+    "fn": 5
+   },
+   {
+    "class": "UDP Flooding",
+    "precision": 0.799245441207294,
+    "recall": 0.7931938261846321,
+    "f1": 0.7962081349703499,
+    "support": 24037,
+    "tp": 19066,
+    "fp": 4789,
+    "fn": 4971
+   }
+  ],
+  "n_features": 18,
+  "train_time_s": 488.09758760000113,
+  "inference_ms_per_sample": 0.00013481552226878883,
+  "model_size_kb": 1.70703125
+ },
+ "task_aware|linear_svm": {
+  "accuracy": 0.6456552501696943,
+  "balanced_accuracy": 0.6581778216111615,
+  "weighted_f1": 0.5799101965421456,
+  "macro_f1": 0.5256030993755993,
+  "per_class": [
+   {
+    "class": "Brute-Force",
+    "precision": 0.463768115942029,
+    "recall": 0.0025559105431309905,
+    "f1": 0.0050838033203590436,
+    "support": 12520,
+    "tp": 32,
+    "fp": 37,
+    "fn": 12488
+   },
+   {
+    "class": "DDoS",
+    "precision": 0.5512770416681467,
+    "recall": 0.9961486616599268,
+    "f1": 0.7097644637548594,
+    "support": 15579,
+    "tp": 15519,
+    "fp": 12632,
+    "fn": 60
+   },
+   {
+    "class": "De-authentication",
+    "precision": 0.5838372732270478,
+    "recall": 0.7436974789915967,
+    "f1": 0.6541422851863259,
+    "support": 2856,
+    "tp": 2124,
+    "fp": 1514,
+    "fn": 732
+   },
+   {
+    "class": "DoS",
+    "precision": 0.10989678202792957,
+    "recall": 0.28325508607198746,
+    "f1": 0.15835520559930008,
+    "support": 639,
+    "tp": 181,
+    "fp": 1466,
+    "fn": 458
+   },
+   {
+    "class": "Fake Landing",
+    "precision": 0.27235772357723576,
+    "recall": 0.9370629370629371,
+    "f1": 0.4220472440944882,
+    "support": 1859,
+    "tp": 1742,
+    "fp": 4654,
+    "fn": 117
+   },
+   {
+    "class": "GPS Jamming",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 8320,
+    "tp": 8320,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "ICMP Flooding",
+    "precision": 0.6572405629356833,
+    "recall": 0.5571412643550006,
+    "f1": 0.6030654115375332,
+    "support": 8969,
+    "tp": 4997,
+    "fp": 2606,
+    "fn": 3972
+   },
+   {
+    "class": "MITM",
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 5031,
+    "tp": 0,
+    "fp": 0,
+    "fn": 5031
+   },
+   {
+    "class": "Normal",
+    "precision": 0.7372262773722628,
+    "recall": 0.9543307086614173,
+    "f1": 0.8318462594371997,
+    "support": 1270,
+    "tp": 1212,
+    "fp": 432,
+    "fn": 58
+   },
+   {
+    "class": "Reconnaissance",
+    "precision": 0.2,
+    "recall": 1.0,
+    "f1": 0.3333333333333333,
+    "support": 1,
+    "tp": 1,
+    "fp": 4,
+    "fn": 0
+   },
+   {
+    "class": "Replay",
+    "precision": 0.38503914178022614,
+    "recall": 0.25861733203505355,
+    "f1": 0.30941286113699906,
+    "support": 5135,
+    "tp": 1328,
+    "fp": 2121,
+    "fn": 3807
+   },
+   {
+    "class": "Scanning",
+    "precision": 1.0,
+    "recall": 0.9929078014184397,
+    "f1": 0.99644128113879,
+    "support": 705,
+    "tp": 700,
+    "fp": 0,
+    "fn": 5
+   },
+   {
+    "class": "UDP Flooding",
+    "precision": 0.7891616269417764,
+    "recall": 0.8305945001456089,
+    "f1": 0.809348143343603,
+    "support": 24037,
+    "tp": 19965,
+    "fp": 5334,
+    "fn": 4072
+   }
+  ],
+  "n_features": 18,
+  "train_time_s": 166.29849190000095,
+  "inference_ms_per_sample": 0.0006604422405967396,
+  "model_size_kb": 2.568359375
+ },
+ "task_aware|random_forest": {
+  "accuracy": 0.8346314469460775,
+  "balanced_accuracy": 0.816716043533687,
+  "weighted_f1": 0.8360647218562383,
+  "macro_f1": 0.750019689511843,
+  "per_class": [
+   {
+    "class": "Brute-Force",
+    "precision": 0.973636578263949,
+    "recall": 0.9881789137380191,
+    "f1": 0.980853847068617,
+    "support": 12520,
+    "tp": 12372,
+    "fp": 335,
+    "fn": 148
+   },
+   {
+    "class": "DDoS",
+    "precision": 0.9976479811838495,
+    "recall": 0.9801656075486231,
+    "f1": 0.9888295288975231,
+    "support": 15579,
+    "tp": 15270,
+    "fp": 36,
+    "fn": 309
+   },
+   {
+    "class": "De-authentication",
+    "precision": 0.5738805970149253,
+    "recall": 0.8077731092436975,
+    "f1": 0.6710296684118674,
+    "support": 2856,
+    "tp": 2307,
+    "fp": 1713,
+    "fn": 549
+   },
+   {
+    "class": "DoS",
+    "precision": 0.16383136094674555,
+    "recall": 0.6932707355242567,
+    "f1": 0.26503140891414895,
+    "support": 639,
+    "tp": 443,
+    "fp": 2261,
+    "fn": 196
+   },
+   {
+    "class": "Fake Landing",
+    "precision": 0.28613138686131384,
+    "recall": 0.9488972565895643,
+    "f1": 0.43968095712861416,
+    "support": 1859,
+    "tp": 1764,
+    "fp": 4401,
+    "fn": 95
+   },
+   {
+    "class": "GPS Jamming",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 8320,
+    "tp": 8320,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "ICMP Flooding",
+    "precision": 0.8517155251741817,
+    "recall": 0.722377076597168,
+    "f1": 0.7817326254826255,
+    "support": 8969,
+    "tp": 6479,
+    "fp": 1128,
+    "fn": 2490
+   },
+   {
+    "class": "MITM",
+    "precision": 0.8165829145728644,
+    "recall": 0.12919896640826872,
+    "f1": 0.22309936502488417,
+    "support": 5031,
+    "tp": 650,
+    "fp": 146,
+    "fn": 4381
+   },
+   {
+    "class": "Normal",
+    "precision": 0.9836575875486381,
+    "recall": 0.9952755905511811,
+    "f1": 0.9894324853228963,
+    "support": 1270,
+    "tp": 1264,
+    "fp": 21,
+    "fn": 6
+   },
+   {
+    "class": "Reconnaissance",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 1,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "Replay",
+    "precision": 0.5852169981916817,
+    "recall": 0.5041869522882181,
+    "f1": 0.5416884611361021,
+    "support": 5135,
+    "tp": 2589,
+    "fp": 1835,
+    "fn": 2546
+   },
+   {
+    "class": "Scanning",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 705,
+    "tp": 705,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "UDP Flooding",
+    "precision": 0.8908264498929243,
+    "recall": 0.8479843574489329,
+    "f1": 0.868877616266678,
+    "support": 24037,
+    "tp": 20383,
+    "fp": 2498,
+    "fn": 3654
+   }
+  ],
+  "n_features": 18,
+  "train_time_s": 65.91437179999775,
+  "inference_ms_per_sample": 0.006863849932688777,
+  "model_size_kb": 145309.0009765625
+ },
+ "k_hat|cart": {
+  "accuracy": 0.8344588764510302,
+  "balanced_accuracy": 0.8132121694434761,
+  "weighted_f1": 0.8336679907917715,
+  "macro_f1": 0.7507586894168813,
+  "per_class": [
+   {
+    "class": "Brute-Force",
+    "precision": 0.9732788431310908,
+    "recall": 0.9891373801916933,
+    "f1": 0.9811440342259546,
+    "support": 12520,
+    "tp": 12384,
+    "fp": 340,
+    "fn": 136
+   },
+   {
+    "class": "DDoS",
+    "precision": 0.9975179621162639,
+    "recall": 0.9802939854932923,
+    "f1": 0.9888309754281459,
+    "support": 15579,
+    "tp": 15272,
+    "fp": 38,
+    "fn": 307
+   },
+   {
+    "class": "De-authentication",
+    "precision": 0.5629987908101572,
+    "recall": 0.8151260504201681,
+    "f1": 0.6659991417536834,
+    "support": 2856,
+    "tp": 2328,
+    "fp": 1807,
+    "fn": 528
+   },
+   {
+    "class": "DoS",
+    "precision": 0.20489296636085627,
+    "recall": 0.6291079812206573,
+    "f1": 0.3091118800461361,
+    "support": 639,
+    "tp": 402,
+    "fp": 1560,
+    "fn": 237
+   },
+   {
+    "class": "Fake Landing",
+    "precision": 0.28458561754272815,
+    "recall": 0.949435180204411,
+    "f1": 0.437910929165116,
+    "support": 1859,
+    "tp": 1765,
+    "fp": 4437,
+    "fn": 94
+   },
+   {
+    "class": "GPS Jamming",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 8320,
+    "tp": 8320,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "ICMP Flooding",
+    "precision": 0.830305324249306,
+    "recall": 0.7337495818931876,
+    "f1": 0.7790470553418171,
+    "support": 8969,
+    "tp": 6581,
+    "fp": 1345,
+    "fn": 2388
+   },
+   {
+    "class": "MITM",
+    "precision": 0.8243243243243243,
+    "recall": 0.1212482607831445,
+    "f1": 0.2114018367700572,
+    "support": 5031,
+    "tp": 610,
+    "fp": 130,
+    "fn": 4421
+   },
+   {
+    "class": "Normal",
+    "precision": 0.9844115354637568,
+    "recall": 0.9944881889763779,
+    "f1": 0.9894242068155111,
+    "support": 1270,
+    "tp": 1263,
+    "fp": 20,
+    "fn": 7
+   },
+   {
+    "class": "Reconnaissance",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 1,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "Replay",
+    "precision": 0.5476681799422204,
+    "recall": 0.5168451801363194,
+    "f1": 0.5318104398356878,
+    "support": 5135,
+    "tp": 2654,
+    "fp": 2192,
+    "fn": 2481
+   },
+   {
+    "class": "Scanning",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 705,
+    "tp": 705,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "UDP Flooding",
+    "precision": 0.8893134800368955,
+    "recall": 0.8423264134459375,
+    "f1": 0.8651824630373472,
+    "support": 24037,
+    "tp": 20247,
+    "fp": 2520,
+    "fn": 3790
+   }
+  ],
+  "n_features": 20,
+  "train_time_s": 6.730255599992233,
+  "inference_ms_per_sample": 0.00029691674041387104,
+  "model_size_kb": 3266.189453125,
+  "tree_depth": 45,
+  "tree_leaves": 9951,
+  "tree_nodes": 19901,
+  "c_array_kb": 233.21484375
+ },
+ "k_hat|logistic_regression": {
+  "accuracy": 0.6188032811403459,
+  "balanced_accuracy": 0.5865822685081369,
+  "weighted_f1": 0.5588603728683538,
+  "macro_f1": 0.48744101724145406,
+  "per_class": [
+   {
+    "class": "Brute-Force",
+    "precision": 1.0,
+    "recall": 0.00039936102236421724,
+    "f1": 0.0007984031936127744,
+    "support": 12520,
+    "tp": 5,
+    "fp": 0,
+    "fn": 12515
+   },
+   {
+    "class": "DDoS",
+    "precision": 0.45133435716148473,
+    "recall": 0.9998074330829964,
+    "f1": 0.6219205430225594,
+    "support": 15579,
+    "tp": 15576,
+    "fp": 18935,
+    "fn": 3
+   },
+   {
+    "class": "De-authentication",
+    "precision": 0.5870239774330043,
+    "recall": 0.728641456582633,
+    "f1": 0.6502109045461647,
+    "support": 2856,
+    "tp": 2081,
+    "fp": 1464,
+    "fn": 775
+   },
+   {
+    "class": "DoS",
+    "precision": 0.05023744063984004,
+    "recall": 0.3145539906103286,
+    "f1": 0.08663793103448277,
+    "support": 639,
+    "tp": 201,
+    "fp": 3800,
+    "fn": 438
+   },
+   {
+    "class": "Fake Landing",
+    "precision": 0.25,
+    "recall": 0.004841312533620226,
+    "f1": 0.00949868073878628,
+    "support": 1859,
+    "tp": 9,
+    "fp": 27,
+    "fn": 1850
+   },
+   {
+    "class": "GPS Jamming",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 8320,
+    "tp": 8320,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "ICMP Flooding",
+    "precision": 0.7484671751158966,
+    "recall": 0.5580332255546884,
+    "f1": 0.6393714869698518,
+    "support": 8969,
+    "tp": 5005,
+    "fp": 1682,
+    "fn": 3964
+   },
+   {
+    "class": "MITM",
+    "precision": 0.37012987012987014,
+    "recall": 0.011329755515802028,
+    "f1": 0.021986499517839923,
+    "support": 5031,
+    "tp": 57,
+    "fp": 97,
+    "fn": 4974
+   },
+   {
+    "class": "Normal",
+    "precision": 0.7561132561132561,
+    "recall": 0.9251968503937008,
+    "f1": 0.8321529745042493,
+    "support": 1270,
+    "tp": 1175,
+    "fp": 379,
+    "fn": 95
+   },
+   {
+    "class": "Reconnaissance",
+    "precision": 0.2,
+    "recall": 1.0,
+    "f1": 0.3333333333333333,
+    "support": 1,
+    "tp": 1,
+    "fp": 4,
+    "fn": 0
+   },
+   {
+    "class": "Replay",
+    "precision": 0.4135751580104424,
+    "recall": 0.29308666017526774,
+    "f1": 0.3430590380670162,
+    "support": 5135,
+    "tp": 1505,
+    "fp": 2134,
+    "fn": 3630
+   },
+   {
+    "class": "Scanning",
+    "precision": 1.0,
+    "recall": 0.9929078014184397,
+    "f1": 0.99644128113879,
+    "support": 705,
+    "tp": 700,
+    "fp": 0,
+    "fn": 5
+   },
+   {
+    "class": "UDP Flooding",
+    "precision": 0.8059249284632217,
+    "recall": 0.7967716437159379,
+    "f1": 0.801322148072216,
+    "support": 24037,
+    "tp": 19152,
+    "fp": 4612,
+    "fn": 4885
+   }
+  ],
+  "n_features": 20,
+  "train_time_s": 822.7985607999872,
+  "inference_ms_per_sample": 0.0002410269094151448,
+  "model_size_kb": 1.80859375
+ },
+ "k_hat|linear_svm": {
+  "accuracy": 0.6490491365722898,
+  "balanced_accuracy": 0.6585671931731222,
+  "weighted_f1": 0.5824823390442205,
+  "macro_f1": 0.5271290007716888,
+  "per_class": [
+   {
+    "class": "Brute-Force",
+    "precision": 0.43283582089552236,
+    "recall": 0.00231629392971246,
+    "f1": 0.004607928815444506,
+    "support": 12520,
+    "tp": 29,
+    "fp": 38,
+    "fn": 12491
+   },
+   {
+    "class": "DDoS",
+    "precision": 0.5512378787340603,
+    "recall": 0.9961486616599268,
+    "f1": 0.709732004024513,
+    "support": 15579,
+    "tp": 15519,
+    "fp": 12634,
+    "fn": 60
+   },
+   {
+    "class": "De-authentication",
+    "precision": 0.5829201101928375,
+    "recall": 0.7408963585434174,
+    "f1": 0.6524822695035462,
+    "support": 2856,
+    "tp": 2116,
+    "fp": 1514,
+    "fn": 740
+   },
+   {
+    "class": "DoS",
+    "precision": 0.1164021164021164,
+    "recall": 0.27543035993740217,
+    "f1": 0.16364481636448164,
+    "support": 639,
+    "tp": 176,
+    "fp": 1336,
+    "fn": 463
+   },
+   {
+    "class": "Fake Landing",
+    "precision": 0.27235772357723576,
+    "recall": 0.9370629370629371,
+    "f1": 0.4220472440944882,
+    "support": 1859,
+    "tp": 1742,
+    "fp": 4654,
+    "fn": 117
+   },
+   {
+    "class": "GPS Jamming",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 8320,
+    "tp": 8320,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "ICMP Flooding",
+    "precision": 0.6689270043877144,
+    "recall": 0.5609320994536737,
+    "f1": 0.6101879927228624,
+    "support": 8969,
+    "tp": 5031,
+    "fp": 2490,
+    "fn": 3938
+   },
+   {
+    "class": "MITM",
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 5031,
+    "tp": 0,
+    "fp": 0,
+    "fn": 5031
+   },
+   {
+    "class": "Normal",
+    "precision": 0.7372262773722628,
+    "recall": 0.9543307086614173,
+    "f1": 0.8318462594371997,
+    "support": 1270,
+    "tp": 1212,
+    "fp": 432,
+    "fn": 58
+   },
+   {
+    "class": "Reconnaissance",
+    "precision": 0.2,
+    "recall": 1.0,
+    "f1": 0.3333333333333333,
+    "support": 1,
+    "tp": 1,
+    "fp": 4,
+    "fn": 0
+   },
+   {
+    "class": "Replay",
+    "precision": 0.39373337274608333,
+    "recall": 0.259396299902629,
+    "f1": 0.3127494717069735,
+    "support": 5135,
+    "tp": 1332,
+    "fp": 2051,
+    "fn": 3803
+   },
+   {
+    "class": "Scanning",
+    "precision": 1.0,
+    "recall": 0.9929078014184397,
+    "f1": 0.99644128113879,
+    "support": 705,
+    "tp": 700,
+    "fp": 0,
+    "fn": 5
+   },
+   {
+    "class": "UDP Flooding",
+    "precision": 0.7908558030480657,
+    "recall": 0.8419519906810334,
+    "f1": 0.8156044088903218,
+    "support": 24037,
+    "tp": 20238,
+    "fp": 5352,
+    "fn": 3799
+   }
+  ],
+  "n_features": 20,
+  "train_time_s": 210.81472329999087,
+  "inference_ms_per_sample": 0.00046411223985757107,
+  "model_size_kb": 2.771484375
+ },
+ "k_hat|random_forest": {
+  "accuracy": 0.8344013529526811,
+  "balanced_accuracy": 0.8165866841608984,
+  "weighted_f1": 0.8356588869444885,
+  "macro_f1": 0.7501031116582498,
+  "per_class": [
+   {
+    "class": "Brute-Force",
+    "precision": 0.9735537190082645,
+    "recall": 0.9879392971246006,
+    "f1": 0.9806937561942517,
+    "support": 12520,
+    "tp": 12369,
+    "fp": 336,
+    "fn": 151
+   },
+   {
+    "class": "DDoS",
+    "precision": 0.9976479811838495,
+    "recall": 0.9801656075486231,
+    "f1": 0.9888295288975231,
+    "support": 15579,
+    "tp": 15270,
+    "fp": 36,
+    "fn": 309
+   },
+   {
+    "class": "De-authentication",
+    "precision": 0.5742401594419532,
+    "recall": 0.8070728291316527,
+    "f1": 0.6710334788937409,
+    "support": 2856,
+    "tp": 2305,
+    "fp": 1709,
+    "fn": 551
+   },
+   {
+    "class": "DoS",
+    "precision": 0.1683206106870229,
+    "recall": 0.6901408450704225,
+    "f1": 0.27063516416078554,
+    "support": 639,
+    "tp": 441,
+    "fp": 2179,
+    "fn": 198
+   },
+   {
+    "class": "Fake Landing",
+    "precision": 0.2862477674947232,
+    "recall": 0.9483593329747176,
+    "f1": 0.43976053878772764,
+    "support": 1859,
+    "tp": 1763,
+    "fp": 4396,
+    "fn": 96
+   },
+   {
+    "class": "GPS Jamming",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 8320,
+    "tp": 8320,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "ICMP Flooding",
+    "precision": 0.846403953700091,
+    "recall": 0.7256104359460364,
+    "f1": 0.7813663104814503,
+    "support": 8969,
+    "tp": 6508,
+    "fp": 1181,
+    "fn": 2461
+   },
+   {
+    "class": "MITM",
+    "precision": 0.81875,
+    "recall": 0.13019280461140925,
+    "f1": 0.22466129308866403,
+    "support": 5031,
+    "tp": 655,
+    "fp": 145,
+    "fn": 4376
+   },
+   {
+    "class": "Normal",
+    "precision": 0.9806051202482544,
+    "recall": 0.9952755905511811,
+    "f1": 0.9878858929269245,
+    "support": 1270,
+    "tp": 1264,
+    "fp": 25,
+    "fn": 6
+   },
+   {
+    "class": "Reconnaissance",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 1,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "Replay",
+    "precision": 0.5769915442812639,
+    "recall": 0.5049659201557936,
+    "f1": 0.538581368781805,
+    "support": 5135,
+    "tp": 2593,
+    "fp": 1901,
+    "fn": 2542
+   },
+   {
+    "class": "Scanning",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 705,
+    "tp": 705,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "UDP Flooding",
+    "precision": 0.8910556991980367,
+    "recall": 0.8459042309772434,
+    "f1": 0.8678931193443743,
+    "support": 24037,
+    "tp": 20333,
+    "fp": 2486,
+    "fn": 3704
+   }
+  ],
+  "n_features": 20,
+  "train_time_s": 69.77122670000244,
+  "inference_ms_per_sample": 0.007214686899587748,
+  "model_size_kb": 142743.7197265625
+ },
+ "all_features|cart": {
+  "accuracy": 0.8344588764510302,
+  "balanced_accuracy": 0.8132121694434761,
+  "weighted_f1": 0.8336679907917715,
+  "macro_f1": 0.7507586894168813,
+  "per_class": [
+   {
+    "class": "Brute-Force",
+    "precision": 0.9732788431310908,
+    "recall": 0.9891373801916933,
+    "f1": 0.9811440342259546,
+    "support": 12520,
+    "tp": 12384,
+    "fp": 340,
+    "fn": 136
+   },
+   {
+    "class": "DDoS",
+    "precision": 0.9975179621162639,
+    "recall": 0.9802939854932923,
+    "f1": 0.9888309754281459,
+    "support": 15579,
+    "tp": 15272,
+    "fp": 38,
+    "fn": 307
+   },
+   {
+    "class": "De-authentication",
+    "precision": 0.5629987908101572,
+    "recall": 0.8151260504201681,
+    "f1": 0.6659991417536834,
+    "support": 2856,
+    "tp": 2328,
+    "fp": 1807,
+    "fn": 528
+   },
+   {
+    "class": "DoS",
+    "precision": 0.20489296636085627,
+    "recall": 0.6291079812206573,
+    "f1": 0.3091118800461361,
+    "support": 639,
+    "tp": 402,
+    "fp": 1560,
+    "fn": 237
+   },
+   {
+    "class": "Fake Landing",
+    "precision": 0.28458561754272815,
+    "recall": 0.949435180204411,
+    "f1": 0.437910929165116,
+    "support": 1859,
+    "tp": 1765,
+    "fp": 4437,
+    "fn": 94
+   },
+   {
+    "class": "GPS Jamming",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 8320,
+    "tp": 8320,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "ICMP Flooding",
+    "precision": 0.830305324249306,
+    "recall": 0.7337495818931876,
+    "f1": 0.7790470553418171,
+    "support": 8969,
+    "tp": 6581,
+    "fp": 1345,
+    "fn": 2388
+   },
+   {
+    "class": "MITM",
+    "precision": 0.8243243243243243,
+    "recall": 0.1212482607831445,
+    "f1": 0.2114018367700572,
+    "support": 5031,
+    "tp": 610,
+    "fp": 130,
+    "fn": 4421
+   },
+   {
+    "class": "Normal",
+    "precision": 0.9844115354637568,
+    "recall": 0.9944881889763779,
+    "f1": 0.9894242068155111,
+    "support": 1270,
+    "tp": 1263,
+    "fp": 20,
+    "fn": 7
+   },
+   {
+    "class": "Reconnaissance",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 1,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "Replay",
+    "precision": 0.5476681799422204,
+    "recall": 0.5168451801363194,
+    "f1": 0.5318104398356878,
+    "support": 5135,
+    "tp": 2654,
+    "fp": 2192,
+    "fn": 2481
+   },
+   {
+    "class": "Scanning",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 705,
+    "tp": 705,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "UDP Flooding",
+    "precision": 0.8893134800368955,
+    "recall": 0.8423264134459375,
+    "f1": 0.8651824630373472,
+    "support": 24037,
+    "tp": 20247,
+    "fp": 2520,
+    "fn": 3790
+   }
+  ],
+  "n_features": 20,
+  "train_time_s": 9.70640860000276,
+  "inference_ms_per_sample": 0.0002215529044968383,
+  "model_size_kb": 3266.189453125,
+  "tree_depth": 45,
+  "tree_leaves": 9951,
+  "tree_nodes": 19901,
+  "c_array_kb": 233.21484375
+ },
+ "all_features|logistic_regression": {
+  "accuracy": 0.6188032811403459,
+  "balanced_accuracy": 0.5865822685081369,
+  "weighted_f1": 0.5588603728683538,
+  "macro_f1": 0.48744101724145406,
+  "per_class": [
+   {
+    "class": "Brute-Force",
+    "precision": 1.0,
+    "recall": 0.00039936102236421724,
+    "f1": 0.0007984031936127744,
+    "support": 12520,
+    "tp": 5,
+    "fp": 0,
+    "fn": 12515
+   },
+   {
+    "class": "DDoS",
+    "precision": 0.45133435716148473,
+    "recall": 0.9998074330829964,
+    "f1": 0.6219205430225594,
+    "support": 15579,
+    "tp": 15576,
+    "fp": 18935,
+    "fn": 3
+   },
+   {
+    "class": "De-authentication",
+    "precision": 0.5870239774330043,
+    "recall": 0.728641456582633,
+    "f1": 0.6502109045461647,
+    "support": 2856,
+    "tp": 2081,
+    "fp": 1464,
+    "fn": 775
+   },
+   {
+    "class": "DoS",
+    "precision": 0.05023744063984004,
+    "recall": 0.3145539906103286,
+    "f1": 0.08663793103448277,
+    "support": 639,
+    "tp": 201,
+    "fp": 3800,
+    "fn": 438
+   },
+   {
+    "class": "Fake Landing",
+    "precision": 0.25,
+    "recall": 0.004841312533620226,
+    "f1": 0.00949868073878628,
+    "support": 1859,
+    "tp": 9,
+    "fp": 27,
+    "fn": 1850
+   },
+   {
+    "class": "GPS Jamming",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 8320,
+    "tp": 8320,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "ICMP Flooding",
+    "precision": 0.7484671751158966,
+    "recall": 0.5580332255546884,
+    "f1": 0.6393714869698518,
+    "support": 8969,
+    "tp": 5005,
+    "fp": 1682,
+    "fn": 3964
+   },
+   {
+    "class": "MITM",
+    "precision": 0.37012987012987014,
+    "recall": 0.011329755515802028,
+    "f1": 0.021986499517839923,
+    "support": 5031,
+    "tp": 57,
+    "fp": 97,
+    "fn": 4974
+   },
+   {
+    "class": "Normal",
+    "precision": 0.7561132561132561,
+    "recall": 0.9251968503937008,
+    "f1": 0.8321529745042493,
+    "support": 1270,
+    "tp": 1175,
+    "fp": 379,
+    "fn": 95
+   },
+   {
+    "class": "Reconnaissance",
+    "precision": 0.2,
+    "recall": 1.0,
+    "f1": 0.3333333333333333,
+    "support": 1,
+    "tp": 1,
+    "fp": 4,
+    "fn": 0
+   },
+   {
+    "class": "Replay",
+    "precision": 0.4135751580104424,
+    "recall": 0.29308666017526774,
+    "f1": 0.3430590380670162,
+    "support": 5135,
+    "tp": 1505,
+    "fp": 2134,
+    "fn": 3630
+   },
+   {
+    "class": "Scanning",
+    "precision": 1.0,
+    "recall": 0.9929078014184397,
+    "f1": 0.99644128113879,
+    "support": 705,
+    "tp": 700,
+    "fp": 0,
+    "fn": 5
+   },
+   {
+    "class": "UDP Flooding",
+    "precision": 0.8059249284632217,
+    "recall": 0.7967716437159379,
+    "f1": 0.801322148072216,
+    "support": 24037,
+    "tp": 19152,
+    "fp": 4612,
+    "fn": 4885
+   }
+  ],
+  "n_features": 20,
+  "train_time_s": 796.7918704999902,
+  "inference_ms_per_sample": 0.0002921066255193088,
+  "model_size_kb": 1.80859375
+ },
+ "all_features|linear_svm": {
+  "accuracy": 0.6490491365722898,
+  "balanced_accuracy": 0.6585671931731222,
+  "weighted_f1": 0.5824823390442205,
+  "macro_f1": 0.5271290007716888,
+  "per_class": [
+   {
+    "class": "Brute-Force",
+    "precision": 0.43283582089552236,
+    "recall": 0.00231629392971246,
+    "f1": 0.004607928815444506,
+    "support": 12520,
+    "tp": 29,
+    "fp": 38,
+    "fn": 12491
+   },
+   {
+    "class": "DDoS",
+    "precision": 0.5512378787340603,
+    "recall": 0.9961486616599268,
+    "f1": 0.709732004024513,
+    "support": 15579,
+    "tp": 15519,
+    "fp": 12634,
+    "fn": 60
+   },
+   {
+    "class": "De-authentication",
+    "precision": 0.5829201101928375,
+    "recall": 0.7408963585434174,
+    "f1": 0.6524822695035462,
+    "support": 2856,
+    "tp": 2116,
+    "fp": 1514,
+    "fn": 740
+   },
+   {
+    "class": "DoS",
+    "precision": 0.1164021164021164,
+    "recall": 0.27543035993740217,
+    "f1": 0.16364481636448164,
+    "support": 639,
+    "tp": 176,
+    "fp": 1336,
+    "fn": 463
+   },
+   {
+    "class": "Fake Landing",
+    "precision": 0.27235772357723576,
+    "recall": 0.9370629370629371,
+    "f1": 0.4220472440944882,
+    "support": 1859,
+    "tp": 1742,
+    "fp": 4654,
+    "fn": 117
+   },
+   {
+    "class": "GPS Jamming",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 8320,
+    "tp": 8320,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "ICMP Flooding",
+    "precision": 0.6689270043877144,
+    "recall": 0.5609320994536737,
+    "f1": 0.6101879927228624,
+    "support": 8969,
+    "tp": 5031,
+    "fp": 2490,
+    "fn": 3938
+   },
+   {
+    "class": "MITM",
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 5031,
+    "tp": 0,
+    "fp": 0,
+    "fn": 5031
+   },
+   {
+    "class": "Normal",
+    "precision": 0.7372262773722628,
+    "recall": 0.9543307086614173,
+    "f1": 0.8318462594371997,
+    "support": 1270,
+    "tp": 1212,
+    "fp": 432,
+    "fn": 58
+   },
+   {
+    "class": "Reconnaissance",
+    "precision": 0.2,
+    "recall": 1.0,
+    "f1": 0.3333333333333333,
+    "support": 1,
+    "tp": 1,
+    "fp": 4,
+    "fn": 0
+   },
+   {
+    "class": "Replay",
+    "precision": 0.39373337274608333,
+    "recall": 0.259396299902629,
+    "f1": 0.3127494717069735,
+    "support": 5135,
+    "tp": 1332,
+    "fp": 2051,
+    "fn": 3803
+   },
+   {
+    "class": "Scanning",
+    "precision": 1.0,
+    "recall": 0.9929078014184397,
+    "f1": 0.99644128113879,
+    "support": 705,
+    "tp": 700,
+    "fp": 0,
+    "fn": 5
+   },
+   {
+    "class": "UDP Flooding",
+    "precision": 0.7908558030480657,
+    "recall": 0.8419519906810334,
+    "f1": 0.8156044088903218,
+    "support": 24037,
+    "tp": 20238,
+    "fp": 5352,
+    "fn": 3799
+   }
+  ],
+  "n_features": 20,
+  "train_time_s": 202.74432979999983,
+  "inference_ms_per_sample": 0.00037993350289868737,
+  "model_size_kb": 2.771484375
+ },
+ "all_features|random_forest": {
+  "accuracy": 0.8344013529526811,
+  "balanced_accuracy": 0.8165866841608984,
+  "weighted_f1": 0.8356588869444885,
+  "macro_f1": 0.7501031116582498,
+  "per_class": [
+   {
+    "class": "Brute-Force",
+    "precision": 0.9735537190082645,
+    "recall": 0.9879392971246006,
+    "f1": 0.9806937561942517,
+    "support": 12520,
+    "tp": 12369,
+    "fp": 336,
+    "fn": 151
+   },
+   {
+    "class": "DDoS",
+    "precision": 0.9976479811838495,
+    "recall": 0.9801656075486231,
+    "f1": 0.9888295288975231,
+    "support": 15579,
+    "tp": 15270,
+    "fp": 36,
+    "fn": 309
+   },
+   {
+    "class": "De-authentication",
+    "precision": 0.5742401594419532,
+    "recall": 0.8070728291316527,
+    "f1": 0.6710334788937409,
+    "support": 2856,
+    "tp": 2305,
+    "fp": 1709,
+    "fn": 551
+   },
+   {
+    "class": "DoS",
+    "precision": 0.1683206106870229,
+    "recall": 0.6901408450704225,
+    "f1": 0.27063516416078554,
+    "support": 639,
+    "tp": 441,
+    "fp": 2179,
+    "fn": 198
+   },
+   {
+    "class": "Fake Landing",
+    "precision": 0.2862477674947232,
+    "recall": 0.9483593329747176,
+    "f1": 0.43976053878772764,
+    "support": 1859,
+    "tp": 1763,
+    "fp": 4396,
+    "fn": 96
+   },
+   {
+    "class": "GPS Jamming",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 8320,
+    "tp": 8320,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "ICMP Flooding",
+    "precision": 0.846403953700091,
+    "recall": 0.7256104359460364,
+    "f1": 0.7813663104814503,
+    "support": 8969,
+    "tp": 6508,
+    "fp": 1181,
+    "fn": 2461
+   },
+   {
+    "class": "MITM",
+    "precision": 0.81875,
+    "recall": 0.13019280461140925,
+    "f1": 0.22466129308866403,
+    "support": 5031,
+    "tp": 655,
+    "fp": 145,
+    "fn": 4376
+   },
+   {
+    "class": "Normal",
+    "precision": 0.9806051202482544,
+    "recall": 0.9952755905511811,
+    "f1": 0.9878858929269245,
+    "support": 1270,
+    "tp": 1264,
+    "fp": 25,
+    "fn": 6
+   },
+   {
+    "class": "Reconnaissance",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 1,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "Replay",
+    "precision": 0.5769915442812639,
+    "recall": 0.5049659201557936,
+    "f1": 0.538581368781805,
+    "support": 5135,
+    "tp": 2593,
+    "fp": 1901,
+    "fn": 2542
+   },
+   {
+    "class": "Scanning",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 705,
+    "tp": 705,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "UDP Flooding",
+    "precision": 0.8910556991980367,
+    "recall": 0.8459042309772434,
+    "f1": 0.8678931193443743,
+    "support": 24037,
+    "tp": 20333,
+    "fp": 2486,
+    "fn": 3704
+   }
+  ],
+  "n_features": 20,
+  "train_time_s": 68.43627820000984,
+  "inference_ms_per_sample": 0.0065062343968603446,
+  "model_size_kb": 142743.7197265625
+ },
+ "wcss_kneedle|cart": {
+  "accuracy": 0.8240701326491872,
+  "balanced_accuracy": 0.801453518845208,
+  "weighted_f1": 0.824737434726299,
+  "macro_f1": 0.7390915895099237,
+  "per_class": [
+   {
+    "class": "Brute-Force",
+    "precision": 0.9735849056603774,
+    "recall": 0.9891373801916933,
+    "f1": 0.9812995245641838,
+    "support": 12520,
+    "tp": 12384,
+    "fp": 336,
+    "fn": 136
+   },
+   {
+    "class": "DDoS",
+    "precision": 0.9975179621162639,
+    "recall": 0.9802939854932923,
+    "f1": 0.9888309754281459,
+    "support": 15579,
+    "tp": 15272,
+    "fp": 38,
+    "fn": 307
+   },
+   {
+    "class": "De-authentication",
+    "precision": 0.5334452169743467,
+    "recall": 0.77906162464986,
+    "f1": 0.6332716664294863,
+    "support": 2856,
+    "tp": 2225,
+    "fp": 1946,
+    "fn": 631
+   },
+   {
+    "class": "DoS",
+    "precision": 0.16696508504923904,
+    "recall": 0.5837245696400626,
+    "f1": 0.259658893143056,
+    "support": 639,
+    "tp": 373,
+    "fp": 1861,
+    "fn": 266
+   },
+   {
+    "class": "Fake Landing",
+    "precision": 0.28453973883604705,
+    "recall": 0.949435180204411,
+    "f1": 0.43785661126271397,
+    "support": 1859,
+    "tp": 1765,
+    "fp": 4438,
+    "fn": 94
+   },
+   {
+    "class": "GPS Jamming",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 8320,
+    "tp": 8320,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "ICMP Flooding",
+    "precision": 0.8106845162919929,
+    "recall": 0.7156873675995095,
+    "f1": 0.7602297625392314,
+    "support": 8969,
+    "tp": 6419,
+    "fp": 1499,
+    "fn": 2550
+   },
+   {
+    "class": "MITM",
+    "precision": 0.8236877523553163,
+    "recall": 0.12164579606440072,
+    "f1": 0.2119847592656737,
+    "support": 5031,
+    "tp": 612,
+    "fp": 131,
+    "fn": 4419
+   },
+   {
+    "class": "Normal",
+    "precision": 0.9844115354637568,
+    "recall": 0.9944881889763779,
+    "f1": 0.9894242068155111,
+    "support": 1270,
+    "tp": 1263,
+    "fp": 20,
+    "fn": 7
+   },
+   {
+    "class": "Reconnaissance",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 1,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "Replay",
+    "precision": 0.5042892156862745,
+    "recall": 0.4808179162609542,
+    "f1": 0.4922739507526667,
+    "support": 5135,
+    "tp": 2469,
+    "fp": 2427,
+    "fn": 2666
+   },
+   {
+    "class": "Scanning",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 705,
+    "tp": 705,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "UDP Flooding",
+    "precision": 0.8841950305571664,
+    "recall": 0.8246037359071432,
+    "f1": 0.8533603134283377,
+    "support": 24037,
+    "tp": 19821,
+    "fp": 2596,
+    "fn": 4216
+   }
+  ],
+  "n_features": 10,
+  "train_time_s": 6.017439099989133,
+  "inference_ms_per_sample": 0.00020524959450812015,
+  "model_size_kb": 3324.267578125,
+  "tree_depth": 43,
+  "tree_leaves": 10128,
+  "tree_nodes": 20255,
+  "c_array_kb": 237.36328125
+ },
+ "wcss_kneedle|logistic_regression": {
+  "accuracy": 0.583506862553353,
+  "balanced_accuracy": 0.5669237874792201,
+  "weighted_f1": 0.5283100942945593,
+  "macro_f1": 0.4521590185001582,
+  "per_class": [
+   {
+    "class": "Brute-Force",
+    "precision": 1.0,
+    "recall": 0.00039936102236421724,
+    "f1": 0.0007984031936127744,
+    "support": 12520,
+    "tp": 5,
+    "fp": 0,
+    "fn": 12515
+   },
+   {
+    "class": "DDoS",
+    "precision": 0.45134743552593454,
+    "recall": 0.9998074330829964,
+    "f1": 0.6219329593323883,
+    "support": 15579,
+    "tp": 15576,
+    "fp": 18934,
+    "fn": 3
+   },
+   {
+    "class": "De-authentication",
+    "precision": 0.5400544959128065,
+    "recall": 0.6939775910364145,
+    "f1": 0.6074164878945756,
+    "support": 2856,
+    "tp": 1982,
+    "fp": 1688,
+    "fn": 874
+   },
+   {
+    "class": "DoS",
+    "precision": 0.04085090361445783,
+    "recall": 0.3395931142410016,
+    "f1": 0.07292891950932616,
+    "support": 639,
+    "tp": 217,
+    "fp": 5095,
+    "fn": 422
+   },
+   {
+    "class": "Fake Landing",
+    "precision": 0.25,
+    "recall": 0.004841312533620226,
+    "f1": 0.00949868073878628,
+    "support": 1859,
+    "tp": 9,
+    "fp": 27,
+    "fn": 1850
+   },
+   {
+    "class": "GPS Jamming",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 8320,
+    "tp": 8320,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "ICMP Flooding",
+    "precision": 0.6170319558306843,
+    "recall": 0.41119411305608206,
+    "f1": 0.4935099692225345,
+    "support": 8969,
+    "tp": 3688,
+    "fp": 2289,
+    "fn": 5281
+   },
+   {
+    "class": "MITM",
+    "precision": 0.37012987012987014,
+    "recall": 0.011329755515802028,
+    "f1": 0.021986499517839923,
+    "support": 5031,
+    "tp": 57,
+    "fp": 97,
+    "fn": 4974
+   },
+   {
+    "class": "Normal",
+    "precision": 0.7561132561132561,
+    "recall": 0.9251968503937008,
+    "f1": 0.8321529745042493,
+    "support": 1270,
+    "tp": 1175,
+    "fp": 379,
+    "fn": 95
+   },
+   {
+    "class": "Reconnaissance",
+    "precision": 0.1,
+    "recall": 1.0,
+    "f1": 0.18181818181818182,
+    "support": 1,
+    "tp": 1,
+    "fp": 9,
+    "fn": 0
+   },
+   {
+    "class": "Replay",
+    "precision": 0.29494197503831837,
+    "recall": 0.26231742940603703,
+    "f1": 0.27767470624613483,
+    "support": 5135,
+    "tp": 1347,
+    "fp": 3220,
+    "fn": 3788
+   },
+   {
+    "class": "Scanning",
+    "precision": 1.0,
+    "recall": 0.9872340425531915,
+    "f1": 0.9935760171306209,
+    "support": 705,
+    "tp": 696,
+    "fp": 0,
+    "fn": 9
+   },
+   {
+    "class": "UDP Flooding",
+    "precision": 0.7981004070556309,
+    "recall": 0.7341182343886509,
+    "f1": 0.7647734413938068,
+    "support": 24037,
+    "tp": 17646,
+    "fp": 4464,
+    "fn": 6391
+   }
+  ],
+  "n_features": 10,
+  "train_time_s": 477.64371360000223,
+  "inference_ms_per_sample": 0.00014753281718603615,
+  "model_size_kb": 1.30078125
+ },
+ "wcss_kneedle|linear_svm": {
+  "accuracy": 0.6197121524142613,
+  "balanced_accuracy": 0.6398693431573292,
+  "weighted_f1": 0.5609263706297296,
+  "macro_f1": 0.49484131878628923,
+  "per_class": [
+   {
+    "class": "Brute-Force",
+    "precision": 0.32,
+    "recall": 0.0025559105431309905,
+    "f1": 0.005071315372424723,
+    "support": 12520,
+    "tp": 32,
+    "fp": 68,
+    "fn": 12488
+   },
+   {
+    "class": "DDoS",
+    "precision": 0.5518847795163585,
+    "recall": 0.9961486616599268,
+    "f1": 0.7102679695187533,
+    "support": 15579,
+    "tp": 15519,
+    "fp": 12601,
+    "fn": 60
+   },
+   {
+    "class": "De-authentication",
+    "precision": 0.598851269649335,
+    "recall": 0.6936274509803921,
+    "f1": 0.6427644386761843,
+    "support": 2856,
+    "tp": 1981,
+    "fp": 1327,
+    "fn": 875
+   },
+   {
+    "class": "DoS",
+    "precision": 0.04851537645811241,
+    "recall": 0.2863849765258216,
+    "f1": 0.08297438222625254,
+    "support": 639,
+    "tp": 183,
+    "fp": 3589,
+    "fn": 456
+   },
+   {
+    "class": "Fake Landing",
+    "precision": 0.27235772357723576,
+    "recall": 0.9370629370629371,
+    "f1": 0.4220472440944882,
+    "support": 1859,
+    "tp": 1742,
+    "fp": 4654,
+    "fn": 117
+   },
+   {
+    "class": "GPS Jamming",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 8320,
+    "tp": 8320,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "ICMP Flooding",
+    "precision": 0.5892504930966469,
+    "recall": 0.3997101126101015,
+    "f1": 0.4763170132199562,
+    "support": 8969,
+    "tp": 3585,
+    "fp": 2499,
+    "fn": 5384
+   },
+   {
+    "class": "MITM",
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 5031,
+    "tp": 0,
+    "fp": 0,
+    "fn": 5031
+   },
+   {
+    "class": "Normal",
+    "precision": 0.7372262773722628,
+    "recall": 0.9543307086614173,
+    "f1": 0.8318462594371997,
+    "support": 1270,
+    "tp": 1212,
+    "fp": 432,
+    "fn": 58
+   },
+   {
+    "class": "Reconnaissance",
+    "precision": 0.1,
+    "recall": 1.0,
+    "f1": 0.18181818181818182,
+    "support": 1,
+    "tp": 1,
+    "fp": 9,
+    "fn": 0
+   },
+   {
+    "class": "Replay",
+    "precision": 0.3305459911460895,
+    "recall": 0.2617332035053554,
+    "f1": 0.29214215846103686,
+    "support": 5135,
+    "tp": 1344,
+    "fp": 2722,
+    "fn": 3791
+   },
+   {
+    "class": "Scanning",
+    "precision": 1.0,
+    "recall": 0.9858156028368794,
+    "f1": 0.9928571428571429,
+    "support": 705,
+    "tp": 695,
+    "fp": 0,
+    "fn": 10
+   },
+   {
+    "class": "UDP Flooding",
+    "precision": 0.7888224207162173,
+    "recall": 0.8009318966593169,
+    "f1": 0.7948310385401399,
+    "support": 24037,
+    "tp": 19252,
+    "fp": 5154,
+    "fn": 4785
+   }
+  ],
+  "n_features": 10,
+  "train_time_s": 108.19617310000467,
+  "inference_ms_per_sample": 0.00018792236632069406,
+  "model_size_kb": 1.755859375
+ },
+ "wcss_kneedle|random_forest": {
+  "accuracy": 0.8230577190782434,
+  "balanced_accuracy": 0.8044172475654973,
+  "weighted_f1": 0.8261390686765931,
+  "macro_f1": 0.7382686651290549,
+  "per_class": [
+   {
+    "class": "Brute-Force",
+    "precision": 0.9737194114407113,
+    "recall": 0.9884185303514377,
+    "f1": 0.9810139125609417,
+    "support": 12520,
+    "tp": 12375,
+    "fp": 334,
+    "fn": 145
+   },
+   {
+    "class": "DDoS",
+    "precision": 0.9976479811838495,
+    "recall": 0.9801656075486231,
+    "f1": 0.9888295288975231,
+    "support": 15579,
+    "tp": 15270,
+    "fp": 36,
+    "fn": 309
+   },
+   {
+    "class": "De-authentication",
+    "precision": 0.5479589281242174,
+    "recall": 0.7661064425770309,
+    "f1": 0.6389253905679662,
+    "support": 2856,
+    "tp": 2188,
+    "fp": 1805,
+    "fn": 668
+   },
+   {
+    "class": "DoS",
+    "precision": 0.13490019317450097,
+    "recall": 0.6557120500782473,
+    "f1": 0.22376502002670226,
+    "support": 639,
+    "tp": 419,
+    "fp": 2687,
+    "fn": 220
+   },
+   {
+    "class": "Fake Landing",
+    "precision": 0.2863865000811293,
+    "recall": 0.949435180204411,
+    "f1": 0.4400398903016704,
+    "support": 1859,
+    "tp": 1765,
+    "fp": 4398,
+    "fn": 94
+   },
+   {
+    "class": "GPS Jamming",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 8320,
+    "tp": 8320,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "ICMP Flooding",
+    "precision": 0.8217731421121252,
+    "recall": 0.7027539302040361,
+    "f1": 0.7576176452911834,
+    "support": 8969,
+    "tp": 6303,
+    "fp": 1367,
+    "fn": 2666
+   },
+   {
+    "class": "MITM",
+    "precision": 0.8203517587939698,
+    "recall": 0.12979526933015306,
+    "f1": 0.22412905440192207,
+    "support": 5031,
+    "tp": 653,
+    "fp": 143,
+    "fn": 4378
+   },
+   {
+    "class": "Normal",
+    "precision": 0.9836575875486381,
+    "recall": 0.9952755905511811,
+    "f1": 0.9894324853228963,
+    "support": 1270,
+    "tp": 1264,
+    "fp": 21,
+    "fn": 6
+   },
+   {
+    "class": "Reconnaissance",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 1,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "Replay",
+    "precision": 0.5402325051287896,
+    "recall": 0.46153846153846156,
+    "f1": 0.49779458097038437,
+    "support": 5135,
+    "tp": 2370,
+    "fp": 2017,
+    "fn": 2765
+   },
+   {
+    "class": "Scanning",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 705,
+    "tp": 705,
+    "fp": 0,
+    "fn": 0
+   },
+   {
+    "class": "UDP Flooding",
+    "precision": 0.8855871886120996,
+    "recall": 0.8282231559678829,
+    "f1": 0.8559451383365221,
+    "support": 24037,
+    "tp": 19908,
+    "fp": 2572,
+    "fn": 4129
+   }
+  ],
+  "n_features": 10,
+  "train_time_s": 74.58496360000572,
+  "inference_ms_per_sample": 0.005988346889832811,
+  "model_size_kb": 125257.2822265625
+ },
+ "runtime_s": 4088.466684818268,
+ "config": {
+  "SEED": 42,
+  "STAGE2": "anova",
+  "IMPUTE": "median",
+  "FEATURE_SET": "clean"
+ }
+}

@@ -1,0 +1,142 @@
+{
+ "smote_and_class_weight": {
+  "weighted_f1": 0.8337823907320631,
+  "macro_f1": 0.7508746416850227,
+  "recall": {
+   "Brute-Force": 0.9891373801916933,
+   "DDoS": 0.9802939854932923,
+   "De-authentication": 0.8144257703081232,
+   "DoS": 0.6306729264475743,
+   "Fake Landing": 0.949435180204411,
+   "GPS Jamming": 1.0,
+   "ICMP Flooding": 0.7341955624930315,
+   "MITM": 0.12144702842377261,
+   "Normal": 0.9944881889763779,
+   "Reconnaissance": 1.0,
+   "Replay": 0.5166504381694255,
+   "Scanning": 1.0,
+   "UDP Flooding": 0.8426176311519741
+  },
+  "support": {
+   "Brute-Force": 12520,
+   "DDoS": 15579,
+   "De-authentication": 2856,
+   "DoS": 639,
+   "Fake Landing": 1859,
+   "GPS Jamming": 8320,
+   "ICMP Flooding": 8969,
+   "MITM": 5031,
+   "Normal": 1270,
+   "Reconnaissance": 1,
+   "Replay": 5135,
+   "Scanning": 705,
+   "UDP Flooding": 24037
+  },
+  "tree_leaves": 9982
+ },
+ "class_weight_only": {
+  "weighted_f1": 0.8344470138788791,
+  "macro_f1": 0.7251723239267355,
+  "recall": {
+   "Brute-Force": 0.989297124600639,
+   "DDoS": 0.9802297965209577,
+   "De-authentication": 0.8098739495798319,
+   "DoS": 0.647887323943662,
+   "Fake Landing": 0.9488972565895643,
+   "GPS Jamming": 1.0,
+   "ICMP Flooding": 0.7282863195450998,
+   "MITM": 0.12661498708010335,
+   "Normal": 0.9960629921259843,
+   "Reconnaissance": 1.0,
+   "Replay": 0.5215189873417722,
+   "Scanning": 0.9985815602836879,
+   "UDP Flooding": 0.8418687856221658
+  },
+  "support": {
+   "Brute-Force": 12520,
+   "DDoS": 15579,
+   "De-authentication": 2856,
+   "DoS": 639,
+   "Fake Landing": 1859,
+   "GPS Jamming": 8320,
+   "ICMP Flooding": 8969,
+   "MITM": 5031,
+   "Normal": 1270,
+   "Reconnaissance": 1,
+   "Replay": 5135,
+   "Scanning": 705,
+   "UDP Flooding": 24037
+  },
+  "tree_leaves": 4092
+ },
+ "smote_only": {
+  "weighted_f1": 0.8337823907320631,
+  "macro_f1": 0.7508746416850227,
+  "recall": {
+   "Brute-Force": 0.9891373801916933,
+   "DDoS": 0.9802939854932923,
+   "De-authentication": 0.8144257703081232,
+   "DoS": 0.6306729264475743,
+   "Fake Landing": 0.949435180204411,
+   "GPS Jamming": 1.0,
+   "ICMP Flooding": 0.7341955624930315,
+   "MITM": 0.12144702842377261,
+   "Normal": 0.9944881889763779,
+   "Reconnaissance": 1.0,
+   "Replay": 0.5166504381694255,
+   "Scanning": 1.0,
+   "UDP Flooding": 0.8426176311519741
+  },
+  "support": {
+   "Brute-Force": 12520,
+   "DDoS": 15579,
+   "De-authentication": 2856,
+   "DoS": 639,
+   "Fake Landing": 1859,
+   "GPS Jamming": 8320,
+   "ICMP Flooding": 8969,
+   "MITM": 5031,
+   "Normal": 1270,
+   "Reconnaissance": 1,
+   "Replay": 5135,
+   "Scanning": 705,
+   "UDP Flooding": 24037
+  },
+  "tree_leaves": 9982
+ },
+ "neither": {
+  "weighted_f1": 0.871824281200987,
+  "macro_f1": 0.7645603101506087,
+  "recall": {
+   "Brute-Force": 0.9898562300319489,
+   "DDoS": 0.9802297965209577,
+   "De-authentication": 0.7783613445378151,
+   "DoS": 0.4491392801251956,
+   "Fake Landing": 0.01828940290478752,
+   "GPS Jamming": 1.0,
+   "ICMP Flooding": 0.7353105139926414,
+   "MITM": 0.9819121447028424,
+   "Normal": 0.9913385826771653,
+   "Reconnaissance": 1.0,
+   "Replay": 0.4599805258033106,
+   "Scanning": 0.9985815602836879,
+   "UDP Flooding": 0.9299829429629322
+  },
+  "support": {
+   "Brute-Force": 12520,
+   "DDoS": 15579,
+   "De-authentication": 2856,
+   "DoS": 639,
+   "Fake Landing": 1859,
+   "GPS Jamming": 8320,
+   "ICMP Flooding": 8969,
+   "MITM": 5031,
+   "Normal": 1270,
+   "Reconnaissance": 1,
+   "Replay": 5135,
+   "Scanning": 705,
+   "UDP Flooding": 24037
+  },
+  "tree_leaves": 3798
+ }
+}

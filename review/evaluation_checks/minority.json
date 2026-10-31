@@ -1,0 +1,644 @@
+{
+ "S1_binary": {
+  "per_class": [
+   {
+    "class": "Normal",
+    "support": 1270,
+    "recall": 0.9992125984251968,
+    "recall_ci95": [
+     0.9955531921665169,
+     0.999860994338304
+    ],
+    "precision": 0.8381770145310435,
+    "precision_ci95": [
+     0.8187732447846496,
+     0.8558689576691505
+    ],
+    "estimable": true
+   },
+   {
+    "class": "Attack",
+    "support": 82956,
+    "recall": 0.9970466271276339,
+    "recall_ci95": [
+     0.9966536281745327,
+     0.9973935928606626
+    ],
+    "precision": 0.9999879098558855,
+    "precision_ci95": [
+     0.9999315116498377,
+     0.9999978658444002
+    ],
+    "estimable": true
+   }
+  ],
+  "macro_f1_all": 0.9550765167643138,
+  "macro_f1_estimable_only": 0.9550765167643138,
+  "n_not_estimable": 0
+ },
+ "S1_multiclass": {
+  "per_class": [
+   {
+    "class": "Brute-Force",
+    "support": 12520,
+    "recall": 0.9891373801916933,
+    "recall_ci95": [
+     0.9871657070965575,
+     0.9908089744101137
+    ],
+    "precision": 0.9734318503379972,
+    "precision_ci95": [
+     0.9704911532988887,
+     0.9760867138969438
+    ],
+    "estimable": true
+   },
+   {
+    "class": "DDoS",
+    "support": 15579,
+    "recall": 0.9802939854932923,
+    "recall_ci95": [
+     0.9779900907387187,
+     0.9823610688341284
+    ],
+    "precision": 0.9975179621162639,
+    "precision_ci95": [
+     0.996595239503312,
+     0.9981910719862885
+    ],
+    "estimable": true
+   },
+   {
+    "class": "De-authentication",
+    "support": 2856,
+    "recall": 0.8144257703081232,
+    "recall_ci95": [
+     0.7997486291581131,
+     0.8282581807295393
+    ],
+    "precision": 0.5629235237173281,
+    "precision_ci95": [
+     0.5477475487676061,
+     0.5779826049210651
+    ],
+    "estimable": true
+   },
+   {
+    "class": "DoS",
+    "support": 639,
+    "recall": 0.6306729264475743,
+    "recall_ci95": [
+     0.5925750175405144,
+     0.6672090412385068
+    ],
+    "precision": 0.20561224489795918,
+    "precision_ci95": [
+     0.18830394303380776,
+     0.22407228934664492
+    ],
+    "estimable": true
+   },
+   {
+    "class": "Fake Landing",
+    "support": 1859,
+    "recall": 0.949435180204411,
+    "recall_ci95": [
+     0.9385152256892054,
+     0.9585014610757886
+    ],
+    "precision": 0.28453973883604705,
+    "precision_ci95": [
+     0.2734473373699537,
+     0.295898849908291
+    ],
+    "estimable": true
+   },
+   {
+    "class": "GPS Jamming",
+    "support": 8320,
+    "recall": 1.0,
+    "recall_ci95": [
+     0.9995384823276793,
+     1.0
+    ],
+    "precision": 1.0,
+    "precision_ci95": [
+     0.9995384823276793,
+     1.0
+    ],
+    "estimable": true
+   },
+   {
+    "class": "ICMP Flooding",
+    "support": 8969,
+    "recall": 0.7341955624930315,
+    "recall_ci95": [
+     0.7249540742597628,
+     0.7432365154414974
+    ],
+    "precision": 0.8301815431164902,
+    "precision_ci95": [
+     0.8217590490947458,
+     0.8382843670944079
+    ],
+    "estimable": true
+   },
+   {
+    "class": "MITM",
+    "support": 5031,
+    "recall": 0.12144702842377261,
+    "recall_ci95": [
+     0.11270845903077373,
+     0.1307632720361977
+    ],
+    "precision": 0.8245614035087719,
+    "precision_ci95": [
+     0.7955213881525772,
+     0.8502534987495508
+    ],
+    "estimable": true
+   },
+   {
+    "class": "Normal",
+    "support": 1270,
+    "recall": 0.9944881889763779,
+    "recall_ci95": [
+     0.9886662817891543,
+     0.9973275811840756
+    ],
+    "precision": 0.9844115354637568,
+    "precision_ci95": [
+     0.9760443011587407,
+     0.9898865484501
+    ],
+    "estimable": true
+   },
+   {
+    "class": "Reconnaissance",
+    "support": 1,
+    "recall": 1.0,
+    "recall_ci95": [
+     0.20654329147389294,
+     1.0
+    ],
+    "precision": 1.0,
+    "precision_ci95": [
+     0.20654329147389294,
+     1.0
+    ],
+    "estimable": false
+   },
+   {
+    "class": "Replay",
+    "support": 5135,
+    "recall": 0.5166504381694255,
+    "recall_ci95": [
+     0.5029747822568942,
+     0.5303011996297629
+    ],
+    "precision": 0.5479140850888062,
+    "precision_ci95": [
+     0.5338628212334023,
+     0.5618893799941408
+    ],
+    "estimable": true
+   },
+   {
+    "class": "Scanning",
+    "support": 705,
+    "recall": 1.0,
+    "recall_ci95": [
+     0.9945804535174008,
+     1.0
+    ],
+    "precision": 1.0,
+    "precision_ci95": [
+     0.9945804535174008,
+     1.0
+    ],
+    "estimable": true
+   },
+   {
+    "class": "UDP Flooding",
+    "support": 24037,
+    "recall": 0.8426176311519741,
+    "recall_ci95": [
+     0.8379592012551345,
+     0.8471665640591715
+    ],
+    "precision": 0.8895037329819938,
+    "precision_ci95": [
+     0.8853657072957122,
+     0.8935103519809977
+    ],
+    "estimable": true
+   }
+  ],
+  "macro_f1_all": 0.7508746416850227,
+  "macro_f1_estimable_only": 0.7301141951587744,
+  "n_not_estimable": 1
+ },
+ "S2_binary": {
+  "per_class": [
+   {
+    "class": "Normal",
+    "support": 25590,
+    "recall": 1.0,
+    "recall_ci95": [
+     0.9998499013919034,
+     0.9999999999999999
+    ],
+    "precision": 1.0,
+    "precision_ci95": [
+     0.9998499013919034,
+     0.9999999999999999
+    ],
+    "estimable": true
+   },
+   {
+    "class": "Attack",
+    "support": 48540,
+    "recall": 1.0,
+    "recall_ci95": [
+     0.9999208632882487,
+     0.9999999999999999
+    ],
+    "precision": 1.0,
+    "precision_ci95": [
+     0.9999208632882487,
+     0.9999999999999999
+    ],
+    "estimable": true
+   }
+  ],
+  "macro_f1_all": 1.0,
+  "macro_f1_estimable_only": 1.0,
+  "n_not_estimable": 0
+ },
+ "S2_multiclass": {
+  "per_class": [
+   {
+    "class": "Brute-Force",
+    "support": 26246,
+    "recall": 0.9978282404937895,
+    "recall_ci95": [
+     0.9971875382536854,
+     0.9983232308474888
+    ],
+    "precision": 0.9994275683101816,
+    "precision_ci95": [
+     0.9990556648735442,
+     0.9996530574807605
+    ],
+    "estimable": true
+   },
+   {
+    "class": "DDoS",
+    "support": 2111,
+    "recall": 0.6428233064898152,
+    "recall_ci95": [
+     0.6221399273155109,
+     0.6629878099107663
+    ],
+    "precision": 0.4985304922850845,
+    "precision_ci95": [
+     0.4797621474186535,
+     0.5173029791829804
+    ],
+    "estimable": true
+   },
+   {
+    "class": "De-authentication",
+    "support": 3307,
+    "recall": 0.5476262473540974,
+    "recall_ci95": [
+     0.5306166807132644,
+     0.5645252916480832
+    ],
+    "precision": 0.907314629258517,
+    "precision_ci95": [
+     0.8937982163614154,
+     0.9192661783386448
+    ],
+    "estimable": true
+   },
+   {
+    "class": "DoS",
+    "support": 4723,
+    "recall": 0.9987296210035994,
+    "recall_ci95": [
+     0.9972309307772599,
+     0.9994176558815356
+    ],
+    "precision": 1.0,
+    "precision_ci95": [
+     0.99918624679125,
+     1.0
+    ],
+    "estimable": true
+   },
+   {
+    "class": "Evil Twin",
+    "support": 1934,
+    "recall": 0.6608066184074457,
+    "recall_ci95": [
+     0.6394060441835818,
+     0.6815696227646351
+    ],
+    "precision": 0.5806451612903226,
+    "precision_ci95": [
+     0.5599067129404056,
+     0.60110258586818
+    ],
+    "estimable": true
+   },
+   {
+    "class": "Fake Landing",
+    "support": 3292,
+    "recall": 0.994228432563791,
+    "recall_ci95": [
+     0.9910027784021904,
+     0.9963019512911298
+    ],
+    "precision": 0.9814092953523238,
+    "precision_ci95": [
+     0.9762402886448458,
+     0.9854705035053419
+    ],
+    "estimable": true
+   },
+   {
+    "class": "MITM",
+    "support": 925,
+    "recall": 0.7924324324324324,
+    "recall_ci95": [
+     0.7651126189370593,
+     0.817333300797802
+    ],
+    "precision": 0.4439733494851605,
+    "precision_ci95": [
+     0.42016416253184946,
+     0.46804266040516135
+    ],
+    "estimable": true
+   },
+   {
+    "class": "Normal",
+    "support": 25590,
+    "recall": 0.9999609222352481,
+    "recall_ci95": [
+     0.9997786556343328,
+     0.999993101959103
+    ],
+    "precision": 1.0,
+    "precision_ci95": [
+     0.9998498955270367,
+     1.0
+    ],
+    "estimable": true
+   },
+   {
+    "class": "Reconnaissance",
+    "support": 4,
+    "recall": 1.0,
+    "recall_ci95": [
+     0.5100999795960008,
+     1.0
+    ],
+    "precision": 1.0,
+    "precision_ci95": [
+     0.5100999795960008,
+     1.0
+    ],
+    "estimable": false
+   },
+   {
+    "class": "Replay",
+    "support": 1186,
+    "recall": 0.3684654300168634,
+    "recall_ci95": [
+     0.3414768592390145,
+     0.3963033629350967
+    ],
+    "precision": 0.4860956618464961,
+    "precision_ci95": [
+     0.4535521660572074,
+     0.5187574838304364
+    ],
+    "estimable": true
+   },
+   {
+    "class": "Scanning",
+    "support": 5193,
+    "recall": 1.0,
+    "recall_ci95": [
+     0.9992607817794563,
+     1.0
+    ],
+    "precision": 1.0,
+    "precision_ci95": [
+     0.9992607817794563,
+     1.0
+    ],
+    "estimable": true
+   }
+  ],
+  "macro_f1_all": 0.8033397156126134,
+  "macro_f1_estimable_only": 0.7836736871738746,
+  "n_not_estimable": 1
+ },
+ "S3_binary": {
+  "per_class": [
+   {
+    "class": "Normal",
+    "support": 18,
+    "recall": 0.8333333333333334,
+    "recall_ci95": [
+     0.6077750036164076,
+     0.9416352959953425
+    ],
+    "precision": 0.8333333333333334,
+    "precision_ci95": [
+     0.6077750036164076,
+     0.9416352959953425
+    ],
+    "estimable": false
+   },
+   {
+    "class": "Attack",
+    "support": 2519,
+    "recall": 0.9988090512107979,
+    "recall_ci95": [
+     0.9965041055635976,
+     0.9995948964506388
+    ],
+    "precision": 0.9988090512107979,
+    "precision_ci95": [
+     0.9965041055635976,
+     0.9995948964506388
+    ],
+    "estimable": true
+   }
+  ],
+  "macro_f1_all": 0.9160711922720657,
+  "macro_f1_estimable_only": 0.9988090512107979,
+  "n_not_estimable": 1
+ },
+ "S3_multiclass": {
+  "per_class": [
+   {
+    "class": "Brute-Force",
+    "support": 2032,
+    "recall": 0.9940944881889764,
+    "recall_ci95": [
+     0.9897056866288307,
+     0.9966185932169098
+    ],
+    "precision": 0.9965466206216083,
+    "precision_ci95": [
+     0.9928884771184696,
+     0.9983261995948691
+    ],
+    "estimable": true
+   },
+   {
+    "class": "DDoS",
+    "support": 89,
+    "recall": 0.16853932584269662,
+    "recall_ci95": [
+     0.1048816181698591,
+     0.25962739503111976
+    ],
+    "precision": 0.15306122448979592,
+    "precision_ci95": [
+     0.0950059903962593,
+     0.23729043856793613
+    ],
+    "estimable": true
+   },
+   {
+    "class": "De-authentication",
+    "support": 11,
+    "recall": 0.0,
+    "recall_ci95": [
+     2.7755575615628914e-17,
+     0.2588400172488141
+    ],
+    "precision": 0.0,
+    "precision_ci95": [
+     0.0,
+     0.19361341827271994
+    ],
+    "estimable": false
+   },
+   {
+    "class": "DoS",
+    "support": 108,
+    "recall": 0.24074074074074073,
+    "recall_ci95": [
+     0.169910773525579,
+     0.329381082098804
+    ],
+    "precision": 0.2736842105263158,
+    "precision_ci95": [
+     0.19414427878715157,
+     0.370816223673351
+    ],
+    "estimable": true
+   },
+   {
+    "class": "Evil Twin",
+    "support": 4,
+    "recall": 1.0,
+    "recall_ci95": [
+     0.5100999795960008,
+     1.0
+    ],
+    "precision": 0.5714285714285714,
+    "precision_ci95": [
+     0.2504542304090258,
+     0.8417830777373732
+    ],
+    "estimable": false
+   },
+   {
+    "class": "Fake Landing",
+    "support": 30,
+    "recall": 0.8666666666666667,
+    "recall_ci95": [
+     0.7031831605558306,
+     0.9469043057578189
+    ],
+    "precision": 0.7878787878787878,
+    "precision_ci95": [
+     0.6224802241287064,
+     0.8932411343356381
+    ],
+    "estimable": true
+   },
+   {
+    "class": "MITM",
+    "support": 49,
+    "recall": 0.7959183673469388,
+    "recall_ci95": [
+     0.6636272988905616,
+     0.885182729571862
+    ],
+    "precision": 0.75,
+    "precision_ci95": [
+     0.6179328224079477,
+     0.8476698823856113
+    ],
+    "estimable": true
+   },
+   {
+    "class": "Normal",
+    "support": 18,
+    "recall": 0.8333333333333334,
+    "recall_ci95": [
+     0.6077750036164076,
+     0.9416352959953425
+    ],
+    "precision": 0.8823529411764706,
+    "precision_ci95": [
+     0.6566315750229009,
+     0.967120919987079
+    ],
+    "estimable": false
+   },
+   {
+    "class": "Reconnaissance",
+    "support": 129,
+    "recall": 0.17054263565891473,
+    "recall_ci95": [
+     0.1154052491723278,
+     0.24473494787438044
+    ],
+    "precision": 0.15714285714285714,
+    "precision_ci95": [
+     0.10612334356349176,
+     0.22647584888153113
+    ],
+    "estimable": true
+   },
+   {
+    "class": "Scanning",
+    "support": 204,
+    "recall": 0.4019607843137255,
+    "recall_ci95": [
+     0.337091132631826,
+     0.47045461374426034
+    ],
+    "precision": 0.43386243386243384,
+    "precision_ci95": [
+     0.36521674903609797,
+     0.5051431733043099
+    ],
+    "estimable": true
+   }
+  ],
+  "macro_f1_all": 0.5174865696805714,
+  "macro_f1_estimable_only": 0.5129214446271614,
+  "n_not_estimable": 3
+ }
+}

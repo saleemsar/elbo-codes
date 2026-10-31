@@ -1,4 +1,4 @@
-"""Generate every results table, in-text number and data figure of the manuscript
+r"""Generate every results table, in-text number and data figure of the manuscript
 from results/*.json. Nothing in paper/generated/ is edited by hand.
 
 Outputs
@@ -23,7 +23,8 @@ TASKS = ["binary", "multiclass"]
 SCN_LABEL = {"S1": "S1 (UAV)", "S2": "S2 (AP)", "S3": "S3 (GCS)"}
 MACRO_SCN = {"S1": "SOne", "S2": "STwo", "S3": "SThree"}
 MACRO_TASK = {"binary": "Bin", "multiclass": "Multi"}
-CRIT = [("task_aware", "Task-aware"), ("wcss_kneedle", "WCSS kneedle"), ("all_features", "All features")]
+CRIT = [("task_aware", "Task-aware $K^{*}$"), ("k_hat", r"CV optimum $\hat{K}$"), ("wcss_kneedle", "WCSS kneedle"),
+        ("all_features", "All features")]
 
 
 def load(sub=""):
@@ -38,7 +39,8 @@ def load(sub=""):
 
 
 R = load()
-RD = load("with_duplicates")
+RD = load(os.path.join("sensitivity", "with_duplicates"))
+R1 = load("round1")                      # first-round results (published preprocessing, Pearson, mean)
 missing = [(s, t) for s in SCN for t in TASKS if (s, t) not in R]
 if missing:
     raise SystemExit(f"missing results: {missing}")
@@ -146,6 +148,31 @@ M["SOneReconTest"] = i(cls(R[("S1", "multiclass")], "task_aware", "Reconnaissanc
 M["SThreeOneNormPct"] = f"{100 / cls(R[('S3', 'binary')], 'task_aware', 'Normal')['support']:.1f}"
 M["AbCMaxDiff"] = f"{max(abs(R[k]['ablation_cv']['C_all_features']['mean'] - R[k]['ablation_cv']['A_full']['mean']) for k in R):.4f}"
 M["SweepMax"] = f"{max(R[k]['selection']['sweep_runtime_s'] for k in R):.0f}"
+
+# Sensitivity to SMOTE placement (review/smote_placement.py), if it has been run
+SP_DIR = os.path.join(HERE, "review", "smote_placement")
+SP = {}
+for s in SCN:
+    for t in TASKS:
+        p = os.path.join(SP_DIR, f"{s}_{t}.json")
+        if os.path.exists(p):
+            with open(p) as fh:
+                SP[(s, t)] = json.load(fh)
+if SP:
+    def _m(test, tag, k):
+        return test[tag][k] if k == "accuracy" else test[tag][k]["f1"]
+    M["SmoteNSame"] = str(sum(v["E2"]["same_subset_as_reported"] for v in SP.values()))
+    M["SmoteNRuns"] = str(len(SP))
+    M["SmoteMaxDrop"] = f"{max(0.0, max(_m(v['test'], 'reported_task_aware', k) - _m(v['test'], e, k) for v in SP.values() for e in ['E1_task_aware', 'E2_task_aware'] for k in ['accuracy', 'weighted', 'macro'])):.4f}"
+    if ("S3", "multiclass") in SP:
+        sp = SP[("S3", "multiclass")]
+        h = sp["test"]
+        M["SmoteSThreeMultiKstarETwo"] = str(sp["E2"]["K_star"])
+        M["SmoteSThreeMultiNAdded"] = str(len(set(sp["E2"]["features"]) - set(sp["reported"]["features"])))
+        M["SmoteSThreeMultiwFEOne"] = pct(h["E1_task_aware"]["weighted"]["f1"])
+        M["SmoteSThreeMultiwFETwo"] = pct(h["E2_task_aware"]["weighted"]["f1"])
+        M["SmoteSThreeMultimFEOne"] = pct(h["E1_task_aware"]["macro"]["f1"])
+        M["SmoteSThreeMultimFETwo"] = pct(h["E2_task_aware"]["macro"]["f1"])
 M["BinKstarMin"] = str(min(R[(s, "binary")]["selection"]["K_star"] for s in SCN))
 M["BinKstarMax"] = str(max(R[(s, "binary")]["selection"]["K_star"] for s in SCN))
 env = R[("S1", "multiclass")]["environment"]
@@ -239,8 +266,8 @@ for s in SCN:
     feats = R[(s, "multiclass")]["selection"]["selected_features"]
     for k, f in enumerate(feats[:10], 1):
         rows.append([SCN_LABEL[s] if k == 1 else "", k, r"\texttt{" + tex(f["feature"]) + "}",
-                     f4(f["abs_rho"]), f["cluster_size"]])
-write("tab_features.tex", tabular("|l|r|l|r|r|", ["Scenario", "Rk", "Feature", r"$|\rho|$", "Cluster size"], rows))
+                     f"{f.get('score', f.get('abs_rho')):.4g}", f["cluster_size"]])
+write("tab_features.tex", tabular("|l|r|l|r|r|", ["Scenario", "Rk", "Feature", r"$\Phi$", "Cluster size"], rows))
 
 # Binary detection
 rows = []
@@ -322,6 +349,30 @@ if RD:
     body = body.replace("\\hline\n", "\\hline\n" + group, 1)
     write("tab_duplicates.tex", body)
 
+# Sensitivity: SMOTE placement (reported vs consistent placements E1, E2)
+if SP:
+    rows = []
+    for s in SCN:
+        for t in TASKS:
+            if (s, t) not in SP:
+                continue
+            v = SP[(s, t)]
+            h = v["test"]
+            rows.append([SCN_LABEL[s], t.capitalize(), v["reported"]["K_star"], v["E2"]["K_star"]]
+                        + [f4(h[c]["weighted"]["f1"]) for c in ["reported_task_aware", "E1_task_aware", "E2_task_aware"]]
+                        + [f4(h[c]["macro"]["f1"]) for c in ["reported_task_aware", "E1_task_aware", "E2_task_aware"]])
+    body = tabular("|l|l|r|r|r|r|r|r|r|r|",
+                   ["Scenario", "Task", "$K^{*}$", "$K^{*}_{E2}$", "Reported", "E1", "E2", "Reported", "E1", "E2"], rows)
+    group = (r"\multicolumn{4}{|c|}{} & \multicolumn{3}{c|}{\textbf{Weighted F1}} & "
+             r"\multicolumn{3}{c|}{\textbf{Macro F1}}\\ \hline" + "\n")
+    body = body.replace("\\hline\n", "\\hline\n" + group, 1)
+    write("tab_smote.tex", body)
+
+# ------------------------------------------------------------------ revision-1 tables and numbers
+import make_tables_r1  # noqa: E402
+make_tables_r1.build(globals())
+write("macros.tex", "".join(rf"\newcommand{{\{k}}}{{{v}}}" + "\n" for k, v in sorted(M.items())))
+
 # ------------------------------------------------------------------ figures
 plt.rcParams.update({"font.size": 8, "axes.titlesize": 9, "font.family": "DejaVu Sans"})
 COL = {"S1": "#1f5a96", "S2": "#b8433a", "S3": "#3a8a4a"}
@@ -392,11 +443,12 @@ save(fig, "Fig5")
 fig, axes = plt.subplots(1, 3, figsize=(7.5, 3.2))
 for ax, s, lab in zip(axes, SCN, "ABC"):
     feats = R[(s, "multiclass")]["selection"]["selected_features"]
-    ax.barh(range(len(feats)), [f["abs_rho"] for f in feats], color=COL[s])
+    ax.barh(range(len(feats)), [f.get("score", f.get("abs_rho")) for f in feats], color=COL[s])
     ax.set_yticks(range(len(feats)))
     ax.set_yticklabels([f["feature"] for f in feats], fontsize=6)
     ax.invert_yaxis()
-    ax.set_xlabel(r"$|\rho|$ with label")
+    ax.set_xscale("log")
+    ax.set_xlabel(r"ANOVA F statistic $\Phi$ (log scale)")
     ax.set_title(f"{lab}: {SCN_LABEL[s]}, {len(feats)} features")
 fig.tight_layout()
 save(fig, "Fig6")
@@ -422,27 +474,36 @@ ax.grid(axis="y", alpha=0.3)
 fig.tight_layout()
 save(fig, "Fig7")
 
-# Response letter: {{Macro}} placeholders filled from the same macros
 import re  # noqa: E402
-tpl = os.path.join(HERE, "paper", "response_letter.template.md")
+
+# Revision-1 response letter: {{Macro}} from macros.tex, {{TabX}}/{{EqX}} from the
+# table and equation numbers of the last LaTeX run (paper/manuscript.aux).
+LABELS = {"TabAudit": "table:audit", "TabFeatures": "table:features", "TabElbowSE": "table:elbow",
+          "TabPerClassS1": "table:s1detail", "TabPerClassS2": "table:s2detail", "TabPerClassS3": "table:s3detail",
+          "TabRelated": "table:related", "TabBinary": "table:binary", "TabMulticlass": "table:multiclass", "TabPublished": "table:baselines", "TabSensitivity": "table:sensitivity",
+          "TabStability": "table:stability", "TabDetectors": "table:detectors", "TabSelectors": "table:selectors",
+          "TabPruning": "table:pruning", "TabCost": "table:cost", "TabIndependence": "table:independence",
+          "TabConfusion": "table:s3confusion", "EqAnova": "eq:anova", "EqElbow": "eq:elbow"}
+tpl = os.path.join(HERE, "paper", "response_r1.template.md")
+aux = os.path.join(HERE, "paper", "manuscript.aux")
 if os.path.exists(tpl):
-    with open(tpl) as fh:
+    num = {}
+    if os.path.exists(aux):
+        for ln in open(aux, encoding="utf-8", errors="replace"):
+            mo = re.match(r"\\newlabel\{([^}]+)\}\{\{([^}]*)\}", ln)
+            if mo:
+                num[mo.group(1)] = mo.group(2)
+    VAL = dict(M)
+    VAL["CodeDOI"] = "https://doi.org/10.5281/zenodo.22964985"
+    for k, lab in LABELS.items():
+        VAL[k] = num.get(lab, f"[{lab}]")
+    with open(tpl, encoding="utf-8") as fh:
         txt = fh.read()
-    txt = re.sub(r"\{\{(\w+)\}\}", lambda mo: M[mo.group(1)], txt)
-    with open(os.path.join(HERE, "paper", "response_letter.md"), "w") as fh:
+    missing = sorted(set(mo for mo in re.findall(r"\{\{(\w+)\}\}", txt) if mo not in VAL))
+    txt = re.sub(r"\{\{(\w+)\}\}", lambda mo: VAL.get(mo.group(1), "[??" + mo.group(1) + "]"), txt)
+    with open(os.path.join(HERE, "paper", "response_r1.md"), "w", encoding="utf-8") as fh:
         fh.write(txt)
-
-# Flat manuscript for journal upload: every \input{generated/...} inlined
-ms = os.path.join(HERE, "paper", "manuscript.tex")
-if os.path.exists(ms):
-    with open(ms) as fh:
-        src = fh.read()
-
-    def inline(mo):
-        with open(os.path.join(HERE, "paper", mo.group(1) + ".tex")) as g:
-            return "".join(ln for ln in g if not ln.startswith("% GENERATED")).rstrip("\n")
-    flat = re.sub(r"\\input\{(generated/[\w]+)\}", inline, src)
-    with open(os.path.join(HERE, "paper", "manuscript_flat.tex"), "w") as fh:
-        fh.write("% Flattened by make_tables.py from manuscript.tex -- edit manuscript.tex instead\n" + flat)
+    if missing:
+        print("response_r1: unresolved placeholders:", ", ".join(missing))
 
 print(f"wrote {len(M)} macros, tables and figures to {GEN} and {FIG}")
