@@ -1,7 +1,7 @@
 scenario,column,header_domain,frac_ip,frac_mac,frac_nonnumeric,frac_epoch_s,frac_clock_us,frac_zero,n_unique,min,max,rho_row_order,rho_within_capture,examples,in_domain_share,n_populated,status,reason,family_identity_share
-S3,id.orig_h,id,1.0,0.0,1.0,0.0,0.0,0.0,42,,,0.0,0.0,192.168.21.132 | 192.168.241.208 | 192.168.10.152 | 192.168.21.131,,823632,identifier,identifier by header; identifier/clock content,
+S3,id.orig_h,id,1.0,0.0,1.0,0.0,0.0,0.0,42,,,0.0,0.0,<IP> | <IP> | <IP> | <IP>,,823632,identifier,identifier by header; identifier/clock content,
 S3,id.orig_p,id,0.0,0.0,0.0,0.0,0.0,0.0,24898,3.0,65534.0,0.4567042801488287,0.14748638605577138,46765 | 55081 | 1811 | 1531,,823632,identifier,identifier by header,
-S3,id.resp_h,id,1.0,0.0,1.0,0.0,0.0,0.0,28,,,0.0,0.0,192.168.21.131 | 192.168.241.124 | 192.168.10.149 | 192.168.21.1,,823632,identifier,identifier by header; identifier/clock content,
+S3,id.resp_h,id,1.0,0.0,1.0,0.0,0.0,0.0,28,,,0.0,0.0,<IP> | <IP> | <IP> | <IP>,,823632,identifier,identifier by header; identifier/clock content,
 S3,id.resp_p,id,0.0,0.0,0.0,0.0,0.0,4.006643743807914e-05,3557,0.0,65389.0,-0.3028058195524964,0.23465288268681384,80 | 21 | 137 | 53,,823632,identifier,identifier by header,
 S3,unverified_bytes_col4,unverified,0.0,0.0,7.284806806923481e-05,0.0,0.0,0.9850940711385667,10185,0.0,71592.0,0.38689895703267807,0.006016298971502731,0 | 78 | - | 60,,823632,invalid,no header matches this column,
 S3,fwd_pkts_tot,"[0, inf] int",0.0,0.0,0.0,0.0,0.0,0.0026237445849602737,123,0.0,20986.0,-0.1812313845345172,0.007689868455633143,1.0 | 10.0 | 8.0 | 0.0,0.9998518755949259,823632,validated,,

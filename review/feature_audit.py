@@ -52,6 +52,23 @@ ORDER_RHO = 0.90        # |Spearman(value, row order)|, over the file or within 
                         # above which a column is treated as a clock or counter
 
 _MAC_RE = re.compile(r"^([0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}$")
+_IP4_ANY = re.compile(r"\b\d{1,3}(\.\d{1,3}){3}(:\d+)?\b")
+_MAC_ANY = re.compile(r"\b([0-9a-fA-F]{2}[:-]){5}[0-9a-fA-F]{2}\b")
+
+
+def redact_example(v):
+    """Mask addresses and absolute dates in an example value, so the published audit
+    tables carry no IP or MAC address and no capture date (PLOS data policy)."""
+    v = _IP4_ANY.sub("<IP>", _MAC_ANY.sub("<MAC>", v))
+    if U._IP_RE.match(v):
+        return "<IP>"
+    try:
+        if 1e9 <= float(v) <= 2e9:
+            return "<epoch time>"
+    except ValueError:
+        pass
+    return v
+
 
 INF = np.inf
 # (kind, lo, hi, integer, zero_is_absent)
@@ -190,7 +207,7 @@ def content_profile(raw, num, idx, runs):
     p["rho_row_order"] = float(spearmanr(idx[m.values], num[m].values).statistic) if m.sum() > 100 else 0.0
     p["rho_within_capture"] = within_run_rho(num, runs)
     top = s.value_counts().index[:4].tolist()
-    p["examples"] = " | ".join(top)
+    p["examples"] = " | ".join(redact_example(v) for v in top)
     return p
 
 

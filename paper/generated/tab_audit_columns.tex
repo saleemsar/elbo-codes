@@ -8,7 +8,7 @@ S1 & \texttt{frame.len} & invalid & 97.3 & only 97.3\% of populated values in he
 S1 & \texttt{frame.number} & identifier & --- & identifier by header; identifier/clock content; e.g. 1 / 2 / 3 / 4\\ \hline
 S1 & \texttt{frame.time\_delta\_displayed} & invalid & 97.6 & only 97.6\% of populated values in header domain; e.g. 0.000002 / 0.000001 / 0.000003 / 0\\ \hline
 S1 & \texttt{frame.time\_epoch} & identifier & --- & identifier by header; e.g. 0.000002 / 0.000001 / 0.000003 / 0\\ \hline
-S1 & \texttt{frame.time\_relative} & identifier & --- & identifier by header; identifier/clock content; e.g. 1709374651 / 1709374655 / 1709374657 / 1709374650\\ \hline
+S1 & \texttt{frame.time\_relative} & identifier & --- & identifier by header; identifier/clock content; e.g. $<$epoch time$>$ / $<$epoch time$>$ / $<$epoch time$>$ / $<$epoch time$>$\\ \hline
 S1 & \texttt{radiotap.channel.flags.cck} & identifier & 0.0 & identifier/clock content; e.g. 0 / 1598.842405 / 1725.360851 / 2204.815376\\ \hline
 S1 & \texttt{radiotap.channel.flags.ofdm} & validated & 100.0 & values match header domain\\ \hline
 S1 & \texttt{radiotap.channel.freq} & invalid & 0.0 & only 0.0\% of populated values in header domain; e.g. 0 / 1\\ \hline
@@ -27,8 +27,8 @@ S1 & \texttt{wlan.fc.subtype} & validated & 100.0 & values match header domain\\
 S1 & \texttt{wlan.fcs.bad\_checksum} & invalid & 91.2 & only 91.2\% of populated values in header domain; e.g. 0 / 1 / 2 / 12\\ \hline
 S1 & \texttt{wlan.fixed.beacon} & validated & 100.0 & values match header domain\\ \hline
 S1 & \texttt{wlan.fixed.capabilities.ess} & invalid & 75.3 & only 75.3\% of populated values in header domain; e.g. 0 / 11 / 12 / 8\\ \hline
-S1 & \texttt{wlan.seq} & identifier & --- & identifier by header; identifier/clock content; e.g. 0 / 28 / 32 / a8:9d:d2:e0:d2:e8\\ \hline
-S1 & \texttt{wlan.tag} & identifier & --- & identifier/clock content; e.g. 0 / a8:9d:d2:e0:d2:ea / 90:03:b7:38:f5:b8 / 44:80:eb:00:0b:4\\ \hline
+S1 & \texttt{wlan.seq} & identifier & --- & identifier by header; identifier/clock content; e.g. 0 / 28 / 32 / $<$MAC$>$\\ \hline
+S1 & \texttt{wlan.tag} & identifier & --- & identifier/clock content; e.g. 0 / $<$MAC$>$ / $<$MAC$>$ / $<$MAC$>$\\ \hline
 S1 & \texttt{wlan\_radio.frequency} & identifier & 0.0 & identifier/clock content; e.g. 0 / 2 / 1 / 6\\ \hline
 S1 & \texttt{wlan\_radio.signal\_dbm} & invalid & 0.0 & only 0.0\% of populated values in header domain; e.g. 0 / 24 / 2417 / 1\\ \hline
 S1 & \texttt{wlan\_radio.start\_tsf} & identifier & --- & identifier by header; identifier/clock content; e.g. 0 / 1 / 7.84739E+11 / 7.84294E+11\\ \hline
@@ -39,10 +39,10 @@ S1 & \texttt{wlan\_rsna\_eapol.keydes.msgnr} & invalid & 6.4 & only 6.4\% of pop
 S1 & \texttt{arp} & invalid & --- & protocol string, not a numeric field; e.g. 0 / 1 / 26 / -37\\ \hline
 S1 & \texttt{arp.hw.type} & invalid & 95.4 & only 95.4\% of populated values in header domain; e.g. 0 / Address Resolution Protocol (request) / 4 / Address Reso\\ \hline
 S1 & \texttt{arp.proto.type} & validated & 100.0 & values match header domain\\ \hline
-S1 & \texttt{ip.dst} & identifier & --- & identifier by header; identifier/clock content; e.g. 0 / 14 / 192.168.21.132 / 192.168.21.131\\ \hline
-S1 & \texttt{ip.proto} & identifier & 91.7 & identifier/clock content; e.g. 0 / 192.168.241.124 / 192.168.241.208 / 192.168.10.149\\ \hline
+S1 & \texttt{ip.dst} & identifier & --- & identifier by header; identifier/clock content; e.g. 0 / 14 / $<$IP$>$ / $<$IP$>$\\ \hline
+S1 & \texttt{ip.proto} & identifier & 91.7 & identifier/clock content; e.g. 0 / $<$IP$>$ / $<$IP$>$ / $<$IP$>$\\ \hline
 S1 & \texttt{ip.src} & identifier & --- & identifier by header; e.g. 0 / 6 / 17 / 24\\ \hline
-S1 & \texttt{ip.ttl} & identifier & 92.4 & identifier/clock content; e.g. 0 / 192.168.241.208 / 192.168.241.124 / 192.168.10.152\\ \hline
+S1 & \texttt{ip.ttl} & identifier & 92.4 & identifier/clock content; e.g. 0 / $<$IP$>$ / $<$IP$>$ / $<$IP$>$\\ \hline
 S1 & \texttt{tcp.ack} & invalid & 92.3 & only 92.3\% of populated values in header domain; e.g. 0 / 76 / 56 / 1504\\ \hline
 S1 & \texttt{udp.dstport} & identifier & --- & identifier by header; e.g. 0 / 0.000002 / 0.000003 / 0.00001\\ \hline
 S1 & \texttt{udp.srcport} & identifier & --- & identifier by header; e.g. 0 / 5556 / 43282 / 21\\ \hline
@@ -52,7 +52,7 @@ S2 & \texttt{frame.len} & invalid & 74.5 & only 74.5\% of populated values in he
 S2 & \texttt{frame.number} & identifier & --- & identifier by header; e.g. 0.0 / 6e-06 / 7e-06 / 1.4e-05\\ \hline
 S2 & \texttt{frame.time\_delta\_displayed} & validated & 100.0 & values match header domain\\ \hline
 S2 & \texttt{frame.time\_epoch} & identifier & --- & identifier by header; identifier/clock content; e.g. 0.0 / 1e-06 / 1.1e-05 / 1.2e-05\\ \hline
-S2 & \texttt{frame.time\_relative} & identifier & --- & identifier by header; identifier/clock content; e.g. 0.0 / 1709390512.0 / 1709390509.0 / 1709390518.0\\ \hline
+S2 & \texttt{frame.time\_relative} & identifier & --- & identifier by header; identifier/clock content; e.g. 0.0 / $<$epoch time$>$ / $<$epoch time$>$ / $<$epoch time$>$\\ \hline
 S2 & \texttt{radiotap.channel.flags.cck} & identifier & 29.3 & identifier/clock content; e.g. 0.0 / 1.0 / 4.821813 / 4.950166\\ \hline
 S2 & \texttt{radiotap.channel.flags.ofdm} & validated & 100.0 & values match header domain\\ \hline
 S2 & \texttt{radiotap.channel.freq} & invalid & 0.0 & only 0.0\% of populated values in header domain; e.g. 1 / 0\\ \hline
@@ -72,16 +72,16 @@ S2 & \texttt{wlan.fc.type} & validated & 100.0 & values match header domain\\ \h
 S2 & \texttt{wlan.fc.retry} & invalid & 97.5 & only 97.5\% of populated values in header domain; e.g. 0 / 2 / 1\\ \hline
 S2 & \texttt{wlan.fc.subtype} & validated & 100.0 & values match header domain\\ \hline
 S2 & \texttt{wlan.fcs.bad\_checksum} & invalid & 81.2 & only 81.2\% of populated values in header domain; e.g. 0 / 1 / 2 / 12\\ \hline
-S2 & \texttt{wlan.seq} & identifier & --- & identifier by header; identifier/clock content; e.g. 28 / 0 / 42:f5:20:10:59:67 / 56\\ \hline
+S2 & \texttt{wlan.seq} & identifier & --- & identifier by header; identifier/clock content; e.g. 28 / 0 / $<$MAC$>$ / 56\\ \hline
 S2 & \texttt{wlan\_radio.data\_rate} & invalid & 97.9 & only 97.9\% of populated values in header domain; e.g. 0 / 1 / 28 / 56\\ \hline
 S2 & \texttt{wlan\_radio.end\_tsf} & identifier & --- & identifier by header; e.g. 0 / 1 / 28 / 56\\ \hline
 S2 & \texttt{eapol.keydes.replay\_counter} & validated & 100.0 & values match header domain\\ \hline
 S2 & \texttt{arp} & invalid & --- & protocol string, not a numeric field; e.g. 0 / 1 / 22 / 6\\ \hline
-S2 & \texttt{ip.dst} & identifier & --- & identifier by header; identifier/clock content; e.g. 0 / 22 / 192.168.10.2 / 192.168.21.195\\ \hline
-S2 & \texttt{ip.proto} & identifier & 100.0 & identifier/clock content; e.g. 0 / 192.168.21.131 / 192.168.10.149 / 192.168.10.152\\ \hline
-S2 & \texttt{ip.src} & identifier & --- & identifier by header; identifier/clock content; e.g. 6 / 0 / 192.168.21.131 / 192.168.21.132\\ \hline
-S2 & \texttt{ip.ttl} & identifier & 100.0 & identifier/clock content; e.g. 0 / 192.168.21.132 / 192.168.10.152 / 192.168.10.149\\ \hline
-S2 & \texttt{data.len} & identifier & 0.0 & identifier/clock content; e.g. 0 / 192.168.21.132 / 192.168.21.131 / 60020400\\ \hline
+S2 & \texttt{ip.dst} & identifier & --- & identifier by header; identifier/clock content; e.g. 0 / 22 / $<$IP$>$ / $<$IP$>$\\ \hline
+S2 & \texttt{ip.proto} & identifier & 100.0 & identifier/clock content; e.g. 0 / $<$IP$>$ / $<$IP$>$ / $<$IP$>$\\ \hline
+S2 & \texttt{ip.src} & identifier & --- & identifier by header; identifier/clock content; e.g. 6 / 0 / $<$IP$>$ / $<$IP$>$\\ \hline
+S2 & \texttt{ip.ttl} & identifier & 100.0 & identifier/clock content; e.g. 0 / $<$IP$>$ / $<$IP$>$ / $<$IP$>$\\ \hline
+S2 & \texttt{data.len} & identifier & 0.0 & identifier/clock content; e.g. 0 / $<$IP$>$ / $<$IP$>$ / 60020400\\ \hline
 S2 & \texttt{icmpv6.mldr.nb\_mcast\_records} & validated & 100.0 & values match header domain\\ \hline
 S2 & \texttt{udp.dstport} & identifier & --- & identifier by header; e.g. 0.0 / 1.2e-05 / 1.1e-05 / 1.3e-05\\ \hline
 S2 & \texttt{udp.srcport} & identifier & --- & identifier by header; e.g. 0.0 / 21.0 / 1.2e-05 / 1.1e-05\\ \hline
@@ -95,11 +95,11 @@ S2 & \texttt{http.content\_type} & invalid & --- & protocol string, not a numeri
 S2 & \texttt{http.date} & invalid & --- & protocol string, not a numeric field; e.g. 0 / connectivity-check.ubuntu.com / 4 / 1\\ \hline
 S2 & \texttt{http.file\_data} & invalid & --- & protocol string, not a numeric field; e.g. 0 / connectivity-check.ubuntu.com / 4 / Sat\\ \hline
 S2 & \texttt{http.host} & invalid & --- & protocol string, not a numeric field; e.g. 0 / connectivity-check.ubuntu.com / 4 / 02 Mar 2024 08:53:46\\ \hline
-S2 & \texttt{http.last\_modified} & invalid & --- & protocol string, not a numeric field; e.g. 0 / 239.255.255.250:1900 / connectivity-check.ubuntu.com / 4\\ \hline
+S2 & \texttt{http.last\_modified} & invalid & --- & protocol string, not a numeric field; e.g. 0 / $<$IP$>$ / connectivity-check.ubuntu.com / 4\\ \hline
 S2 & \texttt{http.location} & invalid & --- & protocol string, not a numeric field; e.g. 0 / connectivity-check.ubuntu.com / 4 / 5\\ \hline
-S3 & \texttt{id.orig\_h} & identifier & --- & identifier by header; identifier/clock content; e.g. 192.168.21.132 / 192.168.241.208 / 192.168.10.152 / 192.168.\\ \hline
+S3 & \texttt{id.orig\_h} & identifier & --- & identifier by header; identifier/clock content; e.g. $<$IP$>$ / $<$IP$>$ / $<$IP$>$ / $<$IP$>$\\ \hline
 S3 & \texttt{id.orig\_p} & identifier & --- & identifier by header; e.g. 46765 / 55081 / 1811 / 1531\\ \hline
-S3 & \texttt{id.resp\_h} & identifier & --- & identifier by header; identifier/clock content; e.g. 192.168.21.131 / 192.168.241.124 / 192.168.10.149 / 192.168.\\ \hline
+S3 & \texttt{id.resp\_h} & identifier & --- & identifier by header; identifier/clock content; e.g. $<$IP$>$ / $<$IP$>$ / $<$IP$>$ / $<$IP$>$\\ \hline
 S3 & \texttt{id.resp\_p} & identifier & --- & identifier by header; e.g. 80 / 21 / 137 / 53\\ \hline
 S3 & \texttt{unverified\_bytes\_col4} & invalid & --- & no header matches this column; e.g. 0 / 78 / - / 60\\ \hline
 S3 & \texttt{fwd\_pkts\_tot} & validated & 100.0 & values match header domain\\ \hline
